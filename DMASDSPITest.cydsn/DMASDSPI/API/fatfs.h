@@ -16,7 +16,9 @@
 / The copyright owner or contributors be NOT LIABLE for any damages caused
 / by use of this software.
 /----------------------------------------------------------------------------*/
-// 
+//
+// modified by k.kotajima.
+//
 #include <stdint.h>
 
 #ifndef _FATFS
@@ -26,6 +28,9 @@
 extern "C" {
 #endif
 
+// ------------------------------------------------------
+// typedefs (from integer.h)
+// 
 /* These types MUST be 16-bit or 32-bit */
 typedef int32_t		INT;
 typedef uint32_t	UINT;
@@ -83,7 +88,9 @@ typedef uint64_t	QWORD;
 #define _FS_TIMEOUT		1000
 #define	_SYNC_t			HANDLE
 /*--- End of configuration options ---*/
+
 // ------------------------------------------------------
+// fatfs main header (from ff.h)
 
 /* Definitions of volume management */
 
@@ -410,6 +417,8 @@ int ff_del_syncobj (_SYNC_t sobj);				/* Delete a sync object */
 #define AM_ARC	0x20	/* Archive */
 
 // --------------------------------------------------------------------------------------------------------------------
+// low level interface module header (from diskio.h)
+//
 /* Status of Disk Functions */
 typedef BYTE	DSTATUS;
 
