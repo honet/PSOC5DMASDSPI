@@ -7,8 +7,9 @@
 *.uvproj
 *_timing.html
 *.cydsn/codegentemp
-*.cydsn/CoretexM3
+*.cydsn/CortexM3
 *.cydsn/Generated_Source
+*.cylib/CortexM3
 
 *~
 *#*
