@@ -6,6 +6,7 @@ SPI mode SD-Card interface for PSoC5LP with DMA. (fatfs porting)
 Chan氏のfatfsライブラリをPSoC5LP向けに実装したComponentLibraryです。
 - SDカード のSPIモード用です
 - DMAを使用しているため、高速にアクセス可能です。
+- PSoC Creator 3.3 (CP3)で作成されています。
 
 
 ## fatfs
