@@ -1,1 +1,0 @@
-'D:\develop\projects\SoundChipLogger\firmware\libfatfs\libfatfs.cylib\ff.c' 'D:\develop\projects\SoundChipLogger\firmware\libfatfs\libfatfs.cylib\diskio.c' -o .o -T C_FILE -f 'D:\develop\projects\SoundChipLogger\firmware\libfatfs\libfatfs.cylib\CortexM3\ARM_GCC_493\Debug\.deps\C_FILE.d'

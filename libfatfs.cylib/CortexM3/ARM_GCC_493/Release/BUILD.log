@@ -1,5 +1,0 @@
---------------- Build Started: 10/06/2016 01:19:23 Project: libfatfs, Configuration: ARM GCC 4.9-2015-q1-update Release ---------------
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -Wa,-alh=.\CortexM3\ARM_GCC_493\Release/ff.lst -g -D NDEBUG -Wall -ffunction-sections -O3 -ffat-lto-objects -c .\ff.c -o .\CortexM3\ARM_GCC_493\Release\ff.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -Wa,-alh=.\CortexM3\ARM_GCC_493\Release/diskio.lst -g -D NDEBUG -Wall -ffunction-sections -O3 -ffat-lto-objects -c .\diskio.c -o .\CortexM3\ARM_GCC_493\Release\diskio.o
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Release\libfatfs.a D:\develop\projects\SoundChipLogger\firmware\libfatfs\libfatfs.cylib\CortexM3\ARM_GCC_493\Release\ff.o D:\develop\projects\SoundChipLogger\firmware\libfatfs\libfatfs.cylib\CortexM3\ARM_GCC_493\Release\diskio.o
---------------- Build Succeeded: 10/06/2016 01:19:30 ---------------

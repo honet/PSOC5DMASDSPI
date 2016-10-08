@@ -307,9 +307,7 @@ void sdbench()
 	FRESULT res;
 	UINT BytesWritten, BytesRead;
 	uint32_t size = 1;
-	uint32_t nrepeat = 0;
-	const uint32_t nrepeat1 = 10000;
-	const uint32_t nrepeat2 = 100;
+	uint32_t nrepeat = 1000;
 	
 	//generate dataset...
 	for(int i = 0; i < nvals; i++) {
@@ -346,50 +344,49 @@ void sdbench()
 	}
 	
 	//Now, enable DMA...
-	SDSPI_SetDMAMode(1);
-	dbgprint(">>>>> Start Benchmark.....\n");
-	dbgprint("size, write(ms), write(kbps), read(ms), read(kbps)\n");
-	
-	for(size=1; size<0x10000; size*=2){
-		dbgprint("%d, ",size);
+    for(int mode=0; mode<=1; mode++){
+    	SDSPI_SetDMAMode(mode);
+    	dbgprint(">>>>> Start Benchmark.....DMA=%d\n", mode);
+    	dbgprint("size, write(ms), write(KByte/s), read(ms), read(KByte/s)\n");
+    	
+    	for(size=1; size<0x10000; size*=2){
+    		dbgprint("%d, ",size);
+            
+    		uint32_t nCurrentMillis;
+    		FIL BinFile;
+    		res = f_open(&BinFile, "//TEST.bin", FA_CREATE_ALWAYS | FA_WRITE);
+    		if (res==FR_OK){
+    			nCurrentMillis = nmillis; //get current millisecond count
+    			for(uint32_t k=0; k<nrepeat; k++){
+    				//res = f_lseek(&BinFile, 0);
+    				f_write(&BinFile, vals, size, &BytesWritten);
+    			}
+    			uint32_t nTime = nmillis-nCurrentMillis;
+    			res = f_close(&BinFile);
 
-		if(size<0x20) nrepeat = nrepeat1;
-		else nrepeat = nrepeat2;
-		
-		uint32_t nCurrentMillis;
-		FIL BinFile;
-		res = f_open(&BinFile, "//TESTDMA.bin", FA_CREATE_ALWAYS | FA_WRITE);
-		if (res==FR_OK){
-			nCurrentMillis = nmillis; //get current millisecond count
-			for(uint32_t k=0; k<nrepeat; k++){
-				//res = f_lseek(&BinFile, 0);
-				res = f_write(&BinFile, vals, size, &BytesWritten);
-			}
-			uint32_t nTime = nmillis-nCurrentMillis;
-			res = f_close(&BinFile);
+    			dbgprint("%u, ", nTime);
+    			uint32_t kbps = nrepeat*size / nTime;
+    			dbgprint("%u, ", kbps);
+    		}
 
-			dbgprint("%u, ", nTime);
-			uint32_t kbps = nrepeat*size*8 / nTime;
-			dbgprint("%u, ", kbps);
-		}
+    		res = f_open(&BinFile, "//TEST.bin", FA_OPEN_EXISTING | FA_READ);
+    		if(res==FR_OK){
+    			nCurrentMillis = nmillis; //get current millisecond count
+    			for(uint32_t k=0; k<nrepeat; k++){
+    				//res = f_lseek(&BinFile, 0);
+    			    f_read(&BinFile, vals, size, &BytesRead);
+    			}
+    			uint32_t nTime = nmillis-nCurrentMillis;
+    			res = f_close(&BinFile);
 
-		res = f_open(&BinFile, "//TESTDMA.bin", FA_OPEN_EXISTING | FA_READ);
-		if(res==FR_OK){
-			nCurrentMillis = nmillis; //get current millisecond count
-			for(uint32_t k=0; k<nrepeat; k++){
-				//res = f_lseek(&BinFile, 0);
-				res = f_read(&BinFile, vals, size, &BytesRead);
-			}
-			uint32_t nTime = nmillis-nCurrentMillis;
-			res = f_close(&BinFile);
-
-			dbgprint("%u, ", nTime);
-			uint32_t kbps = nrepeat*size*8 / nTime;
-			dbgprint("%u, ", kbps);
-		}
-		//CyDelay(1000);
-		dbgprint("\n");
-	}
+    			dbgprint("%u, ", nTime);
+    			uint32_t kbps = nrepeat*size / nTime;
+    			dbgprint("%u, ", kbps);
+    		}
+    		//CyDelay(1000);
+    		dbgprint("\n");
+    	}
+    }
 
 err_exit:
 	LEDControl_Write(0);
