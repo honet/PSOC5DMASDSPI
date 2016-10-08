@@ -1,0 +1,16 @@
+*.cywrk.*
+*.cyprj.*
+*.cycdx
+*.cyfit
+*.rpt
+*.uvopt
+*.uvproj
+*_timing.html
+*.cydsn/codegentemp
+*.cydsn/CoretexM3
+*.cydsn/Generated_Source
+
+*~
+*#*
+*.bak
+

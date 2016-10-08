@@ -1,0 +1,1042 @@
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SDSPI_TX_dma.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.SDSPI_TX_DmaInitialize,"ax",%progbits
+  19              		.align	2
+  20              		.global	SDSPI_TX_DmaInitialize
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	SDSPI_TX_DmaInitialize, %function
+  24              	SDSPI_TX_DmaInitialize:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\SDSPI_TX_dma.c"
+   1:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** /***************************************************************************
+   2:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * File Name: SDSPI_TX_dma.c  
+   3:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Version 1.70
+   4:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+   5:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *  Description:
+   6:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   Provides an API for the DMAC component. The API includes functions
+   7:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   for the DMA controller, DMA channels and Transfer Descriptors.
+   8:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+   9:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+  10:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   Note:
+  11:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *     This module requires the developer to finish or fill in the auto
+  12:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *     generated funcions and setup the dma channel and TD's.
+  13:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+  14:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** ********************************************************************************
+  15:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Copyright 2008-2010, Cypress Semiconductor Corporation.  All rights reserved.
+  16:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  17:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  18:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * the software package with which this file was provided.
+  19:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** ********************************************************************************/
+  20:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** #include <CYLIB.H>
+  21:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** #include <CYDMAC.H>
+  22:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** #include <SDSPI_TX_dma.H>
+  23:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  24:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  25:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  26:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** /****************************************************************************
+  27:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  28:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * The following defines are available in Cyfitter.h
+  29:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  30:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  31:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__DRQ_CTL_REG
+  33:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  34:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  35:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__DRQ_NUMBER
+  36:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  37:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Number of TD's used by this channel.
+  38:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__NUMBEROF_TDS
+  39:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  40:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Priority of this channel.
+  41:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__PRIORITY
+  42:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  43:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * True if SDSPI_TX_TERMIN_SEL is used.
+  44:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__TERMIN_EN
+  45:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  46:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * TERMIN interrupt line to signal terminate.
+  47:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__TERMIN_SEL
+  48:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  49:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  50:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * True if SDSPI_TX_TERMOUT0_SEL is used.
+  51:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__TERMOUT0_EN
+  52:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  53:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  54:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * TERMOUT0 interrupt line to signal completion.
+  55:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__TERMOUT0_SEL
+  56:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  57:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  58:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * True if SDSPI_TX_TERMOUT1_SEL is used.
+  59:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__TERMOUT1_EN
+  60:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  61:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  62:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * TERMOUT1 interrupt line to signal completion.
+  63:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * SDSPI_TX__TERMOUT1_SEL
+  64:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * 
+  65:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** ****************************************************************************/
+  66:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  67:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  68:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** /* Zero based index of SDSPI_TX dma channel */
+  69:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** uint8 SDSPI_TX_DmaHandle = DMA_INVALID_CHANNEL;
+  70:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  71:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** /*********************************************************************
+  72:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Function Name: uint8 SDSPI_TX_DmaInitalize
+  73:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** **********************************************************************
+  74:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Summary:
+  75:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   Allocates and initialises a channel of the DMAC to be used by the
+  76:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   caller.
+  77:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+  78:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Parameters:
+  79:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   BurstCount.
+  80:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *       
+  81:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *       
+  82:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   ReqestPerBurst.
+  83:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *       
+  84:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *       
+  85:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   UpperSrcAddress.
+  86:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *       
+  87:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *       
+  88:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   UpperDestAddress.
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 3
+
+
+  89:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *       
+  90:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+  91:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Return:
+  92:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   The channel that can be used by the caller for DMA activity.
+  93:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   DMA_INVALID_CHANNEL (0xFF) if there are no channels left. 
+  94:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+  95:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+  96:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *******************************************************************/
+  97:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** uint8 SDSPI_TX_DmaInitialize(uint8 BurstCount, uint8 ReqestPerBurst, uint16 UpperSrcAddress, uint16
+  98:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** {
+  27              		.loc 1 98 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  33              		.cfi_def_cfa_offset 20
+  34              		.cfi_offset 4, -20
+  35              		.cfi_offset 5, -16
+  36              		.cfi_offset 6, -12
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+  39 0002 8E46     		mov	lr, r1
+  40 0004 1746     		mov	r7, r2
+  41 0006 1E46     		mov	r6, r3
+  42 0008 83B0     		sub	sp, sp, #12
+  43              		.cfi_def_cfa_offset 32
+  99:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+ 100:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     /* Allocate a DMA channel. */
+ 101:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     SDSPI_TX_DmaHandle = (uint8)SDSPI_TX__DRQ_NUMBER;
+ 102:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+ 103:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     /* Configure the channel. */
+ 104:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     (void)CyDmaChSetConfiguration(SDSPI_TX_DmaHandle,
+  44              		.loc 1 104 0
+  45 000a 0023     		movs	r3, #0
+  46              	.LVL1:
+ 101:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  47              		.loc 1 101 0
+  48 000c 0A4C     		ldr	r4, .L3
+  49 000e 0125     		movs	r5, #1
+  50              		.loc 1 104 0
+  51 0010 7246     		mov	r2, lr
+  52              	.LVL2:
+  53 0012 0093     		str	r3, [sp]
+  54 0014 0193     		str	r3, [sp, #4]
+  55 0016 0146     		mov	r1, r0
+  56              	.LVL3:
+  57 0018 2846     		mov	r0, r5
+  58              	.LVL4:
+ 101:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+  59              		.loc 1 101 0
+  60 001a 2570     		strb	r5, [r4]
+  61              		.loc 1 104 0
+  62 001c FFF7FEFF 		bl	CyDmaChSetConfiguration
+  63              	.LVL5:
+ 105:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****                                   BurstCount,
+ 106:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****                                   ReqestPerBurst,
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 4
+
+
+ 107:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****                                   (uint8)SDSPI_TX__TERMOUT0_SEL,
+ 108:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****                                   (uint8)SDSPI_TX__TERMOUT1_SEL,
+ 109:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****                                   (uint8)SDSPI_TX__TERMIN_SEL);
+ 110:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+ 111:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     /* Set the extended address for the transfers */
+ 112:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     (void)CyDmaChSetExtendedAddress(SDSPI_TX_DmaHandle, UpperSrcAddress, UpperDestAddress);
+  64              		.loc 1 112 0
+  65 0020 3946     		mov	r1, r7
+  66 0022 3246     		mov	r2, r6
+  67 0024 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  68 0026 FFF7FEFF 		bl	CyDmaChSetExtendedAddress
+  69              	.LVL6:
+ 113:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+ 114:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     /* Set the priority for this channel */
+ 115:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     (void)CyDmaChPriority(SDSPI_TX_DmaHandle, (uint8)SDSPI_TX__PRIORITY);
+  70              		.loc 1 115 0
+  71 002a 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  72 002c 0221     		movs	r1, #2
+  73 002e FFF7FEFF 		bl	CyDmaChPriority
+  74              	.LVL7:
+ 116:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     
+ 117:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     return SDSPI_TX_DmaHandle;
+ 118:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** }
+  75              		.loc 1 118 0
+  76 0032 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  77 0034 03B0     		add	sp, sp, #12
+  78              		.cfi_def_cfa_offset 20
+  79              		@ sp needed
+  80 0036 F0BD     		pop	{r4, r5, r6, r7, pc}
+  81              	.L4:
+  82              		.align	2
+  83              	.L3:
+  84 0038 00000000 		.word	.LANCHOR0
+  85              		.cfi_endproc
+  86              	.LFE0:
+  87              		.size	SDSPI_TX_DmaInitialize, .-SDSPI_TX_DmaInitialize
+  88              		.section	.text.SDSPI_TX_DmaRelease,"ax",%progbits
+  89              		.align	2
+  90              		.global	SDSPI_TX_DmaRelease
+  91              		.thumb
+  92              		.thumb_func
+  93              		.type	SDSPI_TX_DmaRelease, %function
+  94              	SDSPI_TX_DmaRelease:
+  95              	.LFB1:
+ 119:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** 
+ 120:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** /*********************************************************************
+ 121:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Function Name: void SDSPI_TX_DmaRelease
+ 122:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** **********************************************************************
+ 123:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Summary:
+ 124:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   Frees the channel associated with SDSPI_TX.
+ 125:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+ 126:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+ 127:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Parameters:
+ 128:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   void.
+ 129:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+ 130:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+ 131:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 5
+
+
+ 132:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** * Return:
+ 133:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *   void.
+ 134:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *
+ 135:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** *******************************************************************/
+ 136:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** void SDSPI_TX_DmaRelease(void) 
+ 137:.\Generated_Source\PSoC5/SDSPI_TX_dma.c **** {
+  96              		.loc 1 137 0
+  97              		.cfi_startproc
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100              		@ link register save eliminated.
+ 138:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     /* Disable the channel */
+ 139:.\Generated_Source\PSoC5/SDSPI_TX_dma.c ****     (void)CyDmaChDisable(SDSPI_TX_DmaHandle);
+ 101              		.loc 1 139 0
+ 102 0000 014B     		ldr	r3, .L6
+ 103 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 104 0004 FFF7FEBF 		b	CyDmaChDisable
+ 105              	.LVL8:
+ 106              	.L7:
+ 107              		.align	2
+ 108              	.L6:
+ 109 0008 00000000 		.word	.LANCHOR0
+ 110              		.cfi_endproc
+ 111              	.LFE1:
+ 112              		.size	SDSPI_TX_DmaRelease, .-SDSPI_TX_DmaRelease
+ 113              		.global	SDSPI_TX_DmaHandle
+ 114              		.data
+ 115              		.set	.LANCHOR0,. + 0
+ 116              		.type	SDSPI_TX_DmaHandle, %object
+ 117              		.size	SDSPI_TX_DmaHandle, 1
+ 118              	SDSPI_TX_DmaHandle:
+ 119 0000 FF       		.byte	-1
+ 120              		.text
+ 121              	.Letext0:
+ 122              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 123              		.file 3 "Generated_Source\\PSoC5/CYDMAC.H"
+ 124              		.section	.debug_info,"",%progbits
+ 125              	.Ldebug_info0:
+ 126 0000 F4010000 		.4byte	0x1f4
+ 127 0004 0400     		.2byte	0x4
+ 128 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 129 000a 04       		.byte	0x4
+ 130 000b 01       		.uleb128 0x1
+ 131 000c 67010000 		.4byte	.LASF23
+ 132 0010 01       		.byte	0x1
+ 133 0011 09000000 		.4byte	.LASF24
+ 134 0015 73000000 		.4byte	.LASF25
+ 135 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 136 001d 00000000 		.4byte	0
+ 137 0021 00000000 		.4byte	.Ldebug_line0
+ 138 0025 02       		.uleb128 0x2
+ 139 0026 04       		.byte	0x4
+ 140 0027 05       		.byte	0x5
+ 141 0028 696E7400 		.ascii	"int\000"
+ 142 002c 03       		.uleb128 0x3
+ 143 002d 04       		.byte	0x4
+ 144 002e 07       		.byte	0x7
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 6
+
+
+ 145 002f 43010000 		.4byte	.LASF0
+ 146 0033 03       		.uleb128 0x3
+ 147 0034 01       		.byte	0x1
+ 148 0035 06       		.byte	0x6
+ 149 0036 5A020000 		.4byte	.LASF1
+ 150 003a 03       		.uleb128 0x3
+ 151 003b 01       		.byte	0x1
+ 152 003c 08       		.byte	0x8
+ 153 003d D9000000 		.4byte	.LASF2
+ 154 0041 03       		.uleb128 0x3
+ 155 0042 02       		.byte	0x2
+ 156 0043 05       		.byte	0x5
+ 157 0044 47020000 		.4byte	.LASF3
+ 158 0048 03       		.uleb128 0x3
+ 159 0049 02       		.byte	0x2
+ 160 004a 07       		.byte	0x7
+ 161 004b 60000000 		.4byte	.LASF4
+ 162 004f 03       		.uleb128 0x3
+ 163 0050 04       		.byte	0x4
+ 164 0051 05       		.byte	0x5
+ 165 0052 51020000 		.4byte	.LASF5
+ 166 0056 03       		.uleb128 0x3
+ 167 0057 04       		.byte	0x4
+ 168 0058 07       		.byte	0x7
+ 169 0059 F2000000 		.4byte	.LASF6
+ 170 005d 03       		.uleb128 0x3
+ 171 005e 08       		.byte	0x8
+ 172 005f 05       		.byte	0x5
+ 173 0060 1A020000 		.4byte	.LASF7
+ 174 0064 03       		.uleb128 0x3
+ 175 0065 08       		.byte	0x8
+ 176 0066 07       		.byte	0x7
+ 177 0067 50010000 		.4byte	.LASF8
+ 178 006b 03       		.uleb128 0x3
+ 179 006c 04       		.byte	0x4
+ 180 006d 07       		.byte	0x7
+ 181 006e 11020000 		.4byte	.LASF9
+ 182 0072 03       		.uleb128 0x3
+ 183 0073 01       		.byte	0x1
+ 184 0074 08       		.byte	0x8
+ 185 0075 42020000 		.4byte	.LASF10
+ 186 0079 04       		.uleb128 0x4
+ 187 007a 04010000 		.4byte	.LASF11
+ 188 007e 02       		.byte	0x2
+ 189 007f 9201     		.2byte	0x192
+ 190 0081 3A000000 		.4byte	0x3a
+ 191 0085 04       		.uleb128 0x4
+ 192 0086 28010000 		.4byte	.LASF12
+ 193 008a 02       		.byte	0x2
+ 194 008b 9301     		.2byte	0x193
+ 195 008d 48000000 		.4byte	0x48
+ 196 0091 03       		.uleb128 0x3
+ 197 0092 04       		.byte	0x4
+ 198 0093 04       		.byte	0x4
+ 199 0094 D3000000 		.4byte	.LASF13
+ 200 0098 03       		.uleb128 0x3
+ 201 0099 08       		.byte	0x8
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 7
+
+
+ 202 009a 04       		.byte	0x4
+ 203 009b 21010000 		.4byte	.LASF14
+ 204 009f 04       		.uleb128 0x4
+ 205 00a0 00000000 		.4byte	.LASF15
+ 206 00a4 02       		.byte	0x2
+ 207 00a5 3402     		.2byte	0x234
+ 208 00a7 56000000 		.4byte	0x56
+ 209 00ab 05       		.uleb128 0x5
+ 210 00ac 0A010000 		.4byte	.LASF26
+ 211 00b0 01       		.byte	0x1
+ 212 00b1 61       		.byte	0x61
+ 213 00b2 79000000 		.4byte	0x79
+ 214 00b6 00000000 		.4byte	.LFB0
+ 215 00ba 3C000000 		.4byte	.LFE0-.LFB0
+ 216 00be 01       		.uleb128 0x1
+ 217 00bf 9C       		.byte	0x9c
+ 218 00c0 4F010000 		.4byte	0x14f
+ 219 00c4 06       		.uleb128 0x6
+ 220 00c5 E7000000 		.4byte	.LASF16
+ 221 00c9 01       		.byte	0x1
+ 222 00ca 61       		.byte	0x61
+ 223 00cb 79000000 		.4byte	0x79
+ 224 00cf 00000000 		.4byte	.LLST0
+ 225 00d3 06       		.uleb128 0x6
+ 226 00d4 51000000 		.4byte	.LASF17
+ 227 00d8 01       		.byte	0x1
+ 228 00d9 61       		.byte	0x61
+ 229 00da 79000000 		.4byte	0x79
+ 230 00de 21000000 		.4byte	.LLST1
+ 231 00e2 06       		.uleb128 0x6
+ 232 00e3 31000000 		.4byte	.LASF18
+ 233 00e7 01       		.byte	0x1
+ 234 00e8 61       		.byte	0x61
+ 235 00e9 85000000 		.4byte	0x85
+ 236 00ed 42000000 		.4byte	.LLST2
+ 237 00f1 06       		.uleb128 0x6
+ 238 00f2 00020000 		.4byte	.LASF19
+ 239 00f6 01       		.byte	0x1
+ 240 00f7 61       		.byte	0x61
+ 241 00f8 85000000 		.4byte	0x85
+ 242 00fc 63000000 		.4byte	.LLST3
+ 243 0100 07       		.uleb128 0x7
+ 244 0101 20000000 		.4byte	.LVL5
+ 245 0105 7F010000 		.4byte	0x17f
+ 246 0109 25010000 		.4byte	0x125
+ 247 010d 08       		.uleb128 0x8
+ 248 010e 01       		.uleb128 0x1
+ 249 010f 53       		.byte	0x53
+ 250 0110 01       		.uleb128 0x1
+ 251 0111 30       		.byte	0x30
+ 252 0112 08       		.uleb128 0x8
+ 253 0113 01       		.uleb128 0x1
+ 254 0114 50       		.byte	0x50
+ 255 0115 02       		.uleb128 0x2
+ 256 0116 75       		.byte	0x75
+ 257 0117 00       		.sleb128 0
+ 258 0118 08       		.uleb128 0x8
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 8
+
+
+ 259 0119 02       		.uleb128 0x2
+ 260 011a 7D       		.byte	0x7d
+ 261 011b 04       		.sleb128 4
+ 262 011c 01       		.uleb128 0x1
+ 263 011d 30       		.byte	0x30
+ 264 011e 08       		.uleb128 0x8
+ 265 011f 02       		.uleb128 0x2
+ 266 0120 7D       		.byte	0x7d
+ 267 0121 00       		.sleb128 0
+ 268 0122 01       		.uleb128 0x1
+ 269 0123 30       		.byte	0x30
+ 270 0124 00       		.byte	0
+ 271 0125 07       		.uleb128 0x7
+ 272 0126 2A000000 		.4byte	.LVL6
+ 273 012a AD010000 		.4byte	0x1ad
+ 274 012e 3F010000 		.4byte	0x13f
+ 275 0132 08       		.uleb128 0x8
+ 276 0133 01       		.uleb128 0x1
+ 277 0134 52       		.byte	0x52
+ 278 0135 02       		.uleb128 0x2
+ 279 0136 76       		.byte	0x76
+ 280 0137 00       		.sleb128 0
+ 281 0138 08       		.uleb128 0x8
+ 282 0139 01       		.uleb128 0x1
+ 283 013a 51       		.byte	0x51
+ 284 013b 02       		.uleb128 0x2
+ 285 013c 77       		.byte	0x77
+ 286 013d 00       		.sleb128 0
+ 287 013e 00       		.byte	0
+ 288 013f 09       		.uleb128 0x9
+ 289 0140 32000000 		.4byte	.LVL7
+ 290 0144 CC010000 		.4byte	0x1cc
+ 291 0148 08       		.uleb128 0x8
+ 292 0149 01       		.uleb128 0x1
+ 293 014a 51       		.byte	0x51
+ 294 014b 01       		.uleb128 0x1
+ 295 014c 32       		.byte	0x32
+ 296 014d 00       		.byte	0
+ 297 014e 00       		.byte	0
+ 298 014f 0A       		.uleb128 0xa
+ 299 0150 2F010000 		.4byte	.LASF27
+ 300 0154 01       		.byte	0x1
+ 301 0155 88       		.byte	0x88
+ 302 0156 00000000 		.4byte	.LFB1
+ 303 015a 0C000000 		.4byte	.LFE1-.LFB1
+ 304 015e 01       		.uleb128 0x1
+ 305 015f 9C       		.byte	0x9c
+ 306 0160 6E010000 		.4byte	0x16e
+ 307 0164 0B       		.uleb128 0xb
+ 308 0165 08000000 		.4byte	.LVL8
+ 309 0169 E6010000 		.4byte	0x1e6
+ 310 016d 00       		.byte	0
+ 311 016e 0C       		.uleb128 0xc
+ 312 016f C0000000 		.4byte	.LASF28
+ 313 0173 01       		.byte	0x1
+ 314 0174 45       		.byte	0x45
+ 315 0175 79000000 		.4byte	0x79
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 9
+
+
+ 316 0179 05       		.uleb128 0x5
+ 317 017a 03       		.byte	0x3
+ 318 017b 00000000 		.4byte	SDSPI_TX_DmaHandle
+ 319 017f 0D       		.uleb128 0xd
+ 320 0180 75020000 		.4byte	.LASF20
+ 321 0184 03       		.byte	0x3
+ 322 0185 33       		.byte	0x33
+ 323 0186 9F000000 		.4byte	0x9f
+ 324 018a AD010000 		.4byte	0x1ad
+ 325 018e 0E       		.uleb128 0xe
+ 326 018f 79000000 		.4byte	0x79
+ 327 0193 0E       		.uleb128 0xe
+ 328 0194 79000000 		.4byte	0x79
+ 329 0198 0E       		.uleb128 0xe
+ 330 0199 79000000 		.4byte	0x79
+ 331 019d 0E       		.uleb128 0xe
+ 332 019e 79000000 		.4byte	0x79
+ 333 01a2 0E       		.uleb128 0xe
+ 334 01a3 79000000 		.4byte	0x79
+ 335 01a7 0E       		.uleb128 0xe
+ 336 01a8 79000000 		.4byte	0x79
+ 337 01ac 00       		.byte	0
+ 338 01ad 0D       		.uleb128 0xd
+ 339 01ae 28020000 		.4byte	.LASF21
+ 340 01b2 03       		.byte	0x3
+ 341 01b3 2D       		.byte	0x2d
+ 342 01b4 9F000000 		.4byte	0x9f
+ 343 01b8 CC010000 		.4byte	0x1cc
+ 344 01bc 0E       		.uleb128 0xe
+ 345 01bd 79000000 		.4byte	0x79
+ 346 01c1 0E       		.uleb128 0xe
+ 347 01c2 85000000 		.4byte	0x85
+ 348 01c6 0E       		.uleb128 0xe
+ 349 01c7 85000000 		.4byte	0x85
+ 350 01cb 00       		.byte	0
+ 351 01cc 0D       		.uleb128 0xd
+ 352 01cd 41000000 		.4byte	.LASF22
+ 353 01d1 03       		.byte	0x3
+ 354 01d2 2C       		.byte	0x2c
+ 355 01d3 9F000000 		.4byte	0x9f
+ 356 01d7 E6010000 		.4byte	0x1e6
+ 357 01db 0E       		.uleb128 0xe
+ 358 01dc 79000000 		.4byte	0x79
+ 359 01e0 0E       		.uleb128 0xe
+ 360 01e1 79000000 		.4byte	0x79
+ 361 01e5 00       		.byte	0
+ 362 01e6 0F       		.uleb128 0xf
+ 363 01e7 66020000 		.4byte	.LASF29
+ 364 01eb 03       		.byte	0x3
+ 365 01ec 2A       		.byte	0x2a
+ 366 01ed 9F000000 		.4byte	0x9f
+ 367 01f1 0E       		.uleb128 0xe
+ 368 01f2 79000000 		.4byte	0x79
+ 369 01f6 00       		.byte	0
+ 370 01f7 00       		.byte	0
+ 371              		.section	.debug_abbrev,"",%progbits
+ 372              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 10
+
+
+ 373 0000 01       		.uleb128 0x1
+ 374 0001 11       		.uleb128 0x11
+ 375 0002 01       		.byte	0x1
+ 376 0003 25       		.uleb128 0x25
+ 377 0004 0E       		.uleb128 0xe
+ 378 0005 13       		.uleb128 0x13
+ 379 0006 0B       		.uleb128 0xb
+ 380 0007 03       		.uleb128 0x3
+ 381 0008 0E       		.uleb128 0xe
+ 382 0009 1B       		.uleb128 0x1b
+ 383 000a 0E       		.uleb128 0xe
+ 384 000b 55       		.uleb128 0x55
+ 385 000c 17       		.uleb128 0x17
+ 386 000d 11       		.uleb128 0x11
+ 387 000e 01       		.uleb128 0x1
+ 388 000f 10       		.uleb128 0x10
+ 389 0010 17       		.uleb128 0x17
+ 390 0011 00       		.byte	0
+ 391 0012 00       		.byte	0
+ 392 0013 02       		.uleb128 0x2
+ 393 0014 24       		.uleb128 0x24
+ 394 0015 00       		.byte	0
+ 395 0016 0B       		.uleb128 0xb
+ 396 0017 0B       		.uleb128 0xb
+ 397 0018 3E       		.uleb128 0x3e
+ 398 0019 0B       		.uleb128 0xb
+ 399 001a 03       		.uleb128 0x3
+ 400 001b 08       		.uleb128 0x8
+ 401 001c 00       		.byte	0
+ 402 001d 00       		.byte	0
+ 403 001e 03       		.uleb128 0x3
+ 404 001f 24       		.uleb128 0x24
+ 405 0020 00       		.byte	0
+ 406 0021 0B       		.uleb128 0xb
+ 407 0022 0B       		.uleb128 0xb
+ 408 0023 3E       		.uleb128 0x3e
+ 409 0024 0B       		.uleb128 0xb
+ 410 0025 03       		.uleb128 0x3
+ 411 0026 0E       		.uleb128 0xe
+ 412 0027 00       		.byte	0
+ 413 0028 00       		.byte	0
+ 414 0029 04       		.uleb128 0x4
+ 415 002a 16       		.uleb128 0x16
+ 416 002b 00       		.byte	0
+ 417 002c 03       		.uleb128 0x3
+ 418 002d 0E       		.uleb128 0xe
+ 419 002e 3A       		.uleb128 0x3a
+ 420 002f 0B       		.uleb128 0xb
+ 421 0030 3B       		.uleb128 0x3b
+ 422 0031 05       		.uleb128 0x5
+ 423 0032 49       		.uleb128 0x49
+ 424 0033 13       		.uleb128 0x13
+ 425 0034 00       		.byte	0
+ 426 0035 00       		.byte	0
+ 427 0036 05       		.uleb128 0x5
+ 428 0037 2E       		.uleb128 0x2e
+ 429 0038 01       		.byte	0x1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 11
+
+
+ 430 0039 3F       		.uleb128 0x3f
+ 431 003a 19       		.uleb128 0x19
+ 432 003b 03       		.uleb128 0x3
+ 433 003c 0E       		.uleb128 0xe
+ 434 003d 3A       		.uleb128 0x3a
+ 435 003e 0B       		.uleb128 0xb
+ 436 003f 3B       		.uleb128 0x3b
+ 437 0040 0B       		.uleb128 0xb
+ 438 0041 27       		.uleb128 0x27
+ 439 0042 19       		.uleb128 0x19
+ 440 0043 49       		.uleb128 0x49
+ 441 0044 13       		.uleb128 0x13
+ 442 0045 11       		.uleb128 0x11
+ 443 0046 01       		.uleb128 0x1
+ 444 0047 12       		.uleb128 0x12
+ 445 0048 06       		.uleb128 0x6
+ 446 0049 40       		.uleb128 0x40
+ 447 004a 18       		.uleb128 0x18
+ 448 004b 9742     		.uleb128 0x2117
+ 449 004d 19       		.uleb128 0x19
+ 450 004e 01       		.uleb128 0x1
+ 451 004f 13       		.uleb128 0x13
+ 452 0050 00       		.byte	0
+ 453 0051 00       		.byte	0
+ 454 0052 06       		.uleb128 0x6
+ 455 0053 05       		.uleb128 0x5
+ 456 0054 00       		.byte	0
+ 457 0055 03       		.uleb128 0x3
+ 458 0056 0E       		.uleb128 0xe
+ 459 0057 3A       		.uleb128 0x3a
+ 460 0058 0B       		.uleb128 0xb
+ 461 0059 3B       		.uleb128 0x3b
+ 462 005a 0B       		.uleb128 0xb
+ 463 005b 49       		.uleb128 0x49
+ 464 005c 13       		.uleb128 0x13
+ 465 005d 02       		.uleb128 0x2
+ 466 005e 17       		.uleb128 0x17
+ 467 005f 00       		.byte	0
+ 468 0060 00       		.byte	0
+ 469 0061 07       		.uleb128 0x7
+ 470 0062 898201   		.uleb128 0x4109
+ 471 0065 01       		.byte	0x1
+ 472 0066 11       		.uleb128 0x11
+ 473 0067 01       		.uleb128 0x1
+ 474 0068 31       		.uleb128 0x31
+ 475 0069 13       		.uleb128 0x13
+ 476 006a 01       		.uleb128 0x1
+ 477 006b 13       		.uleb128 0x13
+ 478 006c 00       		.byte	0
+ 479 006d 00       		.byte	0
+ 480 006e 08       		.uleb128 0x8
+ 481 006f 8A8201   		.uleb128 0x410a
+ 482 0072 00       		.byte	0
+ 483 0073 02       		.uleb128 0x2
+ 484 0074 18       		.uleb128 0x18
+ 485 0075 9142     		.uleb128 0x2111
+ 486 0077 18       		.uleb128 0x18
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 12
+
+
+ 487 0078 00       		.byte	0
+ 488 0079 00       		.byte	0
+ 489 007a 09       		.uleb128 0x9
+ 490 007b 898201   		.uleb128 0x4109
+ 491 007e 01       		.byte	0x1
+ 492 007f 11       		.uleb128 0x11
+ 493 0080 01       		.uleb128 0x1
+ 494 0081 31       		.uleb128 0x31
+ 495 0082 13       		.uleb128 0x13
+ 496 0083 00       		.byte	0
+ 497 0084 00       		.byte	0
+ 498 0085 0A       		.uleb128 0xa
+ 499 0086 2E       		.uleb128 0x2e
+ 500 0087 01       		.byte	0x1
+ 501 0088 3F       		.uleb128 0x3f
+ 502 0089 19       		.uleb128 0x19
+ 503 008a 03       		.uleb128 0x3
+ 504 008b 0E       		.uleb128 0xe
+ 505 008c 3A       		.uleb128 0x3a
+ 506 008d 0B       		.uleb128 0xb
+ 507 008e 3B       		.uleb128 0x3b
+ 508 008f 0B       		.uleb128 0xb
+ 509 0090 27       		.uleb128 0x27
+ 510 0091 19       		.uleb128 0x19
+ 511 0092 11       		.uleb128 0x11
+ 512 0093 01       		.uleb128 0x1
+ 513 0094 12       		.uleb128 0x12
+ 514 0095 06       		.uleb128 0x6
+ 515 0096 40       		.uleb128 0x40
+ 516 0097 18       		.uleb128 0x18
+ 517 0098 9742     		.uleb128 0x2117
+ 518 009a 19       		.uleb128 0x19
+ 519 009b 01       		.uleb128 0x1
+ 520 009c 13       		.uleb128 0x13
+ 521 009d 00       		.byte	0
+ 522 009e 00       		.byte	0
+ 523 009f 0B       		.uleb128 0xb
+ 524 00a0 898201   		.uleb128 0x4109
+ 525 00a3 00       		.byte	0
+ 526 00a4 11       		.uleb128 0x11
+ 527 00a5 01       		.uleb128 0x1
+ 528 00a6 9542     		.uleb128 0x2115
+ 529 00a8 19       		.uleb128 0x19
+ 530 00a9 31       		.uleb128 0x31
+ 531 00aa 13       		.uleb128 0x13
+ 532 00ab 00       		.byte	0
+ 533 00ac 00       		.byte	0
+ 534 00ad 0C       		.uleb128 0xc
+ 535 00ae 34       		.uleb128 0x34
+ 536 00af 00       		.byte	0
+ 537 00b0 03       		.uleb128 0x3
+ 538 00b1 0E       		.uleb128 0xe
+ 539 00b2 3A       		.uleb128 0x3a
+ 540 00b3 0B       		.uleb128 0xb
+ 541 00b4 3B       		.uleb128 0x3b
+ 542 00b5 0B       		.uleb128 0xb
+ 543 00b6 49       		.uleb128 0x49
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 13
+
+
+ 544 00b7 13       		.uleb128 0x13
+ 545 00b8 3F       		.uleb128 0x3f
+ 546 00b9 19       		.uleb128 0x19
+ 547 00ba 02       		.uleb128 0x2
+ 548 00bb 18       		.uleb128 0x18
+ 549 00bc 00       		.byte	0
+ 550 00bd 00       		.byte	0
+ 551 00be 0D       		.uleb128 0xd
+ 552 00bf 2E       		.uleb128 0x2e
+ 553 00c0 01       		.byte	0x1
+ 554 00c1 3F       		.uleb128 0x3f
+ 555 00c2 19       		.uleb128 0x19
+ 556 00c3 03       		.uleb128 0x3
+ 557 00c4 0E       		.uleb128 0xe
+ 558 00c5 3A       		.uleb128 0x3a
+ 559 00c6 0B       		.uleb128 0xb
+ 560 00c7 3B       		.uleb128 0x3b
+ 561 00c8 0B       		.uleb128 0xb
+ 562 00c9 27       		.uleb128 0x27
+ 563 00ca 19       		.uleb128 0x19
+ 564 00cb 49       		.uleb128 0x49
+ 565 00cc 13       		.uleb128 0x13
+ 566 00cd 3C       		.uleb128 0x3c
+ 567 00ce 19       		.uleb128 0x19
+ 568 00cf 01       		.uleb128 0x1
+ 569 00d0 13       		.uleb128 0x13
+ 570 00d1 00       		.byte	0
+ 571 00d2 00       		.byte	0
+ 572 00d3 0E       		.uleb128 0xe
+ 573 00d4 05       		.uleb128 0x5
+ 574 00d5 00       		.byte	0
+ 575 00d6 49       		.uleb128 0x49
+ 576 00d7 13       		.uleb128 0x13
+ 577 00d8 00       		.byte	0
+ 578 00d9 00       		.byte	0
+ 579 00da 0F       		.uleb128 0xf
+ 580 00db 2E       		.uleb128 0x2e
+ 581 00dc 01       		.byte	0x1
+ 582 00dd 3F       		.uleb128 0x3f
+ 583 00de 19       		.uleb128 0x19
+ 584 00df 03       		.uleb128 0x3
+ 585 00e0 0E       		.uleb128 0xe
+ 586 00e1 3A       		.uleb128 0x3a
+ 587 00e2 0B       		.uleb128 0xb
+ 588 00e3 3B       		.uleb128 0x3b
+ 589 00e4 0B       		.uleb128 0xb
+ 590 00e5 27       		.uleb128 0x27
+ 591 00e6 19       		.uleb128 0x19
+ 592 00e7 49       		.uleb128 0x49
+ 593 00e8 13       		.uleb128 0x13
+ 594 00e9 3C       		.uleb128 0x3c
+ 595 00ea 19       		.uleb128 0x19
+ 596 00eb 00       		.byte	0
+ 597 00ec 00       		.byte	0
+ 598 00ed 00       		.byte	0
+ 599              		.section	.debug_loc,"",%progbits
+ 600              	.Ldebug_loc0:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 14
+
+
+ 601              	.LLST0:
+ 602 0000 00000000 		.4byte	.LVL0
+ 603 0004 1A000000 		.4byte	.LVL4
+ 604 0008 0100     		.2byte	0x1
+ 605 000a 50       		.byte	0x50
+ 606 000b 1A000000 		.4byte	.LVL4
+ 607 000f 3C000000 		.4byte	.LFE0
+ 608 0013 0400     		.2byte	0x4
+ 609 0015 F3       		.byte	0xf3
+ 610 0016 01       		.uleb128 0x1
+ 611 0017 50       		.byte	0x50
+ 612 0018 9F       		.byte	0x9f
+ 613 0019 00000000 		.4byte	0
+ 614 001d 00000000 		.4byte	0
+ 615              	.LLST1:
+ 616 0021 00000000 		.4byte	.LVL0
+ 617 0025 18000000 		.4byte	.LVL3
+ 618 0029 0100     		.2byte	0x1
+ 619 002b 51       		.byte	0x51
+ 620 002c 18000000 		.4byte	.LVL3
+ 621 0030 3C000000 		.4byte	.LFE0
+ 622 0034 0400     		.2byte	0x4
+ 623 0036 F3       		.byte	0xf3
+ 624 0037 01       		.uleb128 0x1
+ 625 0038 51       		.byte	0x51
+ 626 0039 9F       		.byte	0x9f
+ 627 003a 00000000 		.4byte	0
+ 628 003e 00000000 		.4byte	0
+ 629              	.LLST2:
+ 630 0042 00000000 		.4byte	.LVL0
+ 631 0046 12000000 		.4byte	.LVL2
+ 632 004a 0100     		.2byte	0x1
+ 633 004c 52       		.byte	0x52
+ 634 004d 12000000 		.4byte	.LVL2
+ 635 0051 3C000000 		.4byte	.LFE0
+ 636 0055 0400     		.2byte	0x4
+ 637 0057 F3       		.byte	0xf3
+ 638 0058 01       		.uleb128 0x1
+ 639 0059 52       		.byte	0x52
+ 640 005a 9F       		.byte	0x9f
+ 641 005b 00000000 		.4byte	0
+ 642 005f 00000000 		.4byte	0
+ 643              	.LLST3:
+ 644 0063 00000000 		.4byte	.LVL0
+ 645 0067 0C000000 		.4byte	.LVL1
+ 646 006b 0100     		.2byte	0x1
+ 647 006d 53       		.byte	0x53
+ 648 006e 0C000000 		.4byte	.LVL1
+ 649 0072 3C000000 		.4byte	.LFE0
+ 650 0076 0400     		.2byte	0x4
+ 651 0078 F3       		.byte	0xf3
+ 652 0079 01       		.uleb128 0x1
+ 653 007a 53       		.byte	0x53
+ 654 007b 9F       		.byte	0x9f
+ 655 007c 00000000 		.4byte	0
+ 656 0080 00000000 		.4byte	0
+ 657              		.section	.debug_aranges,"",%progbits
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 15
+
+
+ 658 0000 24000000 		.4byte	0x24
+ 659 0004 0200     		.2byte	0x2
+ 660 0006 00000000 		.4byte	.Ldebug_info0
+ 661 000a 04       		.byte	0x4
+ 662 000b 00       		.byte	0
+ 663 000c 0000     		.2byte	0
+ 664 000e 0000     		.2byte	0
+ 665 0010 00000000 		.4byte	.LFB0
+ 666 0014 3C000000 		.4byte	.LFE0-.LFB0
+ 667 0018 00000000 		.4byte	.LFB1
+ 668 001c 0C000000 		.4byte	.LFE1-.LFB1
+ 669 0020 00000000 		.4byte	0
+ 670 0024 00000000 		.4byte	0
+ 671              		.section	.debug_ranges,"",%progbits
+ 672              	.Ldebug_ranges0:
+ 673 0000 00000000 		.4byte	.LFB0
+ 674 0004 3C000000 		.4byte	.LFE0
+ 675 0008 00000000 		.4byte	.LFB1
+ 676 000c 0C000000 		.4byte	.LFE1
+ 677 0010 00000000 		.4byte	0
+ 678 0014 00000000 		.4byte	0
+ 679              		.section	.debug_line,"",%progbits
+ 680              	.Ldebug_line0:
+ 681 0000 9D000000 		.section	.debug_str,"MS",%progbits,1
+ 681      02006E00 
+ 681      00000201 
+ 681      FB0E0D00 
+ 681      01010101 
+ 682              	.LASF15:
+ 683 0000 63797374 		.ascii	"cystatus\000"
+ 683      61747573 
+ 683      00
+ 684              	.LASF24:
+ 685 0009 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\SDSPI_TX_dma.c\000"
+ 685      6E657261 
+ 685      7465645F 
+ 685      536F7572 
+ 685      63655C50 
+ 686              	.LASF18:
+ 687 0031 55707065 		.ascii	"UpperSrcAddress\000"
+ 687      72537263 
+ 687      41646472 
+ 687      65737300 
+ 688              	.LASF22:
+ 689 0041 4379446D 		.ascii	"CyDmaChPriority\000"
+ 689      61436850 
+ 689      72696F72 
+ 689      69747900 
+ 690              	.LASF17:
+ 691 0051 52657165 		.ascii	"ReqestPerBurst\000"
+ 691      73745065 
+ 691      72427572 
+ 691      737400
+ 692              	.LASF4:
+ 693 0060 73686F72 		.ascii	"short unsigned int\000"
+ 693      7420756E 
+ 693      7369676E 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 16
+
+
+ 693      65642069 
+ 693      6E7400
+ 694              	.LASF25:
+ 695 0073 443A5C64 		.ascii	"D:\\develop\\projects\\SoundChipLogger\\firmware\\D"
+ 695      6576656C 
+ 695      6F705C70 
+ 695      726F6A65 
+ 695      6374735C 
+ 696 00a1 4D415344 		.ascii	"MASDSPITest\\DMASDSPITest.cydsn\000"
+ 696      53504954 
+ 696      6573745C 
+ 696      444D4153 
+ 696      44535049 
+ 697              	.LASF28:
+ 698 00c0 53445350 		.ascii	"SDSPI_TX_DmaHandle\000"
+ 698      495F5458 
+ 698      5F446D61 
+ 698      48616E64 
+ 698      6C6500
+ 699              	.LASF13:
+ 700 00d3 666C6F61 		.ascii	"float\000"
+ 700      7400
+ 701              	.LASF2:
+ 702 00d9 756E7369 		.ascii	"unsigned char\000"
+ 702      676E6564 
+ 702      20636861 
+ 702      7200
+ 703              	.LASF16:
+ 704 00e7 42757273 		.ascii	"BurstCount\000"
+ 704      74436F75 
+ 704      6E7400
+ 705              	.LASF6:
+ 706 00f2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 706      20756E73 
+ 706      69676E65 
+ 706      6420696E 
+ 706      7400
+ 707              	.LASF11:
+ 708 0104 75696E74 		.ascii	"uint8\000"
+ 708      3800
+ 709              	.LASF26:
+ 710 010a 53445350 		.ascii	"SDSPI_TX_DmaInitialize\000"
+ 710      495F5458 
+ 710      5F446D61 
+ 710      496E6974 
+ 710      69616C69 
+ 711              	.LASF14:
+ 712 0121 646F7562 		.ascii	"double\000"
+ 712      6C6500
+ 713              	.LASF12:
+ 714 0128 75696E74 		.ascii	"uint16\000"
+ 714      313600
+ 715              	.LASF27:
+ 716 012f 53445350 		.ascii	"SDSPI_TX_DmaRelease\000"
+ 716      495F5458 
+ 716      5F446D61 
+ 716      52656C65 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 17
+
+
+ 716      61736500 
+ 717              	.LASF0:
+ 718 0143 756E7369 		.ascii	"unsigned int\000"
+ 718      676E6564 
+ 718      20696E74 
+ 718      00
+ 719              	.LASF8:
+ 720 0150 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 720      206C6F6E 
+ 720      6720756E 
+ 720      7369676E 
+ 720      65642069 
+ 721              	.LASF23:
+ 722 0167 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 722      4320342E 
+ 722      392E3320 
+ 722      32303135 
+ 722      30333033 
+ 723 019a 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 723      20726576 
+ 723      6973696F 
+ 723      6E203232 
+ 723      31323230 
+ 724 01cd 33202D73 		.ascii	"3 -std=gnu99 -ffunction-sections -ffat-lto-objects\000"
+ 724      74643D67 
+ 724      6E753939 
+ 724      202D6666 
+ 724      756E6374 
+ 725              	.LASF19:
+ 726 0200 55707065 		.ascii	"UpperDestAddress\000"
+ 726      72446573 
+ 726      74416464 
+ 726      72657373 
+ 726      00
+ 727              	.LASF9:
+ 728 0211 73697A65 		.ascii	"sizetype\000"
+ 728      74797065 
+ 728      00
+ 729              	.LASF7:
+ 730 021a 6C6F6E67 		.ascii	"long long int\000"
+ 730      206C6F6E 
+ 730      6720696E 
+ 730      7400
+ 731              	.LASF21:
+ 732 0228 4379446D 		.ascii	"CyDmaChSetExtendedAddress\000"
+ 732      61436853 
+ 732      65744578 
+ 732      74656E64 
+ 732      65644164 
+ 733              	.LASF10:
+ 734 0242 63686172 		.ascii	"char\000"
+ 734      00
+ 735              	.LASF3:
+ 736 0247 73686F72 		.ascii	"short int\000"
+ 736      7420696E 
+ 736      7400
+ 737              	.LASF5:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccLEqYe5.s 			page 18
+
+
+ 738 0251 6C6F6E67 		.ascii	"long int\000"
+ 738      20696E74 
+ 738      00
+ 739              	.LASF1:
+ 740 025a 7369676E 		.ascii	"signed char\000"
+ 740      65642063 
+ 740      68617200 
+ 741              	.LASF29:
+ 742 0266 4379446D 		.ascii	"CyDmaChDisable\000"
+ 742      61436844 
+ 742      69736162 
+ 742      6C6500
+ 743              	.LASF20:
+ 744 0275 4379446D 		.ascii	"CyDmaChSetConfiguration\000"
+ 744      61436853 
+ 744      6574436F 
+ 744      6E666967 
+ 744      75726174 
+ 745              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

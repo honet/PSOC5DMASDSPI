@@ -1,0 +1,1605 @@
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"DMASDSPI_1_api.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.DMASDSPI_1_RX_ISR,"ax",%progbits
+  19              		.align	2
+  20              		.global	DMASDSPI_1_RX_ISR
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	DMASDSPI_1_RX_ISR, %function
+  24              	DMASDSPI_1_RX_ISR:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\DMASDSPI_1_api.c"
+   1:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /* ========================================
+   2:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  *
+   3:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  * All Rights Reserved
+   5:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  *
+   7:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  *
+  10:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****  * ========================================
+  11:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+  12:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** #include "DMASDSPI_1_api.h"
+  13:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** #include "DMASDSPI_1_fatfs.h"
+  14:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  15:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** volatile unsigned char DMASDSPI_1_g_nTransferFlags = 0;
+  16:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** volatile unsigned char DMASDSPI_1_g_nCtrlState = 0;
+  17:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  18:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** uint8_t DMASDSPI_1_bEnableDMA;
+  19:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+  20:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /* Variable declarations for NSDSPI_RX */
+  21:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /* Move these variable declarations to the top of the function */
+  22:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** uint8_t DMASDSPI_1_RX_Chan;
+  23:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** uint8_t DMASDSPI_1_RX_TD[1];
+  24:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /* Variable declarations for NSDSPI_TX */
+  25:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /* Move these variable declarations to the top of the function */
+  26:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** uint8_t DMASDSPI_1_TX_Chan;
+  27:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** uint8_t DMASDSPI_1_TX_TD[1];
+  28:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  29:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  30:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** //Standard (non DMA receive) ISR
+  31:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_RX_ISR()
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+  27              		.loc 1 32 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  33:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_g_nTransferFlags &= ~DMASDSPI_1_TRANSFER_WAIT_RXISR;
+  35              		.loc 1 33 0
+  36 0002 044A     		ldr	r2, .L3
+  37 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  38 0006 03F0FE03 		and	r3, r3, #254
+  39 000a 1370     		strb	r3, [r2]
+  34:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_RX_ISR_Disable();
+  40              		.loc 1 34 0
+  41 000c FFF7FEFF 		bl	DMASDSPI_1_RX_ISR_Disable
+  42              	.LVL0:
+  43 0010 08BD     		pop	{r3, pc}
+  44              	.L4:
+  45 0012 00BF     		.align	2
+  46              	.L3:
+  47 0014 00000000 		.word	.LANCHOR0
+  48              		.cfi_endproc
+  49              	.LFE0:
+  50              		.size	DMASDSPI_1_RX_ISR, .-DMASDSPI_1_RX_ISR
+  51              		.section	.text.DMASDSPI_1_RX_DMA_ISR,"ax",%progbits
+  52              		.align	2
+  53              		.global	DMASDSPI_1_RX_DMA_ISR
+  54              		.thumb
+  55              		.thumb_func
+  56              		.type	DMASDSPI_1_RX_DMA_ISR, %function
+  57              	DMASDSPI_1_RX_DMA_ISR:
+  58              	.LFB1:
+  35:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+  36:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  37:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** //DMA termination ISRs
+  38:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_RX_DMA_ISR()
+  39:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {   DMASDSPI_1_g_nTransferFlags &= ~DMASDSPI_1_TRANSFER_WAIT_RXDMAISR;}
+  59              		.loc 1 39 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63              		@ link register save eliminated.
+  64              		.loc 1 39 0
+  65 0000 024A     		ldr	r2, .L6
+  66 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  67 0004 03F0FD03 		and	r3, r3, #253
+  68 0008 1370     		strb	r3, [r2]
+  69 000a 7047     		bx	lr
+  70              	.L7:
+  71              		.align	2
+  72              	.L6:
+  73 000c 00000000 		.word	.LANCHOR0
+  74              		.cfi_endproc
+  75              	.LFE1:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 3
+
+
+  76              		.size	DMASDSPI_1_RX_DMA_ISR, .-DMASDSPI_1_RX_DMA_ISR
+  77              		.section	.text.DMASDSPI_1_TX_DMA_ISR,"ax",%progbits
+  78              		.align	2
+  79              		.global	DMASDSPI_1_TX_DMA_ISR
+  80              		.thumb
+  81              		.thumb_func
+  82              		.type	DMASDSPI_1_TX_DMA_ISR, %function
+  83              	DMASDSPI_1_TX_DMA_ISR:
+  84              	.LFB2:
+  40:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  41:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_TX_DMA_ISR()
+  42:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {   DMASDSPI_1_g_nTransferFlags &= ~DMASDSPI_1_TRANSFER_WAIT_TXDMAISR;}
+  85              		.loc 1 42 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+  90              		.loc 1 42 0
+  91 0000 024A     		ldr	r2, .L9
+  92 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  93 0004 03F0FB03 		and	r3, r3, #251
+  94 0008 1370     		strb	r3, [r2]
+  95 000a 7047     		bx	lr
+  96              	.L10:
+  97              		.align	2
+  98              	.L9:
+  99 000c 00000000 		.word	.LANCHOR0
+ 100              		.cfi_endproc
+ 101              	.LFE2:
+ 102              		.size	DMASDSPI_1_TX_DMA_ISR, .-DMASDSPI_1_TX_DMA_ISR
+ 103              		.section	.text.DMASDSPI_1_Start,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	DMASDSPI_1_Start
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	DMASDSPI_1_Start, %function
+ 109              	DMASDSPI_1_Start:
+ 110              	.LFB3:
+  43:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  44:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  45:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_Start(DMASDSPI_1_VOIDFXN FnSelSlowCk, DMASDSPI_1_VOIDFXN FnSelFastCk, DMASDSPI_1_PR
+  46:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+ 111              		.loc 1 46 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 116              	.LVL1:
+ 117 0000 7047     		bx	lr
+ 118              		.cfi_endproc
+ 119              	.LFE3:
+ 120              		.size	DMASDSPI_1_Start, .-DMASDSPI_1_Start
+ 121 0002 00BF     		.section	.text.DMASDSPI_1_StartInterface,"ax",%progbits
+ 122              		.align	2
+ 123              		.global	DMASDSPI_1_StartInterface
+ 124              		.thumb
+ 125              		.thumb_func
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 4
+
+
+ 126              		.type	DMASDSPI_1_StartInterface, %function
+ 127              	DMASDSPI_1_StartInterface:
+ 128              	.LFB4:
+  47:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+  48:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_bEnableDMA = 0;
+  49:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SPI_FUNCTIONS SpiFuncs;
+  50:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPSTART = DMASDSPI_1_StartInterface;
+  51:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPSTOP = DMASDSPI_1_Stop;
+  52:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPRXSTREAM = DMASDSPI_1_ReceiveData;
+  53:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPTXSTREAM = DMASDSPI_1_SendData;
+  54:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPEXCHANGE = DMASDSPI_1_SwapByte;
+  55:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPSELECTCARD = DMASDSPI_1_SelectCard;
+  56:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPDESELECTCARD = DMASDSPI_1_DeselectCard;
+  57:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPFASTCK = FnSelFastCk;
+  58:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.SPSLOWCK = FnSelSlowCk;
+  59:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  60:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     SpiFuncs.PRINT = FnPrint;
+  61:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     disk_attach_spifuncs(&SpiFuncs);   
+  62:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+  63:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+  64:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  65:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  66:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** //initialise component, attach ISRs, etc.
+  67:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_StartInterface(void)
+  68:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {  
+ 129              		.loc 1 68 0
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133              		@ link register save eliminated.
+ 134 0000 7047     		bx	lr
+ 135              		.cfi_endproc
+ 136              	.LFE4:
+ 137              		.size	DMASDSPI_1_StartInterface, .-DMASDSPI_1_StartInterface
+ 138 0002 00BF     		.section	.text.DMASDSPI_1_Stop,"ax",%progbits
+ 139              		.align	2
+ 140              		.global	DMASDSPI_1_Stop
+ 141              		.thumb
+ 142              		.thumb_func
+ 143              		.type	DMASDSPI_1_Stop, %function
+ 144              	DMASDSPI_1_Stop:
+ 145              	.LFB5:
+  69:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+  70:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_UDB_BIT_COUNTER_Start();
+  71:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_g_nTransferFlags = 0;
+  72:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_g_nCtrlState = 1;
+  73:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_CTRL_Write(0x05);      //reset pulse to make sure bulk receive isn't active
+  74:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_UDB_SPI_DPTH_F0_CLEAR;
+  75:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_UDB_SPI_DPTH_F1_CLEAR;     //clear FIFO buffers
+  76:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_RX_BYTE_COUNTER_Start();
+  77:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+  78:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_RX_ISR_StartEx(DMASDSPI_1_RX_ISR);
+  79:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+  80:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_UDB_SPI_DPTH_F0_CLEAR;
+  81:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_UDB_SPI_DPTH_F1_CLEAR;     //clear FIFO buffers
+  82:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  83:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_SetDMAMode(1);
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 5
+
+
+  84:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+  85:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+  86:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  87:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  88:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+  89:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_Stop()
+  90:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+ 146              		.loc 1 90 0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150              		@ link register save eliminated.
+ 151 0000 7047     		bx	lr
+ 152              		.cfi_endproc
+ 153              	.LFE5:
+ 154              		.size	DMASDSPI_1_Stop, .-DMASDSPI_1_Stop
+ 155 0002 00BF     		.section	.text.DMASDSPI_1_SelectCard,"ax",%progbits
+ 156              		.align	2
+ 157              		.global	DMASDSPI_1_SelectCard
+ 158              		.thumb
+ 159              		.thumb_func
+ 160              		.type	DMASDSPI_1_SelectCard, %function
+ 161              	DMASDSPI_1_SelectCard:
+ 162              	.LFB6:
+  91:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+  92:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     if(DMASDSPI_1_bEnableDMA)
+  93:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     {
+  94:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_RX_DMA_ISR_Stop();
+  95:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_TX_DMA_ISR_Stop();
+  96:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_RX_DmaRelease();
+  97:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_TX_DmaRelease();
+  98:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     }
+  99:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_DeselectCard();
+ 100:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_RX_ISR_Stop();    
+ 101:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_RX_BYTE_COUNTER_Stop();
+ 102:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_UDB_BIT_COUNTER_Stop();
+ 103:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+ 104:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+ 105:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+ 106:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+ 107:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_SelectCard()
+ 108:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+ 163              		.loc 1 108 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167              		@ link register save eliminated.
+ 168 0000 7047     		bx	lr
+ 169              		.cfi_endproc
+ 170              	.LFE6:
+ 171              		.size	DMASDSPI_1_SelectCard, .-DMASDSPI_1_SelectCard
+ 172 0002 00BF     		.section	.text.DMASDSPI_1_DeselectCard,"ax",%progbits
+ 173              		.align	2
+ 174              		.global	DMASDSPI_1_DeselectCard
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.type	DMASDSPI_1_DeselectCard, %function
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 6
+
+
+ 178              	DMASDSPI_1_DeselectCard:
+ 179              	.LFB7:
+ 109:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+ 110:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_g_nCtrlState &= ~0x01;
+ 111:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_CTRL_Write(DMASDSPI_1_g_nCtrlState);
+ 112:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+ 113:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+ 114:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+ 115:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_DeselectCard()
+ 116:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+ 180              		.loc 1 116 0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              		@ link register save eliminated.
+ 185 0000 7047     		bx	lr
+ 186              		.cfi_endproc
+ 187              	.LFE7:
+ 188              		.size	DMASDSPI_1_DeselectCard, .-DMASDSPI_1_DeselectCard
+ 189 0002 00BF     		.section	.text.DMASDSPI_1_SendData,"ax",%progbits
+ 190              		.align	2
+ 191              		.global	DMASDSPI_1_SendData
+ 192              		.thumb
+ 193              		.thumb_func
+ 194              		.type	DMASDSPI_1_SendData, %function
+ 195              	DMASDSPI_1_SendData:
+ 196              	.LFB8:
+ 117:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+ 118:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_g_nCtrlState |= 0x01;
+ 119:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_CTRL_Write(DMASDSPI_1_g_nCtrlState);
+ 120:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+ 121:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+ 122:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+ 123:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** //Send a block of data and discard received bytes.
+ 124:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_SendData(unsigned char* pBuffer, unsigned int nLength)
+ 125:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+ 197              		.loc 1 125 0
+ 198              		.cfi_startproc
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201              		@ link register save eliminated.
+ 202              	.LVL2:
+ 203 0000 7047     		bx	lr
+ 204              		.cfi_endproc
+ 205              	.LFE8:
+ 206              		.size	DMASDSPI_1_SendData, .-DMASDSPI_1_SendData
+ 207 0002 00BF     		.section	.text.DMASDSPI_1_ReceiveData,"ax",%progbits
+ 208              		.align	2
+ 209              		.global	DMASDSPI_1_ReceiveData
+ 210              		.thumb
+ 211              		.thumb_func
+ 212              		.type	DMASDSPI_1_ReceiveData, %function
+ 213              	DMASDSPI_1_ReceiveData:
+ 214              	.LFB9:
+ 126:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+ 127:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     if((nLength > 4095)||(nLength < 1)){
+ 128:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         return; //this never happens - filesys transfers max. 512 bytes at a time
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 7
+
+
+ 129:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     }
+ 130:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+ 131:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     if(DMASDSPI_1_bEnableDMA)
+ 132:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     {
+ 133:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         //Fast (DMA) implementation...
+ 134:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         
+ 135:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_TX_TD[0] = CyDmaTdAllocate();
+ 136:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaTdSetConfiguration(DMASDSPI_1_TX_TD[0], nLength, CY_DMA_DISABLE_TD, DMASDSPI_1_TX__TD_
+ 137:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaTdSetAddress(DMASDSPI_1_TX_TD[0], LO16((uint32)pBuffer), LO16((uint32)DMASDSPI_1_UDB_S
+ 138:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaChSetInitialTd(DMASDSPI_1_TX_Chan, DMASDSPI_1_TX_TD[0]);
+ 139:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+ 140:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaClearPendingDrq(DMASDSPI_1_TX_Chan);
+ 141:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_g_nTransferFlags |= DMASDSPI_1_TRANSFER_WAIT_TXDMAISR;   //set flag
+ 142:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaChEnable(DMASDSPI_1_TX_Chan, 1);         //this will start the transfer
+ 143:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         while(DMASDSPI_1_g_nTransferFlags & DMASDSPI_1_TRANSFER_WAIT_TXDMAISR); //wait for flag to 
+ 144:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         
+ 145:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaChSetRequest(DMASDSPI_1_TX_Chan, CPU_TERM_CHAIN);
+ 146:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaTdFree(DMASDSPI_1_TX_TD[0]);                       //Free Transfer Descriptor    
+ 147:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+ 148:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_UDB_SPI_DPTH_F1_CLEAR;     //clear output FIFO buffer
+ 149:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_RX_ISR_ClearPending(); //clear pending interrupt from RX_ISR (non-DMA)
+ 150:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         return;
+ 151:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     }else{
+ 152:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         //Slow (non DMA) implementation...
+ 153:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         unsigned int i;
+ 154:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         for(i = 0; i < nLength; i++)
+ 155:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****             DMASDSPI_1_SwapByte(pBuffer[i]);
+ 156:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     }
+ 157:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+ 158:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+ 159:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+ 160:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** //Send a block of NULL data (default 0xFF) and place received bytes into buffer.
+ 161:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_ReceiveData(unsigned char* pBuffer, unsigned int nLength)
+ 162:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {   
+ 215              		.loc 1 162 0
+ 216              		.cfi_startproc
+ 217              		@ args = 0, pretend = 0, frame = 0
+ 218              		@ frame_needed = 0, uses_anonymous_args = 0
+ 219              		@ link register save eliminated.
+ 220              	.LVL3:
+ 221 0000 7047     		bx	lr
+ 222              		.cfi_endproc
+ 223              	.LFE9:
+ 224              		.size	DMASDSPI_1_ReceiveData, .-DMASDSPI_1_ReceiveData
+ 225 0002 00BF     		.section	.text.DMASDSPI_1_SwapByte,"ax",%progbits
+ 226              		.align	2
+ 227              		.global	DMASDSPI_1_SwapByte
+ 228              		.thumb
+ 229              		.thumb_func
+ 230              		.type	DMASDSPI_1_SwapByte, %function
+ 231              	DMASDSPI_1_SwapByte:
+ 232              	.LFB10:
+ 163:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+ 164:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     if((nLength > 4095)||(nLength < 1)){
+ 165:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         return; //this never happens - filesys transfers max. 512 bytes at a time
+ 166:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     }
+ 167:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 8
+
+
+ 168:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     if(DMASDSPI_1_bEnableDMA)
+ 169:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     {
+ 170:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         //DMA implementation...
+ 171:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****    
+ 172:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_RX_BYTE_COUNTER_WriteCompare(nLength-1); //write byte counter
+ 173:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_RX_TD[0] = CyDmaTdAllocate();          //allocate a TD
+ 174:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****        
+ 175:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         //setup TD and attach to channel
+ 176:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaTdSetConfiguration(DMASDSPI_1_RX_TD[0], nLength, CY_DMA_DISABLE_TD, DMASDSPI_1_RX__TD_
+ 177:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaTdSetAddress(DMASDSPI_1_RX_TD[0], LO16((uint32)DMASDSPI_1_UDB_SPI_DPTH_F1_PTR), LO16((
+ 178:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaChSetInitialTd(DMASDSPI_1_RX_Chan, DMASDSPI_1_RX_TD[0]);
+ 179:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         
+ 180:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaClearPendingDrq(DMASDSPI_1_RX_Chan);
+ 181:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaChEnable(DMASDSPI_1_RX_Chan, 1);
+ 182:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     
+ 183:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_g_nTransferFlags |= DMASDSPI_1_TRANSFER_WAIT_RXDMAISR;   //Set flag
+ 184:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         
+ 185:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_CTRL_Write(DMASDSPI_1_g_nCtrlState | 0x02);  //trigger transfer
+ 186:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         
+ 187:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         //wait until done.
+ 188:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         while(DMASDSPI_1_g_nTransferFlags & DMASDSPI_1_TRANSFER_WAIT_RXDMAISR);
+ 189:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         
+ 190:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaChSetRequest(DMASDSPI_1_RX_Chan, CPU_TERM_CHAIN);
+ 191:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         CyDmaTdFree(DMASDSPI_1_RX_TD[0]);                       //Free Transfer Descriptor    
+ 192:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         
+ 193:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         DMASDSPI_1_RX_ISR_ClearPending(); //clear pending interrupt from RX_ISR (non-DMA)
+ 194:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         return;
+ 195:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     } else {
+ 196:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         //Slow (non DMA) implementation...
+ 197:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         unsigned int i;
+ 198:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****         for(i = 0; i < nLength; i++)
+ 199:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****             pBuffer[i] = DMASDSPI_1_SwapByte(0xFF);    
+ 200:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     }
+ 201:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+ 202:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+ 203:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** 
+ 204:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** //Swap a single byte (send it, and receive RX byte)
+ 205:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** unsigned char DMASDSPI_1_SwapByte(unsigned char nByte)
+ 206:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+ 233              		.loc 1 206 0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 0
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		@ link register save eliminated.
+ 238              	.LVL4:
+ 239              	.LVL5:
+ 207:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** /*
+ 208:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_RX_ISR_Enable();   //will be disabled after being triggered
+ 209:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     //Set waiting flag...
+ 210:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     DMASDSPI_1_g_nTransferFlags |= DMASDSPI_1_TRANSFER_WAIT_RXISR;
+ 211:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     //write byte to TX
+ 212:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     CY_SET_REG8(DMASDSPI_1_UDB_SPI_DPTH_F0_PTR, nByte);
+ 213:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     //wait for RX interrupt
+ 214:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     while(DMASDSPI_1_g_nTransferFlags & DMASDSPI_1_TRANSFER_WAIT_RXISR);
+ 215:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     //read byte from RX
+ 216:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     unsigned char rv = CY_GET_REG8(DMASDSPI_1_UDB_SPI_DPTH_F1_PTR);
+ 217:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     //return byte
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 9
+
+
+ 218:.\Generated_Source\PSoC5/DMASDSPI_1_api.c ****     return rv;
+ 219:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** */
+ 220:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** }
+ 240              		.loc 1 220 0
+ 241 0000 7047     		bx	lr
+ 242              		.cfi_endproc
+ 243              	.LFE10:
+ 244              		.size	DMASDSPI_1_SwapByte, .-DMASDSPI_1_SwapByte
+ 245 0002 00BF     		.section	.text.DMASDSPI_1_SetDMAMode,"ax",%progbits
+ 246              		.align	2
+ 247              		.global	DMASDSPI_1_SetDMAMode
+ 248              		.thumb
+ 249              		.thumb_func
+ 250              		.type	DMASDSPI_1_SetDMAMode, %function
+ 251              	DMASDSPI_1_SetDMAMode:
+ 252              	.LFB11:
+ 221:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** void DMASDSPI_1_SetDMAMode(unsigned char bEnableDMA)
+ 222:.\Generated_Source\PSoC5/DMASDSPI_1_api.c **** {
+ 253              		.loc 1 222 0
+ 254              		.cfi_startproc
+ 255              		@ args = 0, pretend = 0, frame = 0
+ 256              		@ frame_needed = 0, uses_anonymous_args = 0
+ 257              		@ link register save eliminated.
+ 258              	.LVL6:
+ 259 0000 7047     		bx	lr
+ 260              		.cfi_endproc
+ 261              	.LFE11:
+ 262              		.size	DMASDSPI_1_SetDMAMode, .-DMASDSPI_1_SetDMAMode
+ 263              		.comm	DMASDSPI_1_TX_TD,1,4
+ 264              		.comm	DMASDSPI_1_TX_Chan,1,1
+ 265              		.comm	DMASDSPI_1_RX_TD,1,4
+ 266              		.comm	DMASDSPI_1_RX_Chan,1,1
+ 267              		.comm	DMASDSPI_1_bEnableDMA,1,1
+ 268              		.global	DMASDSPI_1_g_nCtrlState
+ 269              		.global	DMASDSPI_1_g_nTransferFlags
+ 270 0002 00BF     		.bss
+ 271              		.set	.LANCHOR0,. + 0
+ 272              		.type	DMASDSPI_1_g_nTransferFlags, %object
+ 273              		.size	DMASDSPI_1_g_nTransferFlags, 1
+ 274              	DMASDSPI_1_g_nTransferFlags:
+ 275 0000 00       		.space	1
+ 276              		.type	DMASDSPI_1_g_nCtrlState, %object
+ 277              		.size	DMASDSPI_1_g_nCtrlState, 1
+ 278              	DMASDSPI_1_g_nCtrlState:
+ 279 0001 00       		.space	1
+ 280              		.text
+ 281              	.Letext0:
+ 282              		.file 2 ".\\Generated_Source\\PSoC5\\DMASDSPI_1_api.h"
+ 283              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 284              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 285              		.section	.debug_info,"",%progbits
+ 286              	.Ldebug_info0:
+ 287 0000 DE020000 		.4byte	0x2de
+ 288 0004 0400     		.2byte	0x4
+ 289 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 290 000a 04       		.byte	0x4
+ 291 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 10
+
+
+ 292 000c 51020000 		.4byte	.LASF38
+ 293 0010 01       		.byte	0x1
+ 294 0011 4F000000 		.4byte	.LASF39
+ 295 0015 D3000000 		.4byte	.LASF40
+ 296 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 297 001d 00000000 		.4byte	0
+ 298 0021 00000000 		.4byte	.Ldebug_line0
+ 299 0025 02       		.uleb128 0x2
+ 300 0026 68030000 		.4byte	.LASF0
+ 301 002a 02       		.byte	0x2
+ 302 002b 25       		.byte	0x25
+ 303 002c 30000000 		.4byte	0x30
+ 304 0030 03       		.uleb128 0x3
+ 305 0031 04       		.byte	0x4
+ 306 0032 36000000 		.4byte	0x36
+ 307 0036 04       		.uleb128 0x4
+ 308 0037 02       		.uleb128 0x2
+ 309 0038 94010000 		.4byte	.LASF1
+ 310 003c 02       		.byte	0x2
+ 311 003d 26       		.byte	0x26
+ 312 003e 42000000 		.4byte	0x42
+ 313 0042 03       		.uleb128 0x3
+ 314 0043 04       		.byte	0x4
+ 315 0044 48000000 		.4byte	0x48
+ 316 0048 05       		.uleb128 0x5
+ 317 0049 53000000 		.4byte	0x53
+ 318 004d 06       		.uleb128 0x6
+ 319 004e 53000000 		.4byte	0x53
+ 320 0052 00       		.byte	0
+ 321 0053 03       		.uleb128 0x3
+ 322 0054 04       		.byte	0x4
+ 323 0055 59000000 		.4byte	0x59
+ 324 0059 07       		.uleb128 0x7
+ 325 005a 01       		.byte	0x1
+ 326 005b 08       		.byte	0x8
+ 327 005c 4C020000 		.4byte	.LASF2
+ 328 0060 07       		.uleb128 0x7
+ 329 0061 01       		.byte	0x1
+ 330 0062 06       		.byte	0x6
+ 331 0063 C9010000 		.4byte	.LASF3
+ 332 0067 02       		.uleb128 0x2
+ 333 0068 42010000 		.4byte	.LASF4
+ 334 006c 03       		.byte	0x3
+ 335 006d 1D       		.byte	0x1d
+ 336 006e 72000000 		.4byte	0x72
+ 337 0072 07       		.uleb128 0x7
+ 338 0073 01       		.byte	0x1
+ 339 0074 08       		.byte	0x8
+ 340 0075 A7010000 		.4byte	.LASF5
+ 341 0079 07       		.uleb128 0x7
+ 342 007a 02       		.byte	0x2
+ 343 007b 05       		.byte	0x5
+ 344 007c 45000000 		.4byte	.LASF6
+ 345 0080 07       		.uleb128 0x7
+ 346 0081 02       		.byte	0x2
+ 347 0082 07       		.byte	0x7
+ 348 0083 23020000 		.4byte	.LASF7
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 11
+
+
+ 349 0087 07       		.uleb128 0x7
+ 350 0088 04       		.byte	0x4
+ 351 0089 05       		.byte	0x5
+ 352 008a 39010000 		.4byte	.LASF8
+ 353 008e 07       		.uleb128 0x7
+ 354 008f 04       		.byte	0x4
+ 355 0090 07       		.byte	0x7
+ 356 0091 1C030000 		.4byte	.LASF9
+ 357 0095 07       		.uleb128 0x7
+ 358 0096 08       		.byte	0x8
+ 359 0097 05       		.byte	0x5
+ 360 0098 2B010000 		.4byte	.LASF10
+ 361 009c 07       		.uleb128 0x7
+ 362 009d 08       		.byte	0x8
+ 363 009e 07       		.byte	0x7
+ 364 009f D5010000 		.4byte	.LASF11
+ 365 00a3 08       		.uleb128 0x8
+ 366 00a4 04       		.byte	0x4
+ 367 00a5 05       		.byte	0x5
+ 368 00a6 696E7400 		.ascii	"int\000"
+ 369 00aa 07       		.uleb128 0x7
+ 370 00ab 04       		.byte	0x4
+ 371 00ac 07       		.byte	0x7
+ 372 00ad EC010000 		.4byte	.LASF12
+ 373 00b1 02       		.uleb128 0x2
+ 374 00b2 CB000000 		.4byte	.LASF13
+ 375 00b6 04       		.byte	0x4
+ 376 00b7 15       		.byte	0x15
+ 377 00b8 67000000 		.4byte	0x67
+ 378 00bc 07       		.uleb128 0x7
+ 379 00bd 04       		.byte	0x4
+ 380 00be 07       		.byte	0x7
+ 381 00bf 79000000 		.4byte	.LASF14
+ 382 00c3 09       		.uleb128 0x9
+ 383 00c4 7B030000 		.4byte	.LASF41
+ 384 00c8 01       		.byte	0x1
+ 385 00c9 1F       		.byte	0x1f
+ 386 00ca 00000000 		.4byte	.LFB0
+ 387 00ce 18000000 		.4byte	.LFE0-.LFB0
+ 388 00d2 01       		.uleb128 0x1
+ 389 00d3 9C       		.byte	0x9c
+ 390 00d4 F3000000 		.4byte	0xf3
+ 391 00d8 0A       		.uleb128 0xa
+ 392 00d9 9A000000 		.4byte	.LASF42
+ 393 00dd 01       		.byte	0x1
+ 394 00de 22       		.byte	0x22
+ 395 00df A3000000 		.4byte	0xa3
+ 396 00e3 E9000000 		.4byte	0xe9
+ 397 00e7 0B       		.uleb128 0xb
+ 398 00e8 00       		.byte	0
+ 399 00e9 0C       		.uleb128 0xc
+ 400 00ea 10000000 		.4byte	.LVL0
+ 401 00ee D4020000 		.4byte	0x2d4
+ 402 00f2 00       		.byte	0
+ 403 00f3 0D       		.uleb128 0xd
+ 404 00f4 36020000 		.4byte	.LASF15
+ 405 00f8 01       		.byte	0x1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 12
+
+
+ 406 00f9 26       		.byte	0x26
+ 407 00fa 00000000 		.4byte	.LFB1
+ 408 00fe 10000000 		.4byte	.LFE1-.LFB1
+ 409 0102 01       		.uleb128 0x1
+ 410 0103 9C       		.byte	0x9c
+ 411 0104 0D       		.uleb128 0xd
+ 412 0105 62010000 		.4byte	.LASF16
+ 413 0109 01       		.byte	0x1
+ 414 010a 29       		.byte	0x29
+ 415 010b 00000000 		.4byte	.LFB2
+ 416 010f 10000000 		.4byte	.LFE2-.LFB2
+ 417 0113 01       		.uleb128 0x1
+ 418 0114 9C       		.byte	0x9c
+ 419 0115 0E       		.uleb128 0xe
+ 420 0116 57030000 		.4byte	.LASF23
+ 421 011a 01       		.byte	0x1
+ 422 011b 2D       		.byte	0x2d
+ 423 011c 00000000 		.4byte	.LFB3
+ 424 0120 02000000 		.4byte	.LFE3-.LFB3
+ 425 0124 01       		.uleb128 0x1
+ 426 0125 9C       		.byte	0x9c
+ 427 0126 52010000 		.4byte	0x152
+ 428 012a 0F       		.uleb128 0xf
+ 429 012b 78010000 		.4byte	.LASF17
+ 430 012f 01       		.byte	0x1
+ 431 0130 2D       		.byte	0x2d
+ 432 0131 25000000 		.4byte	0x25
+ 433 0135 01       		.uleb128 0x1
+ 434 0136 50       		.byte	0x50
+ 435 0137 0F       		.uleb128 0xf
+ 436 0138 F9010000 		.4byte	.LASF18
+ 437 013c 01       		.byte	0x1
+ 438 013d 2D       		.byte	0x2d
+ 439 013e 25000000 		.4byte	0x25
+ 440 0142 01       		.uleb128 0x1
+ 441 0143 51       		.byte	0x51
+ 442 0144 0F       		.uleb128 0xf
+ 443 0145 24000000 		.4byte	.LASF19
+ 444 0149 01       		.byte	0x1
+ 445 014a 2D       		.byte	0x2d
+ 446 014b 37000000 		.4byte	0x37
+ 447 014f 01       		.uleb128 0x1
+ 448 0150 52       		.byte	0x52
+ 449 0151 00       		.byte	0
+ 450 0152 10       		.uleb128 0x10
+ 451 0153 8D030000 		.4byte	.LASF43
+ 452 0157 01       		.byte	0x1
+ 453 0158 43       		.byte	0x43
+ 454 0159 00000000 		.4byte	.LFB4
+ 455 015d 02000000 		.4byte	.LFE4-.LFB4
+ 456 0161 01       		.uleb128 0x1
+ 457 0162 9C       		.byte	0x9c
+ 458 0163 0D       		.uleb128 0xd
+ 459 0164 84010000 		.4byte	.LASF20
+ 460 0168 01       		.byte	0x1
+ 461 0169 59       		.byte	0x59
+ 462 016a 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 13
+
+
+ 463 016e 02000000 		.4byte	.LFE5-.LFB5
+ 464 0172 01       		.uleb128 0x1
+ 465 0173 9C       		.byte	0x9c
+ 466 0174 0D       		.uleb128 0xd
+ 467 0175 4C010000 		.4byte	.LASF21
+ 468 0179 01       		.byte	0x1
+ 469 017a 6B       		.byte	0x6b
+ 470 017b 00000000 		.4byte	.LFB6
+ 471 017f 02000000 		.4byte	.LFE6-.LFB6
+ 472 0183 01       		.uleb128 0x1
+ 473 0184 9C       		.byte	0x9c
+ 474 0185 0D       		.uleb128 0xd
+ 475 0186 82000000 		.4byte	.LASF22
+ 476 018a 01       		.byte	0x1
+ 477 018b 73       		.byte	0x73
+ 478 018c 00000000 		.4byte	.LFB7
+ 479 0190 02000000 		.4byte	.LFE7-.LFB7
+ 480 0194 01       		.uleb128 0x1
+ 481 0195 9C       		.byte	0x9c
+ 482 0196 0E       		.uleb128 0xe
+ 483 0197 08030000 		.4byte	.LASF24
+ 484 019b 01       		.byte	0x1
+ 485 019c 7C       		.byte	0x7c
+ 486 019d 00000000 		.4byte	.LFB8
+ 487 01a1 02000000 		.4byte	.LFE8-.LFB8
+ 488 01a5 01       		.uleb128 0x1
+ 489 01a6 9C       		.byte	0x9c
+ 490 01a7 C6010000 		.4byte	0x1c6
+ 491 01ab 0F       		.uleb128 0xf
+ 492 01ac 1C000000 		.4byte	.LASF25
+ 493 01b0 01       		.byte	0x1
+ 494 01b1 7C       		.byte	0x7c
+ 495 01b2 C6010000 		.4byte	0x1c6
+ 496 01b6 01       		.uleb128 0x1
+ 497 01b7 50       		.byte	0x50
+ 498 01b8 0F       		.uleb128 0xf
+ 499 01b9 2C000000 		.4byte	.LASF26
+ 500 01bd 01       		.byte	0x1
+ 501 01be 7C       		.byte	0x7c
+ 502 01bf AA000000 		.4byte	0xaa
+ 503 01c3 01       		.uleb128 0x1
+ 504 01c4 51       		.byte	0x51
+ 505 01c5 00       		.byte	0
+ 506 01c6 03       		.uleb128 0x3
+ 507 01c7 04       		.byte	0x4
+ 508 01c8 72000000 		.4byte	0x72
+ 509 01cc 0E       		.uleb128 0xe
+ 510 01cd B4000000 		.4byte	.LASF27
+ 511 01d1 01       		.byte	0x1
+ 512 01d2 A1       		.byte	0xa1
+ 513 01d3 00000000 		.4byte	.LFB9
+ 514 01d7 02000000 		.4byte	.LFE9-.LFB9
+ 515 01db 01       		.uleb128 0x1
+ 516 01dc 9C       		.byte	0x9c
+ 517 01dd FC010000 		.4byte	0x1fc
+ 518 01e1 0F       		.uleb128 0xf
+ 519 01e2 1C000000 		.4byte	.LASF25
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 14
+
+
+ 520 01e6 01       		.byte	0x1
+ 521 01e7 A1       		.byte	0xa1
+ 522 01e8 C6010000 		.4byte	0x1c6
+ 523 01ec 01       		.uleb128 0x1
+ 524 01ed 50       		.byte	0x50
+ 525 01ee 0F       		.uleb128 0xf
+ 526 01ef 2C000000 		.4byte	.LASF26
+ 527 01f3 01       		.byte	0x1
+ 528 01f4 A1       		.byte	0xa1
+ 529 01f5 AA000000 		.4byte	0xaa
+ 530 01f9 01       		.uleb128 0x1
+ 531 01fa 51       		.byte	0x51
+ 532 01fb 00       		.byte	0
+ 533 01fc 11       		.uleb128 0x11
+ 534 01fd B5010000 		.4byte	.LASF44
+ 535 0201 01       		.byte	0x1
+ 536 0202 CD       		.byte	0xcd
+ 537 0203 72000000 		.4byte	0x72
+ 538 0207 00000000 		.4byte	.LFB10
+ 539 020b 02000000 		.4byte	.LFE10-.LFB10
+ 540 020f 01       		.uleb128 0x1
+ 541 0210 9C       		.byte	0x9c
+ 542 0211 25020000 		.4byte	0x225
+ 543 0215 12       		.uleb128 0x12
+ 544 0216 1D020000 		.4byte	.LASF28
+ 545 021a 01       		.byte	0x1
+ 546 021b CD       		.byte	0xcd
+ 547 021c 72000000 		.4byte	0x72
+ 548 0220 00000000 		.4byte	.LLST0
+ 549 0224 00       		.byte	0
+ 550 0225 0E       		.uleb128 0xe
+ 551 0226 41030000 		.4byte	.LASF29
+ 552 022a 01       		.byte	0x1
+ 553 022b DD       		.byte	0xdd
+ 554 022c 00000000 		.4byte	.LFB11
+ 555 0230 02000000 		.4byte	.LFE11-.LFB11
+ 556 0234 01       		.uleb128 0x1
+ 557 0235 9C       		.byte	0x9c
+ 558 0236 48020000 		.4byte	0x248
+ 559 023a 0F       		.uleb128 0xf
+ 560 023b 20010000 		.4byte	.LASF30
+ 561 023f 01       		.byte	0x1
+ 562 0240 DD       		.byte	0xdd
+ 563 0241 72000000 		.4byte	0x72
+ 564 0245 01       		.uleb128 0x1
+ 565 0246 50       		.byte	0x50
+ 566 0247 00       		.byte	0
+ 567 0248 13       		.uleb128 0x13
+ 568 0249 00000000 		.4byte	.LASF31
+ 569 024d 01       		.byte	0x1
+ 570 024e 0F       		.byte	0xf
+ 571 024f 59020000 		.4byte	0x259
+ 572 0253 05       		.uleb128 0x5
+ 573 0254 03       		.byte	0x3
+ 574 0255 00000000 		.4byte	DMASDSPI_1_g_nTransferFlags
+ 575 0259 14       		.uleb128 0x14
+ 576 025a 72000000 		.4byte	0x72
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 15
+
+
+ 577 025e 13       		.uleb128 0x13
+ 578 025f 05020000 		.4byte	.LASF32
+ 579 0263 01       		.byte	0x1
+ 580 0264 10       		.byte	0x10
+ 581 0265 59020000 		.4byte	0x259
+ 582 0269 05       		.uleb128 0x5
+ 583 026a 03       		.byte	0x3
+ 584 026b 00000000 		.4byte	DMASDSPI_1_g_nCtrlState
+ 585 026f 13       		.uleb128 0x13
+ 586 0270 DF020000 		.4byte	.LASF33
+ 587 0274 01       		.byte	0x1
+ 588 0275 12       		.byte	0x12
+ 589 0276 B1000000 		.4byte	0xb1
+ 590 027a 05       		.uleb128 0x5
+ 591 027b 03       		.byte	0x3
+ 592 027c 00000000 		.4byte	DMASDSPI_1_bEnableDMA
+ 593 0280 13       		.uleb128 0x13
+ 594 0281 F5020000 		.4byte	.LASF34
+ 595 0285 01       		.byte	0x1
+ 596 0286 16       		.byte	0x16
+ 597 0287 B1000000 		.4byte	0xb1
+ 598 028b 05       		.uleb128 0x5
+ 599 028c 03       		.byte	0x3
+ 600 028d 00000000 		.4byte	DMASDSPI_1_RX_Chan
+ 601 0291 15       		.uleb128 0x15
+ 602 0292 B1000000 		.4byte	0xb1
+ 603 0296 A1020000 		.4byte	0x2a1
+ 604 029a 16       		.uleb128 0x16
+ 605 029b BC000000 		.4byte	0xbc
+ 606 029f 00       		.byte	0
+ 607 02a0 00       		.byte	0
+ 608 02a1 13       		.uleb128 0x13
+ 609 02a2 A7030000 		.4byte	.LASF35
+ 610 02a6 01       		.byte	0x1
+ 611 02a7 17       		.byte	0x17
+ 612 02a8 91020000 		.4byte	0x291
+ 613 02ac 05       		.uleb128 0x5
+ 614 02ad 03       		.byte	0x3
+ 615 02ae 00000000 		.4byte	DMASDSPI_1_RX_TD
+ 616 02b2 13       		.uleb128 0x13
+ 617 02b3 2E030000 		.4byte	.LASF36
+ 618 02b7 01       		.byte	0x1
+ 619 02b8 1A       		.byte	0x1a
+ 620 02b9 B1000000 		.4byte	0xb1
+ 621 02bd 05       		.uleb128 0x5
+ 622 02be 03       		.byte	0x3
+ 623 02bf 00000000 		.4byte	DMASDSPI_1_TX_Chan
+ 624 02c3 13       		.uleb128 0x13
+ 625 02c4 34000000 		.4byte	.LASF37
+ 626 02c8 01       		.byte	0x1
+ 627 02c9 1B       		.byte	0x1b
+ 628 02ca 91020000 		.4byte	0x291
+ 629 02ce 05       		.uleb128 0x5
+ 630 02cf 03       		.byte	0x3
+ 631 02d0 00000000 		.4byte	DMASDSPI_1_TX_TD
+ 632 02d4 17       		.uleb128 0x17
+ 633 02d5 9A000000 		.4byte	.LASF42
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 16
+
+
+ 634 02d9 01       		.byte	0x1
+ 635 02da 22       		.byte	0x22
+ 636 02db A3000000 		.4byte	0xa3
+ 637 02df 0B       		.uleb128 0xb
+ 638 02e0 00       		.byte	0
+ 639 02e1 00       		.byte	0
+ 640              		.section	.debug_abbrev,"",%progbits
+ 641              	.Ldebug_abbrev0:
+ 642 0000 01       		.uleb128 0x1
+ 643 0001 11       		.uleb128 0x11
+ 644 0002 01       		.byte	0x1
+ 645 0003 25       		.uleb128 0x25
+ 646 0004 0E       		.uleb128 0xe
+ 647 0005 13       		.uleb128 0x13
+ 648 0006 0B       		.uleb128 0xb
+ 649 0007 03       		.uleb128 0x3
+ 650 0008 0E       		.uleb128 0xe
+ 651 0009 1B       		.uleb128 0x1b
+ 652 000a 0E       		.uleb128 0xe
+ 653 000b 55       		.uleb128 0x55
+ 654 000c 17       		.uleb128 0x17
+ 655 000d 11       		.uleb128 0x11
+ 656 000e 01       		.uleb128 0x1
+ 657 000f 10       		.uleb128 0x10
+ 658 0010 17       		.uleb128 0x17
+ 659 0011 00       		.byte	0
+ 660 0012 00       		.byte	0
+ 661 0013 02       		.uleb128 0x2
+ 662 0014 16       		.uleb128 0x16
+ 663 0015 00       		.byte	0
+ 664 0016 03       		.uleb128 0x3
+ 665 0017 0E       		.uleb128 0xe
+ 666 0018 3A       		.uleb128 0x3a
+ 667 0019 0B       		.uleb128 0xb
+ 668 001a 3B       		.uleb128 0x3b
+ 669 001b 0B       		.uleb128 0xb
+ 670 001c 49       		.uleb128 0x49
+ 671 001d 13       		.uleb128 0x13
+ 672 001e 00       		.byte	0
+ 673 001f 00       		.byte	0
+ 674 0020 03       		.uleb128 0x3
+ 675 0021 0F       		.uleb128 0xf
+ 676 0022 00       		.byte	0
+ 677 0023 0B       		.uleb128 0xb
+ 678 0024 0B       		.uleb128 0xb
+ 679 0025 49       		.uleb128 0x49
+ 680 0026 13       		.uleb128 0x13
+ 681 0027 00       		.byte	0
+ 682 0028 00       		.byte	0
+ 683 0029 04       		.uleb128 0x4
+ 684 002a 15       		.uleb128 0x15
+ 685 002b 00       		.byte	0
+ 686 002c 27       		.uleb128 0x27
+ 687 002d 19       		.uleb128 0x19
+ 688 002e 00       		.byte	0
+ 689 002f 00       		.byte	0
+ 690 0030 05       		.uleb128 0x5
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 17
+
+
+ 691 0031 15       		.uleb128 0x15
+ 692 0032 01       		.byte	0x1
+ 693 0033 27       		.uleb128 0x27
+ 694 0034 19       		.uleb128 0x19
+ 695 0035 01       		.uleb128 0x1
+ 696 0036 13       		.uleb128 0x13
+ 697 0037 00       		.byte	0
+ 698 0038 00       		.byte	0
+ 699 0039 06       		.uleb128 0x6
+ 700 003a 05       		.uleb128 0x5
+ 701 003b 00       		.byte	0
+ 702 003c 49       		.uleb128 0x49
+ 703 003d 13       		.uleb128 0x13
+ 704 003e 00       		.byte	0
+ 705 003f 00       		.byte	0
+ 706 0040 07       		.uleb128 0x7
+ 707 0041 24       		.uleb128 0x24
+ 708 0042 00       		.byte	0
+ 709 0043 0B       		.uleb128 0xb
+ 710 0044 0B       		.uleb128 0xb
+ 711 0045 3E       		.uleb128 0x3e
+ 712 0046 0B       		.uleb128 0xb
+ 713 0047 03       		.uleb128 0x3
+ 714 0048 0E       		.uleb128 0xe
+ 715 0049 00       		.byte	0
+ 716 004a 00       		.byte	0
+ 717 004b 08       		.uleb128 0x8
+ 718 004c 24       		.uleb128 0x24
+ 719 004d 00       		.byte	0
+ 720 004e 0B       		.uleb128 0xb
+ 721 004f 0B       		.uleb128 0xb
+ 722 0050 3E       		.uleb128 0x3e
+ 723 0051 0B       		.uleb128 0xb
+ 724 0052 03       		.uleb128 0x3
+ 725 0053 08       		.uleb128 0x8
+ 726 0054 00       		.byte	0
+ 727 0055 00       		.byte	0
+ 728 0056 09       		.uleb128 0x9
+ 729 0057 2E       		.uleb128 0x2e
+ 730 0058 01       		.byte	0x1
+ 731 0059 3F       		.uleb128 0x3f
+ 732 005a 19       		.uleb128 0x19
+ 733 005b 03       		.uleb128 0x3
+ 734 005c 0E       		.uleb128 0xe
+ 735 005d 3A       		.uleb128 0x3a
+ 736 005e 0B       		.uleb128 0xb
+ 737 005f 3B       		.uleb128 0x3b
+ 738 0060 0B       		.uleb128 0xb
+ 739 0061 11       		.uleb128 0x11
+ 740 0062 01       		.uleb128 0x1
+ 741 0063 12       		.uleb128 0x12
+ 742 0064 06       		.uleb128 0x6
+ 743 0065 40       		.uleb128 0x40
+ 744 0066 18       		.uleb128 0x18
+ 745 0067 9742     		.uleb128 0x2117
+ 746 0069 19       		.uleb128 0x19
+ 747 006a 01       		.uleb128 0x1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 18
+
+
+ 748 006b 13       		.uleb128 0x13
+ 749 006c 00       		.byte	0
+ 750 006d 00       		.byte	0
+ 751 006e 0A       		.uleb128 0xa
+ 752 006f 2E       		.uleb128 0x2e
+ 753 0070 01       		.byte	0x1
+ 754 0071 3F       		.uleb128 0x3f
+ 755 0072 19       		.uleb128 0x19
+ 756 0073 03       		.uleb128 0x3
+ 757 0074 0E       		.uleb128 0xe
+ 758 0075 3A       		.uleb128 0x3a
+ 759 0076 0B       		.uleb128 0xb
+ 760 0077 3B       		.uleb128 0x3b
+ 761 0078 0B       		.uleb128 0xb
+ 762 0079 49       		.uleb128 0x49
+ 763 007a 13       		.uleb128 0x13
+ 764 007b 3C       		.uleb128 0x3c
+ 765 007c 19       		.uleb128 0x19
+ 766 007d 01       		.uleb128 0x1
+ 767 007e 13       		.uleb128 0x13
+ 768 007f 00       		.byte	0
+ 769 0080 00       		.byte	0
+ 770 0081 0B       		.uleb128 0xb
+ 771 0082 18       		.uleb128 0x18
+ 772 0083 00       		.byte	0
+ 773 0084 00       		.byte	0
+ 774 0085 00       		.byte	0
+ 775 0086 0C       		.uleb128 0xc
+ 776 0087 898201   		.uleb128 0x4109
+ 777 008a 00       		.byte	0
+ 778 008b 11       		.uleb128 0x11
+ 779 008c 01       		.uleb128 0x1
+ 780 008d 31       		.uleb128 0x31
+ 781 008e 13       		.uleb128 0x13
+ 782 008f 00       		.byte	0
+ 783 0090 00       		.byte	0
+ 784 0091 0D       		.uleb128 0xd
+ 785 0092 2E       		.uleb128 0x2e
+ 786 0093 00       		.byte	0
+ 787 0094 3F       		.uleb128 0x3f
+ 788 0095 19       		.uleb128 0x19
+ 789 0096 03       		.uleb128 0x3
+ 790 0097 0E       		.uleb128 0xe
+ 791 0098 3A       		.uleb128 0x3a
+ 792 0099 0B       		.uleb128 0xb
+ 793 009a 3B       		.uleb128 0x3b
+ 794 009b 0B       		.uleb128 0xb
+ 795 009c 11       		.uleb128 0x11
+ 796 009d 01       		.uleb128 0x1
+ 797 009e 12       		.uleb128 0x12
+ 798 009f 06       		.uleb128 0x6
+ 799 00a0 40       		.uleb128 0x40
+ 800 00a1 18       		.uleb128 0x18
+ 801 00a2 9742     		.uleb128 0x2117
+ 802 00a4 19       		.uleb128 0x19
+ 803 00a5 00       		.byte	0
+ 804 00a6 00       		.byte	0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 19
+
+
+ 805 00a7 0E       		.uleb128 0xe
+ 806 00a8 2E       		.uleb128 0x2e
+ 807 00a9 01       		.byte	0x1
+ 808 00aa 3F       		.uleb128 0x3f
+ 809 00ab 19       		.uleb128 0x19
+ 810 00ac 03       		.uleb128 0x3
+ 811 00ad 0E       		.uleb128 0xe
+ 812 00ae 3A       		.uleb128 0x3a
+ 813 00af 0B       		.uleb128 0xb
+ 814 00b0 3B       		.uleb128 0x3b
+ 815 00b1 0B       		.uleb128 0xb
+ 816 00b2 27       		.uleb128 0x27
+ 817 00b3 19       		.uleb128 0x19
+ 818 00b4 11       		.uleb128 0x11
+ 819 00b5 01       		.uleb128 0x1
+ 820 00b6 12       		.uleb128 0x12
+ 821 00b7 06       		.uleb128 0x6
+ 822 00b8 40       		.uleb128 0x40
+ 823 00b9 18       		.uleb128 0x18
+ 824 00ba 9742     		.uleb128 0x2117
+ 825 00bc 19       		.uleb128 0x19
+ 826 00bd 01       		.uleb128 0x1
+ 827 00be 13       		.uleb128 0x13
+ 828 00bf 00       		.byte	0
+ 829 00c0 00       		.byte	0
+ 830 00c1 0F       		.uleb128 0xf
+ 831 00c2 05       		.uleb128 0x5
+ 832 00c3 00       		.byte	0
+ 833 00c4 03       		.uleb128 0x3
+ 834 00c5 0E       		.uleb128 0xe
+ 835 00c6 3A       		.uleb128 0x3a
+ 836 00c7 0B       		.uleb128 0xb
+ 837 00c8 3B       		.uleb128 0x3b
+ 838 00c9 0B       		.uleb128 0xb
+ 839 00ca 49       		.uleb128 0x49
+ 840 00cb 13       		.uleb128 0x13
+ 841 00cc 02       		.uleb128 0x2
+ 842 00cd 18       		.uleb128 0x18
+ 843 00ce 00       		.byte	0
+ 844 00cf 00       		.byte	0
+ 845 00d0 10       		.uleb128 0x10
+ 846 00d1 2E       		.uleb128 0x2e
+ 847 00d2 00       		.byte	0
+ 848 00d3 3F       		.uleb128 0x3f
+ 849 00d4 19       		.uleb128 0x19
+ 850 00d5 03       		.uleb128 0x3
+ 851 00d6 0E       		.uleb128 0xe
+ 852 00d7 3A       		.uleb128 0x3a
+ 853 00d8 0B       		.uleb128 0xb
+ 854 00d9 3B       		.uleb128 0x3b
+ 855 00da 0B       		.uleb128 0xb
+ 856 00db 27       		.uleb128 0x27
+ 857 00dc 19       		.uleb128 0x19
+ 858 00dd 11       		.uleb128 0x11
+ 859 00de 01       		.uleb128 0x1
+ 860 00df 12       		.uleb128 0x12
+ 861 00e0 06       		.uleb128 0x6
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 20
+
+
+ 862 00e1 40       		.uleb128 0x40
+ 863 00e2 18       		.uleb128 0x18
+ 864 00e3 9742     		.uleb128 0x2117
+ 865 00e5 19       		.uleb128 0x19
+ 866 00e6 00       		.byte	0
+ 867 00e7 00       		.byte	0
+ 868 00e8 11       		.uleb128 0x11
+ 869 00e9 2E       		.uleb128 0x2e
+ 870 00ea 01       		.byte	0x1
+ 871 00eb 3F       		.uleb128 0x3f
+ 872 00ec 19       		.uleb128 0x19
+ 873 00ed 03       		.uleb128 0x3
+ 874 00ee 0E       		.uleb128 0xe
+ 875 00ef 3A       		.uleb128 0x3a
+ 876 00f0 0B       		.uleb128 0xb
+ 877 00f1 3B       		.uleb128 0x3b
+ 878 00f2 0B       		.uleb128 0xb
+ 879 00f3 27       		.uleb128 0x27
+ 880 00f4 19       		.uleb128 0x19
+ 881 00f5 49       		.uleb128 0x49
+ 882 00f6 13       		.uleb128 0x13
+ 883 00f7 11       		.uleb128 0x11
+ 884 00f8 01       		.uleb128 0x1
+ 885 00f9 12       		.uleb128 0x12
+ 886 00fa 06       		.uleb128 0x6
+ 887 00fb 40       		.uleb128 0x40
+ 888 00fc 18       		.uleb128 0x18
+ 889 00fd 9742     		.uleb128 0x2117
+ 890 00ff 19       		.uleb128 0x19
+ 891 0100 01       		.uleb128 0x1
+ 892 0101 13       		.uleb128 0x13
+ 893 0102 00       		.byte	0
+ 894 0103 00       		.byte	0
+ 895 0104 12       		.uleb128 0x12
+ 896 0105 05       		.uleb128 0x5
+ 897 0106 00       		.byte	0
+ 898 0107 03       		.uleb128 0x3
+ 899 0108 0E       		.uleb128 0xe
+ 900 0109 3A       		.uleb128 0x3a
+ 901 010a 0B       		.uleb128 0xb
+ 902 010b 3B       		.uleb128 0x3b
+ 903 010c 0B       		.uleb128 0xb
+ 904 010d 49       		.uleb128 0x49
+ 905 010e 13       		.uleb128 0x13
+ 906 010f 02       		.uleb128 0x2
+ 907 0110 17       		.uleb128 0x17
+ 908 0111 00       		.byte	0
+ 909 0112 00       		.byte	0
+ 910 0113 13       		.uleb128 0x13
+ 911 0114 34       		.uleb128 0x34
+ 912 0115 00       		.byte	0
+ 913 0116 03       		.uleb128 0x3
+ 914 0117 0E       		.uleb128 0xe
+ 915 0118 3A       		.uleb128 0x3a
+ 916 0119 0B       		.uleb128 0xb
+ 917 011a 3B       		.uleb128 0x3b
+ 918 011b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 21
+
+
+ 919 011c 49       		.uleb128 0x49
+ 920 011d 13       		.uleb128 0x13
+ 921 011e 3F       		.uleb128 0x3f
+ 922 011f 19       		.uleb128 0x19
+ 923 0120 02       		.uleb128 0x2
+ 924 0121 18       		.uleb128 0x18
+ 925 0122 00       		.byte	0
+ 926 0123 00       		.byte	0
+ 927 0124 14       		.uleb128 0x14
+ 928 0125 35       		.uleb128 0x35
+ 929 0126 00       		.byte	0
+ 930 0127 49       		.uleb128 0x49
+ 931 0128 13       		.uleb128 0x13
+ 932 0129 00       		.byte	0
+ 933 012a 00       		.byte	0
+ 934 012b 15       		.uleb128 0x15
+ 935 012c 01       		.uleb128 0x1
+ 936 012d 01       		.byte	0x1
+ 937 012e 49       		.uleb128 0x49
+ 938 012f 13       		.uleb128 0x13
+ 939 0130 01       		.uleb128 0x1
+ 940 0131 13       		.uleb128 0x13
+ 941 0132 00       		.byte	0
+ 942 0133 00       		.byte	0
+ 943 0134 16       		.uleb128 0x16
+ 944 0135 21       		.uleb128 0x21
+ 945 0136 00       		.byte	0
+ 946 0137 49       		.uleb128 0x49
+ 947 0138 13       		.uleb128 0x13
+ 948 0139 2F       		.uleb128 0x2f
+ 949 013a 0B       		.uleb128 0xb
+ 950 013b 00       		.byte	0
+ 951 013c 00       		.byte	0
+ 952 013d 17       		.uleb128 0x17
+ 953 013e 2E       		.uleb128 0x2e
+ 954 013f 01       		.byte	0x1
+ 955 0140 3F       		.uleb128 0x3f
+ 956 0141 19       		.uleb128 0x19
+ 957 0142 03       		.uleb128 0x3
+ 958 0143 0E       		.uleb128 0xe
+ 959 0144 3A       		.uleb128 0x3a
+ 960 0145 0B       		.uleb128 0xb
+ 961 0146 3B       		.uleb128 0x3b
+ 962 0147 0B       		.uleb128 0xb
+ 963 0148 49       		.uleb128 0x49
+ 964 0149 13       		.uleb128 0x13
+ 965 014a 3C       		.uleb128 0x3c
+ 966 014b 19       		.uleb128 0x19
+ 967 014c 00       		.byte	0
+ 968 014d 00       		.byte	0
+ 969 014e 00       		.byte	0
+ 970              		.section	.debug_loc,"",%progbits
+ 971              	.Ldebug_loc0:
+ 972              	.LLST0:
+ 973 0000 00000000 		.4byte	.LVL4
+ 974 0004 00000000 		.4byte	.LVL5
+ 975 0008 0100     		.2byte	0x1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 22
+
+
+ 976 000a 50       		.byte	0x50
+ 977 000b 00000000 		.4byte	.LVL5
+ 978 000f 02000000 		.4byte	.LFE10
+ 979 0013 0400     		.2byte	0x4
+ 980 0015 F3       		.byte	0xf3
+ 981 0016 01       		.uleb128 0x1
+ 982 0017 50       		.byte	0x50
+ 983 0018 9F       		.byte	0x9f
+ 984 0019 00000000 		.4byte	0
+ 985 001d 00000000 		.4byte	0
+ 986              		.section	.debug_aranges,"",%progbits
+ 987 0000 74000000 		.4byte	0x74
+ 988 0004 0200     		.2byte	0x2
+ 989 0006 00000000 		.4byte	.Ldebug_info0
+ 990 000a 04       		.byte	0x4
+ 991 000b 00       		.byte	0
+ 992 000c 0000     		.2byte	0
+ 993 000e 0000     		.2byte	0
+ 994 0010 00000000 		.4byte	.LFB0
+ 995 0014 18000000 		.4byte	.LFE0-.LFB0
+ 996 0018 00000000 		.4byte	.LFB1
+ 997 001c 10000000 		.4byte	.LFE1-.LFB1
+ 998 0020 00000000 		.4byte	.LFB2
+ 999 0024 10000000 		.4byte	.LFE2-.LFB2
+ 1000 0028 00000000 		.4byte	.LFB3
+ 1001 002c 02000000 		.4byte	.LFE3-.LFB3
+ 1002 0030 00000000 		.4byte	.LFB4
+ 1003 0034 02000000 		.4byte	.LFE4-.LFB4
+ 1004 0038 00000000 		.4byte	.LFB5
+ 1005 003c 02000000 		.4byte	.LFE5-.LFB5
+ 1006 0040 00000000 		.4byte	.LFB6
+ 1007 0044 02000000 		.4byte	.LFE6-.LFB6
+ 1008 0048 00000000 		.4byte	.LFB7
+ 1009 004c 02000000 		.4byte	.LFE7-.LFB7
+ 1010 0050 00000000 		.4byte	.LFB8
+ 1011 0054 02000000 		.4byte	.LFE8-.LFB8
+ 1012 0058 00000000 		.4byte	.LFB9
+ 1013 005c 02000000 		.4byte	.LFE9-.LFB9
+ 1014 0060 00000000 		.4byte	.LFB10
+ 1015 0064 02000000 		.4byte	.LFE10-.LFB10
+ 1016 0068 00000000 		.4byte	.LFB11
+ 1017 006c 02000000 		.4byte	.LFE11-.LFB11
+ 1018 0070 00000000 		.4byte	0
+ 1019 0074 00000000 		.4byte	0
+ 1020              		.section	.debug_ranges,"",%progbits
+ 1021              	.Ldebug_ranges0:
+ 1022 0000 00000000 		.4byte	.LFB0
+ 1023 0004 18000000 		.4byte	.LFE0
+ 1024 0008 00000000 		.4byte	.LFB1
+ 1025 000c 10000000 		.4byte	.LFE1
+ 1026 0010 00000000 		.4byte	.LFB2
+ 1027 0014 10000000 		.4byte	.LFE2
+ 1028 0018 00000000 		.4byte	.LFB3
+ 1029 001c 02000000 		.4byte	.LFE3
+ 1030 0020 00000000 		.4byte	.LFB4
+ 1031 0024 02000000 		.4byte	.LFE4
+ 1032 0028 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 23
+
+
+ 1033 002c 02000000 		.4byte	.LFE5
+ 1034 0030 00000000 		.4byte	.LFB6
+ 1035 0034 02000000 		.4byte	.LFE6
+ 1036 0038 00000000 		.4byte	.LFB7
+ 1037 003c 02000000 		.4byte	.LFE7
+ 1038 0040 00000000 		.4byte	.LFB8
+ 1039 0044 02000000 		.4byte	.LFE8
+ 1040 0048 00000000 		.4byte	.LFB9
+ 1041 004c 02000000 		.4byte	.LFE9
+ 1042 0050 00000000 		.4byte	.LFB10
+ 1043 0054 02000000 		.4byte	.LFE10
+ 1044 0058 00000000 		.4byte	.LFB11
+ 1045 005c 02000000 		.4byte	.LFE11
+ 1046 0060 00000000 		.4byte	0
+ 1047 0064 00000000 		.4byte	0
+ 1048              		.section	.debug_line,"",%progbits
+ 1049              	.Ldebug_line0:
+ 1050 0000 15020000 		.section	.debug_str,"MS",%progbits,1
+ 1050      02004C01 
+ 1050      00000201 
+ 1050      FB0E0D00 
+ 1050      01010101 
+ 1051              	.LASF31:
+ 1052 0000 444D4153 		.ascii	"DMASDSPI_1_g_nTransferFlags\000"
+ 1052      44535049 
+ 1052      5F315F67 
+ 1052      5F6E5472 
+ 1052      616E7366 
+ 1053              	.LASF25:
+ 1054 001c 70427566 		.ascii	"pBuffer\000"
+ 1054      66657200 
+ 1055              	.LASF19:
+ 1056 0024 466E5072 		.ascii	"FnPrint\000"
+ 1056      696E7400 
+ 1057              	.LASF26:
+ 1058 002c 6E4C656E 		.ascii	"nLength\000"
+ 1058      67746800 
+ 1059              	.LASF37:
+ 1060 0034 444D4153 		.ascii	"DMASDSPI_1_TX_TD\000"
+ 1060      44535049 
+ 1060      5F315F54 
+ 1060      585F5444 
+ 1060      00
+ 1061              	.LASF6:
+ 1062 0045 73686F72 		.ascii	"short int\000"
+ 1062      7420696E 
+ 1062      7400
+ 1063              	.LASF39:
+ 1064 004f 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\DMASDSPI_1_api.c\000"
+ 1064      6E657261 
+ 1064      7465645F 
+ 1064      536F7572 
+ 1064      63655C50 
+ 1065              	.LASF14:
+ 1066 0079 73697A65 		.ascii	"sizetype\000"
+ 1066      74797065 
+ 1066      00
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 24
+
+
+ 1067              	.LASF22:
+ 1068 0082 444D4153 		.ascii	"DMASDSPI_1_DeselectCard\000"
+ 1068      44535049 
+ 1068      5F315F44 
+ 1068      6573656C 
+ 1068      65637443 
+ 1069              	.LASF42:
+ 1070 009a 444D4153 		.ascii	"DMASDSPI_1_RX_ISR_Disable\000"
+ 1070      44535049 
+ 1070      5F315F52 
+ 1070      585F4953 
+ 1070      525F4469 
+ 1071              	.LASF27:
+ 1072 00b4 444D4153 		.ascii	"DMASDSPI_1_ReceiveData\000"
+ 1072      44535049 
+ 1072      5F315F52 
+ 1072      65636569 
+ 1072      76654461 
+ 1073              	.LASF13:
+ 1074 00cb 75696E74 		.ascii	"uint8_t\000"
+ 1074      385F7400 
+ 1075              	.LASF40:
+ 1076 00d3 443A5C64 		.ascii	"D:\\develop\\projects\\SoundChipLogger\\firmware\\D"
+ 1076      6576656C 
+ 1076      6F705C70 
+ 1076      726F6A65 
+ 1076      6374735C 
+ 1077 0101 4D415344 		.ascii	"MASDSPITest\\DMASDSPITest.cydsn\000"
+ 1077      53504954 
+ 1077      6573745C 
+ 1077      444D4153 
+ 1077      44535049 
+ 1078              	.LASF30:
+ 1079 0120 62456E61 		.ascii	"bEnableDMA\000"
+ 1079      626C6544 
+ 1079      4D4100
+ 1080              	.LASF10:
+ 1081 012b 6C6F6E67 		.ascii	"long long int\000"
+ 1081      206C6F6E 
+ 1081      6720696E 
+ 1081      7400
+ 1082              	.LASF8:
+ 1083 0139 6C6F6E67 		.ascii	"long int\000"
+ 1083      20696E74 
+ 1083      00
+ 1084              	.LASF4:
+ 1085 0142 5F5F7569 		.ascii	"__uint8_t\000"
+ 1085      6E74385F 
+ 1085      7400
+ 1086              	.LASF21:
+ 1087 014c 444D4153 		.ascii	"DMASDSPI_1_SelectCard\000"
+ 1087      44535049 
+ 1087      5F315F53 
+ 1087      656C6563 
+ 1087      74436172 
+ 1088              	.LASF16:
+ 1089 0162 444D4153 		.ascii	"DMASDSPI_1_TX_DMA_ISR\000"
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 25
+
+
+ 1089      44535049 
+ 1089      5F315F54 
+ 1089      585F444D 
+ 1089      415F4953 
+ 1090              	.LASF17:
+ 1091 0178 466E5365 		.ascii	"FnSelSlowCk\000"
+ 1091      6C536C6F 
+ 1091      77436B00 
+ 1092              	.LASF20:
+ 1093 0184 444D4153 		.ascii	"DMASDSPI_1_Stop\000"
+ 1093      44535049 
+ 1093      5F315F53 
+ 1093      746F7000 
+ 1094              	.LASF1:
+ 1095 0194 444D4153 		.ascii	"DMASDSPI_1_PRNTFXN\000"
+ 1095      44535049 
+ 1095      5F315F50 
+ 1095      524E5446 
+ 1095      584E00
+ 1096              	.LASF5:
+ 1097 01a7 756E7369 		.ascii	"unsigned char\000"
+ 1097      676E6564 
+ 1097      20636861 
+ 1097      7200
+ 1098              	.LASF44:
+ 1099 01b5 444D4153 		.ascii	"DMASDSPI_1_SwapByte\000"
+ 1099      44535049 
+ 1099      5F315F53 
+ 1099      77617042 
+ 1099      79746500 
+ 1100              	.LASF3:
+ 1101 01c9 7369676E 		.ascii	"signed char\000"
+ 1101      65642063 
+ 1101      68617200 
+ 1102              	.LASF11:
+ 1103 01d5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1103      206C6F6E 
+ 1103      6720756E 
+ 1103      7369676E 
+ 1103      65642069 
+ 1104              	.LASF12:
+ 1105 01ec 756E7369 		.ascii	"unsigned int\000"
+ 1105      676E6564 
+ 1105      20696E74 
+ 1105      00
+ 1106              	.LASF18:
+ 1107 01f9 466E5365 		.ascii	"FnSelFastCk\000"
+ 1107      6C466173 
+ 1107      74436B00 
+ 1108              	.LASF32:
+ 1109 0205 444D4153 		.ascii	"DMASDSPI_1_g_nCtrlState\000"
+ 1109      44535049 
+ 1109      5F315F67 
+ 1109      5F6E4374 
+ 1109      726C5374 
+ 1110              	.LASF28:
+ 1111 021d 6E427974 		.ascii	"nByte\000"
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 26
+
+
+ 1111      6500
+ 1112              	.LASF7:
+ 1113 0223 73686F72 		.ascii	"short unsigned int\000"
+ 1113      7420756E 
+ 1113      7369676E 
+ 1113      65642069 
+ 1113      6E7400
+ 1114              	.LASF15:
+ 1115 0236 444D4153 		.ascii	"DMASDSPI_1_RX_DMA_ISR\000"
+ 1115      44535049 
+ 1115      5F315F52 
+ 1115      585F444D 
+ 1115      415F4953 
+ 1116              	.LASF2:
+ 1117 024c 63686172 		.ascii	"char\000"
+ 1117      00
+ 1118              	.LASF38:
+ 1119 0251 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1119      4320342E 
+ 1119      392E3320 
+ 1119      32303135 
+ 1119      30333033 
+ 1120 0284 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1120      20726576 
+ 1120      6973696F 
+ 1120      6E203232 
+ 1120      31323230 
+ 1121 02b7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1121      66756E63 
+ 1121      74696F6E 
+ 1121      2D736563 
+ 1121      74696F6E 
+ 1122              	.LASF33:
+ 1123 02df 444D4153 		.ascii	"DMASDSPI_1_bEnableDMA\000"
+ 1123      44535049 
+ 1123      5F315F62 
+ 1123      456E6162 
+ 1123      6C65444D 
+ 1124              	.LASF34:
+ 1125 02f5 444D4153 		.ascii	"DMASDSPI_1_RX_Chan\000"
+ 1125      44535049 
+ 1125      5F315F52 
+ 1125      585F4368 
+ 1125      616E00
+ 1126              	.LASF24:
+ 1127 0308 444D4153 		.ascii	"DMASDSPI_1_SendData\000"
+ 1127      44535049 
+ 1127      5F315F53 
+ 1127      656E6444 
+ 1127      61746100 
+ 1128              	.LASF9:
+ 1129 031c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1129      20756E73 
+ 1129      69676E65 
+ 1129      6420696E 
+ 1129      7400
+ 1130              	.LASF36:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\cck4WRYR.s 			page 27
+
+
+ 1131 032e 444D4153 		.ascii	"DMASDSPI_1_TX_Chan\000"
+ 1131      44535049 
+ 1131      5F315F54 
+ 1131      585F4368 
+ 1131      616E00
+ 1132              	.LASF29:
+ 1133 0341 444D4153 		.ascii	"DMASDSPI_1_SetDMAMode\000"
+ 1133      44535049 
+ 1133      5F315F53 
+ 1133      6574444D 
+ 1133      414D6F64 
+ 1134              	.LASF23:
+ 1135 0357 444D4153 		.ascii	"DMASDSPI_1_Start\000"
+ 1135      44535049 
+ 1135      5F315F53 
+ 1135      74617274 
+ 1135      00
+ 1136              	.LASF0:
+ 1137 0368 444D4153 		.ascii	"DMASDSPI_1_VOIDFXN\000"
+ 1137      44535049 
+ 1137      5F315F56 
+ 1137      4F494446 
+ 1137      584E00
+ 1138              	.LASF41:
+ 1139 037b 444D4153 		.ascii	"DMASDSPI_1_RX_ISR\000"
+ 1139      44535049 
+ 1139      5F315F52 
+ 1139      585F4953 
+ 1139      5200
+ 1140              	.LASF43:
+ 1141 038d 444D4153 		.ascii	"DMASDSPI_1_StartInterface\000"
+ 1141      44535049 
+ 1141      5F315F53 
+ 1141      74617274 
+ 1141      496E7465 
+ 1142              	.LASF35:
+ 1143 03a7 444D4153 		.ascii	"DMASDSPI_1_RX_TD\000"
+ 1143      44535049 
+ 1143      5F315F52 
+ 1143      585F5444 
+ 1143      00
+ 1144              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

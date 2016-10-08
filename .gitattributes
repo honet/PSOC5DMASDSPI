@@ -1,0 +1,6 @@
+*.hex binary
+*.cmx binary
+*.xml binary
+*.inc binary
+*.soc binary
+*.pep binary

@@ -1,0 +1,16 @@
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/CortexM3/ARM_GCC_493/Release/diskio.o : D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/diskio.c D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/diskio.h D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ff.h D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ffconf.h D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/integer.h 
+
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/diskio.c : 
+
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/diskio.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ff.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ffconf.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/integer.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/CortexM3/ARM_GCC_493/Release/ff.o : D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/diskio.h D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ff.c D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ff.h D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ffconf.h D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/integer.h 
+
+D:/develop/projects/SoundChipLogger/firmware/libfatfs/libfatfs.cylib/ff.c : 
+

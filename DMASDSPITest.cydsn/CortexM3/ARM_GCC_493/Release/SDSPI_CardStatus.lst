@@ -1,0 +1,955 @@
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SDSPI_CardStatus.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.SDSPI_CardStatus_Read,"ax",%progbits
+  19              		.align	2
+  20              		.global	SDSPI_CardStatus_Read
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	SDSPI_CardStatus_Read, %function
+  24              	SDSPI_CardStatus_Read:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\SDSPI_CardStatus.c"
+   1:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * File Name: SDSPI_CardStatus.c  
+   3:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Version 1.90
+   4:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+   5:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Description:
+   6:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  This file contains API to enable firmware to read the value of a Status 
+   7:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  Register.
+   8:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+   9:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Note:
+  10:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  11:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  18:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** #include "SDSPI_CardStatus.h"
+  19:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  20:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** #if !defined(SDSPI_CardStatus_sts_sts_reg__REMOVED) /* Check for removal by optimization */
+  21:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  22:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  23:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** /*******************************************************************************
+  24:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Function Name: SDSPI_CardStatus_Read
+  25:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** ********************************************************************************
+  26:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  27:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Summary:
+  28:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  Reads the current value assigned to the Status Register.
+  29:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  30:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Parameters:
+  31:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  None.
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  33:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Return:
+  34:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  The current value in the Status Register.
+  35:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  36:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *******************************************************************************/
+  37:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** uint8 SDSPI_CardStatus_Read(void) 
+  38:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** { 
+  27              		.loc 1 38 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  39:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     return SDSPI_CardStatus_Status;
+  32              		.loc 1 39 0
+  33 0000 014B     		ldr	r3, .L2
+  34 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  40:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** }
+  35              		.loc 1 40 0
+  36 0004 7047     		bx	lr
+  37              	.L3:
+  38 0006 00BF     		.align	2
+  39              	.L2:
+  40 0008 6C640040 		.word	1073767532
+  41              		.cfi_endproc
+  42              	.LFE0:
+  43              		.size	SDSPI_CardStatus_Read, .-SDSPI_CardStatus_Read
+  44              		.section	.text.SDSPI_CardStatus_InterruptEnable,"ax",%progbits
+  45              		.align	2
+  46              		.global	SDSPI_CardStatus_InterruptEnable
+  47              		.thumb
+  48              		.thumb_func
+  49              		.type	SDSPI_CardStatus_InterruptEnable, %function
+  50              	SDSPI_CardStatus_InterruptEnable:
+  51              	.LFB1:
+  41:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  42:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  43:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** /*******************************************************************************
+  44:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Function Name: SDSPI_CardStatus_InterruptEnable
+  45:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** ********************************************************************************
+  46:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  47:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Summary:
+  48:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  Enables the Status Register interrupt.
+  49:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  50:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Parameters:
+  51:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  None.
+  52:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  53:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Return:
+  54:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  None.
+  55:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  56:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *******************************************************************************/
+  57:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** void SDSPI_CardStatus_InterruptEnable(void) 
+  58:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** {
+  52              		.loc 1 58 0
+  53              		.cfi_startproc
+  54              		@ args = 0, pretend = 0, frame = 0
+  55              		@ frame_needed = 0, uses_anonymous_args = 0
+  56 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 3
+
+
+  57              		.cfi_def_cfa_offset 8
+  58              		.cfi_offset 3, -8
+  59              		.cfi_offset 14, -4
+  59:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     uint8 interruptState;
+  60:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     interruptState = CyEnterCriticalSection();
+  60              		.loc 1 60 0
+  61 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  62              	.LVL0:
+  61:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     SDSPI_CardStatus_Status_Aux_Ctrl |= SDSPI_CardStatus_STATUS_INTR_ENBL;
+  63              		.loc 1 61 0
+  64 0006 044A     		ldr	r2, .L6
+  65 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  66 000a 43F01003 		orr	r3, r3, #16
+  67 000e 1370     		strb	r3, [r2]
+  62:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     CyExitCriticalSection(interruptState);
+  63:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** }
+  68              		.loc 1 63 0
+  69 0010 BDE80840 		pop	{r3, lr}
+  70              		.cfi_restore 14
+  71              		.cfi_restore 3
+  72              		.cfi_def_cfa_offset 0
+  62:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     CyExitCriticalSection(interruptState);
+  73              		.loc 1 62 0
+  74 0014 FFF7FEBF 		b	CyExitCriticalSection
+  75              	.LVL1:
+  76              	.L7:
+  77              		.align	2
+  78              	.L6:
+  79 0018 9C640040 		.word	1073767580
+  80              		.cfi_endproc
+  81              	.LFE1:
+  82              		.size	SDSPI_CardStatus_InterruptEnable, .-SDSPI_CardStatus_InterruptEnable
+  83              		.section	.text.SDSPI_CardStatus_InterruptDisable,"ax",%progbits
+  84              		.align	2
+  85              		.global	SDSPI_CardStatus_InterruptDisable
+  86              		.thumb
+  87              		.thumb_func
+  88              		.type	SDSPI_CardStatus_InterruptDisable, %function
+  89              	SDSPI_CardStatus_InterruptDisable:
+  90              	.LFB2:
+  64:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  65:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  66:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** /*******************************************************************************
+  67:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Function Name: SDSPI_CardStatus_InterruptDisable
+  68:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** ********************************************************************************
+  69:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  70:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Summary:
+  71:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  Disables the Status Register interrupt.
+  72:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  73:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Parameters:
+  74:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  None.
+  75:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  76:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Return:
+  77:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  None.
+  78:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  79:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *******************************************************************************/
+  80:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** void SDSPI_CardStatus_InterruptDisable(void) 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 4
+
+
+  81:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** {
+  91              		.loc 1 81 0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95 0000 08B5     		push	{r3, lr}
+  96              		.cfi_def_cfa_offset 8
+  97              		.cfi_offset 3, -8
+  98              		.cfi_offset 14, -4
+  82:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     uint8 interruptState;
+  83:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     interruptState = CyEnterCriticalSection();
+  99              		.loc 1 83 0
+ 100 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 101              	.LVL2:
+  84:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     SDSPI_CardStatus_Status_Aux_Ctrl &= (uint8)(~SDSPI_CardStatus_STATUS_INTR_ENBL);
+ 102              		.loc 1 84 0
+ 103 0006 044A     		ldr	r2, .L10
+ 104 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 105 000a 03F0EF03 		and	r3, r3, #239
+ 106 000e 1370     		strb	r3, [r2]
+  85:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     CyExitCriticalSection(interruptState);
+  86:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** }
+ 107              		.loc 1 86 0
+ 108 0010 BDE80840 		pop	{r3, lr}
+ 109              		.cfi_restore 14
+ 110              		.cfi_restore 3
+ 111              		.cfi_def_cfa_offset 0
+  85:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     CyExitCriticalSection(interruptState);
+ 112              		.loc 1 85 0
+ 113 0014 FFF7FEBF 		b	CyExitCriticalSection
+ 114              	.LVL3:
+ 115              	.L11:
+ 116              		.align	2
+ 117              	.L10:
+ 118 0018 9C640040 		.word	1073767580
+ 119              		.cfi_endproc
+ 120              	.LFE2:
+ 121              		.size	SDSPI_CardStatus_InterruptDisable, .-SDSPI_CardStatus_InterruptDisable
+ 122              		.section	.text.SDSPI_CardStatus_WriteMask,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	SDSPI_CardStatus_WriteMask
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	SDSPI_CardStatus_WriteMask, %function
+ 128              	SDSPI_CardStatus_WriteMask:
+ 129              	.LFB3:
+  87:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  88:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+  89:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** /*******************************************************************************
+  90:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Function Name: SDSPI_CardStatus_WriteMask
+  91:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** ********************************************************************************
+  92:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  93:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Summary:
+  94:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  Writes the current mask value assigned to the Status Register.
+  95:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  96:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Parameters:
+  97:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  mask:  Value to write into the mask register.
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 5
+
+
+  98:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+  99:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Return:
+ 100:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  None.
+ 101:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+ 102:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *******************************************************************************/
+ 103:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** void SDSPI_CardStatus_WriteMask(uint8 mask) 
+ 104:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** {
+ 130              		.loc 1 104 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+ 135              	.LVL4:
+ 105:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     #if(SDSPI_CardStatus_INPUTS < 8u)
+ 106:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     	mask &= ((uint8)(1u << SDSPI_CardStatus_INPUTS) - 1u);
+ 107:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 	#endif /* End SDSPI_CardStatus_INPUTS < 8u */
+ 108:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     SDSPI_CardStatus_Status_Mask = mask;
+ 136              		.loc 1 108 0
+ 137 0000 024B     		ldr	r3, .L13
+ 106:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 	#endif /* End SDSPI_CardStatus_INPUTS < 8u */
+ 138              		.loc 1 106 0
+ 139 0002 00F00300 		and	r0, r0, #3
+ 140              	.LVL5:
+ 141              		.loc 1 108 0
+ 142 0006 1870     		strb	r0, [r3]
+ 143 0008 7047     		bx	lr
+ 144              	.L14:
+ 145 000a 00BF     		.align	2
+ 146              	.L13:
+ 147 000c 8C640040 		.word	1073767564
+ 148              		.cfi_endproc
+ 149              	.LFE3:
+ 150              		.size	SDSPI_CardStatus_WriteMask, .-SDSPI_CardStatus_WriteMask
+ 151              		.section	.text.SDSPI_CardStatus_ReadMask,"ax",%progbits
+ 152              		.align	2
+ 153              		.global	SDSPI_CardStatus_ReadMask
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.type	SDSPI_CardStatus_ReadMask, %function
+ 157              	SDSPI_CardStatus_ReadMask:
+ 158              	.LFB4:
+ 109:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** }
+ 110:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+ 111:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** 
+ 112:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** /*******************************************************************************
+ 113:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Function Name: SDSPI_CardStatus_ReadMask
+ 114:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** ********************************************************************************
+ 115:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+ 116:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Summary:
+ 117:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  Reads the current interrupt mask assigned to the Status Register.
+ 118:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+ 119:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Parameters:
+ 120:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  None.
+ 121:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+ 122:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** * Return:
+ 123:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *  The value of the interrupt mask of the Status Register.
+ 124:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 6
+
+
+ 125:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** *******************************************************************************/
+ 126:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** uint8 SDSPI_CardStatus_ReadMask(void) 
+ 127:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** {
+ 159              		.loc 1 127 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 128:.\Generated_Source\PSoC5/SDSPI_CardStatus.c ****     return SDSPI_CardStatus_Status_Mask;
+ 164              		.loc 1 128 0
+ 165 0000 014B     		ldr	r3, .L16
+ 166 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 129:.\Generated_Source\PSoC5/SDSPI_CardStatus.c **** }
+ 167              		.loc 1 129 0
+ 168 0004 7047     		bx	lr
+ 169              	.L17:
+ 170 0006 00BF     		.align	2
+ 171              	.L16:
+ 172 0008 8C640040 		.word	1073767564
+ 173              		.cfi_endproc
+ 174              	.LFE4:
+ 175              		.size	SDSPI_CardStatus_ReadMask, .-SDSPI_CardStatus_ReadMask
+ 176              		.text
+ 177              	.Letext0:
+ 178              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 179              		.file 3 ".\\Generated_Source\\PSoC5\\CyLib.h"
+ 180              		.section	.debug_info,"",%progbits
+ 181              	.Ldebug_info0:
+ 182 0000 76010000 		.4byte	0x176
+ 183 0004 0400     		.2byte	0x4
+ 184 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 185 000a 04       		.byte	0x4
+ 186 000b 01       		.uleb128 0x1
+ 187 000c 1D010000 		.4byte	.LASF21
+ 188 0010 01       		.byte	0x1
+ 189 0011 F1000000 		.4byte	.LASF22
+ 190 0015 75000000 		.4byte	.LASF23
+ 191 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 192 001d 00000000 		.4byte	0
+ 193 0021 00000000 		.4byte	.Ldebug_line0
+ 194 0025 02       		.uleb128 0x2
+ 195 0026 01       		.byte	0x1
+ 196 0027 06       		.byte	0x6
+ 197 0028 21020000 		.4byte	.LASF0
+ 198 002c 02       		.uleb128 0x2
+ 199 002d 01       		.byte	0x1
+ 200 002e 08       		.byte	0x8
+ 201 002f BB010000 		.4byte	.LASF1
+ 202 0033 02       		.uleb128 0x2
+ 203 0034 02       		.byte	0x2
+ 204 0035 05       		.byte	0x5
+ 205 0036 64020000 		.4byte	.LASF2
+ 206 003a 02       		.uleb128 0x2
+ 207 003b 02       		.byte	0x2
+ 208 003c 07       		.byte	0x7
+ 209 003d 0E000000 		.4byte	.LASF3
+ 210 0041 02       		.uleb128 0x2
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 7
+
+
+ 211 0042 04       		.byte	0x4
+ 212 0043 05       		.byte	0x5
+ 213 0044 CE010000 		.4byte	.LASF4
+ 214 0048 02       		.uleb128 0x2
+ 215 0049 04       		.byte	0x4
+ 216 004a 07       		.byte	0x7
+ 217 004b C8000000 		.4byte	.LASF5
+ 218 004f 02       		.uleb128 0x2
+ 219 0050 08       		.byte	0x8
+ 220 0051 05       		.byte	0x5
+ 221 0052 00000000 		.4byte	.LASF6
+ 222 0056 02       		.uleb128 0x2
+ 223 0057 08       		.byte	0x8
+ 224 0058 07       		.byte	0x7
+ 225 0059 DA000000 		.4byte	.LASF7
+ 226 005d 03       		.uleb128 0x3
+ 227 005e 04       		.byte	0x4
+ 228 005f 05       		.byte	0x5
+ 229 0060 696E7400 		.ascii	"int\000"
+ 230 0064 02       		.uleb128 0x2
+ 231 0065 04       		.byte	0x4
+ 232 0066 07       		.byte	0x7
+ 233 0067 37000000 		.4byte	.LASF8
+ 234 006b 04       		.uleb128 0x4
+ 235 006c C2000000 		.4byte	.LASF12
+ 236 0070 02       		.byte	0x2
+ 237 0071 9201     		.2byte	0x192
+ 238 0073 2C000000 		.4byte	0x2c
+ 239 0077 02       		.uleb128 0x2
+ 240 0078 04       		.byte	0x4
+ 241 0079 04       		.byte	0x4
+ 242 007a 5E020000 		.4byte	.LASF9
+ 243 007e 02       		.uleb128 0x2
+ 244 007f 08       		.byte	0x8
+ 245 0080 04       		.byte	0x4
+ 246 0081 F8010000 		.4byte	.LASF10
+ 247 0085 02       		.uleb128 0x2
+ 248 0086 01       		.byte	0x1
+ 249 0087 08       		.byte	0x8
+ 250 0088 C9010000 		.4byte	.LASF11
+ 251 008c 04       		.uleb128 0x4
+ 252 008d 6E020000 		.4byte	.LASF13
+ 253 0091 02       		.byte	0x2
+ 254 0092 3C02     		.2byte	0x23c
+ 255 0094 98000000 		.4byte	0x98
+ 256 0098 05       		.uleb128 0x5
+ 257 0099 6B000000 		.4byte	0x6b
+ 258 009d 02       		.uleb128 0x2
+ 259 009e 04       		.byte	0x4
+ 260 009f 07       		.byte	0x7
+ 261 00a0 73020000 		.4byte	.LASF14
+ 262 00a4 06       		.uleb128 0x6
+ 263 00a5 21000000 		.4byte	.LASF19
+ 264 00a9 01       		.byte	0x1
+ 265 00aa 25       		.byte	0x25
+ 266 00ab 6B000000 		.4byte	0x6b
+ 267 00af 00000000 		.4byte	.LFB0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 8
+
+
+ 268 00b3 0C000000 		.4byte	.LFE0-.LFB0
+ 269 00b7 01       		.uleb128 0x1
+ 270 00b8 9C       		.byte	0x9c
+ 271 00b9 07       		.uleb128 0x7
+ 272 00ba D7010000 		.4byte	.LASF15
+ 273 00be 01       		.byte	0x1
+ 274 00bf 39       		.byte	0x39
+ 275 00c0 00000000 		.4byte	.LFB1
+ 276 00c4 1C000000 		.4byte	.LFE1-.LFB1
+ 277 00c8 01       		.uleb128 0x1
+ 278 00c9 9C       		.byte	0x9c
+ 279 00ca F0000000 		.4byte	0xf0
+ 280 00ce 08       		.uleb128 0x8
+ 281 00cf 7C020000 		.4byte	.LASF17
+ 282 00d3 01       		.byte	0x1
+ 283 00d4 3B       		.byte	0x3b
+ 284 00d5 6B000000 		.4byte	0x6b
+ 285 00d9 00000000 		.4byte	.LLST0
+ 286 00dd 09       		.uleb128 0x9
+ 287 00de 06000000 		.4byte	.LVL0
+ 288 00e2 61010000 		.4byte	0x161
+ 289 00e6 0A       		.uleb128 0xa
+ 290 00e7 18000000 		.4byte	.LVL1
+ 291 00eb 6C010000 		.4byte	0x16c
+ 292 00ef 00       		.byte	0
+ 293 00f0 07       		.uleb128 0x7
+ 294 00f1 FF010000 		.4byte	.LASF16
+ 295 00f5 01       		.byte	0x1
+ 296 00f6 50       		.byte	0x50
+ 297 00f7 00000000 		.4byte	.LFB2
+ 298 00fb 1C000000 		.4byte	.LFE2-.LFB2
+ 299 00ff 01       		.uleb128 0x1
+ 300 0100 9C       		.byte	0x9c
+ 301 0101 27010000 		.4byte	0x127
+ 302 0105 08       		.uleb128 0x8
+ 303 0106 7C020000 		.4byte	.LASF17
+ 304 010a 01       		.byte	0x1
+ 305 010b 52       		.byte	0x52
+ 306 010c 6B000000 		.4byte	0x6b
+ 307 0110 13000000 		.4byte	.LLST1
+ 308 0114 09       		.uleb128 0x9
+ 309 0115 06000000 		.4byte	.LVL2
+ 310 0119 61010000 		.4byte	0x161
+ 311 011d 0A       		.uleb128 0xa
+ 312 011e 18000000 		.4byte	.LVL3
+ 313 0122 6C010000 		.4byte	0x16c
+ 314 0126 00       		.byte	0
+ 315 0127 07       		.uleb128 0x7
+ 316 0128 2D020000 		.4byte	.LASF18
+ 317 012c 01       		.byte	0x1
+ 318 012d 67       		.byte	0x67
+ 319 012e 00000000 		.4byte	.LFB3
+ 320 0132 10000000 		.4byte	.LFE3-.LFB3
+ 321 0136 01       		.uleb128 0x1
+ 322 0137 9C       		.byte	0x9c
+ 323 0138 4C010000 		.4byte	0x14c
+ 324 013c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 9
+
+
+ 325 013d B6010000 		.4byte	.LASF24
+ 326 0141 01       		.byte	0x1
+ 327 0142 67       		.byte	0x67
+ 328 0143 6B000000 		.4byte	0x6b
+ 329 0147 26000000 		.4byte	.LLST2
+ 330 014b 00       		.byte	0
+ 331 014c 06       		.uleb128 0x6
+ 332 014d 44000000 		.4byte	.LASF20
+ 333 0151 01       		.byte	0x1
+ 334 0152 7E       		.byte	0x7e
+ 335 0153 6B000000 		.4byte	0x6b
+ 336 0157 00000000 		.4byte	.LFB4
+ 337 015b 0C000000 		.4byte	.LFE4-.LFB4
+ 338 015f 01       		.uleb128 0x1
+ 339 0160 9C       		.byte	0x9c
+ 340 0161 0C       		.uleb128 0xc
+ 341 0162 5E000000 		.4byte	.LASF25
+ 342 0166 03       		.byte	0x3
+ 343 0167 7D       		.byte	0x7d
+ 344 0168 6B000000 		.4byte	0x6b
+ 345 016c 0D       		.uleb128 0xd
+ 346 016d 48020000 		.4byte	.LASF26
+ 347 0171 03       		.byte	0x3
+ 348 0172 7E       		.byte	0x7e
+ 349 0173 0E       		.uleb128 0xe
+ 350 0174 6B000000 		.4byte	0x6b
+ 351 0178 00       		.byte	0
+ 352 0179 00       		.byte	0
+ 353              		.section	.debug_abbrev,"",%progbits
+ 354              	.Ldebug_abbrev0:
+ 355 0000 01       		.uleb128 0x1
+ 356 0001 11       		.uleb128 0x11
+ 357 0002 01       		.byte	0x1
+ 358 0003 25       		.uleb128 0x25
+ 359 0004 0E       		.uleb128 0xe
+ 360 0005 13       		.uleb128 0x13
+ 361 0006 0B       		.uleb128 0xb
+ 362 0007 03       		.uleb128 0x3
+ 363 0008 0E       		.uleb128 0xe
+ 364 0009 1B       		.uleb128 0x1b
+ 365 000a 0E       		.uleb128 0xe
+ 366 000b 55       		.uleb128 0x55
+ 367 000c 17       		.uleb128 0x17
+ 368 000d 11       		.uleb128 0x11
+ 369 000e 01       		.uleb128 0x1
+ 370 000f 10       		.uleb128 0x10
+ 371 0010 17       		.uleb128 0x17
+ 372 0011 00       		.byte	0
+ 373 0012 00       		.byte	0
+ 374 0013 02       		.uleb128 0x2
+ 375 0014 24       		.uleb128 0x24
+ 376 0015 00       		.byte	0
+ 377 0016 0B       		.uleb128 0xb
+ 378 0017 0B       		.uleb128 0xb
+ 379 0018 3E       		.uleb128 0x3e
+ 380 0019 0B       		.uleb128 0xb
+ 381 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 10
+
+
+ 382 001b 0E       		.uleb128 0xe
+ 383 001c 00       		.byte	0
+ 384 001d 00       		.byte	0
+ 385 001e 03       		.uleb128 0x3
+ 386 001f 24       		.uleb128 0x24
+ 387 0020 00       		.byte	0
+ 388 0021 0B       		.uleb128 0xb
+ 389 0022 0B       		.uleb128 0xb
+ 390 0023 3E       		.uleb128 0x3e
+ 391 0024 0B       		.uleb128 0xb
+ 392 0025 03       		.uleb128 0x3
+ 393 0026 08       		.uleb128 0x8
+ 394 0027 00       		.byte	0
+ 395 0028 00       		.byte	0
+ 396 0029 04       		.uleb128 0x4
+ 397 002a 16       		.uleb128 0x16
+ 398 002b 00       		.byte	0
+ 399 002c 03       		.uleb128 0x3
+ 400 002d 0E       		.uleb128 0xe
+ 401 002e 3A       		.uleb128 0x3a
+ 402 002f 0B       		.uleb128 0xb
+ 403 0030 3B       		.uleb128 0x3b
+ 404 0031 05       		.uleb128 0x5
+ 405 0032 49       		.uleb128 0x49
+ 406 0033 13       		.uleb128 0x13
+ 407 0034 00       		.byte	0
+ 408 0035 00       		.byte	0
+ 409 0036 05       		.uleb128 0x5
+ 410 0037 35       		.uleb128 0x35
+ 411 0038 00       		.byte	0
+ 412 0039 49       		.uleb128 0x49
+ 413 003a 13       		.uleb128 0x13
+ 414 003b 00       		.byte	0
+ 415 003c 00       		.byte	0
+ 416 003d 06       		.uleb128 0x6
+ 417 003e 2E       		.uleb128 0x2e
+ 418 003f 00       		.byte	0
+ 419 0040 3F       		.uleb128 0x3f
+ 420 0041 19       		.uleb128 0x19
+ 421 0042 03       		.uleb128 0x3
+ 422 0043 0E       		.uleb128 0xe
+ 423 0044 3A       		.uleb128 0x3a
+ 424 0045 0B       		.uleb128 0xb
+ 425 0046 3B       		.uleb128 0x3b
+ 426 0047 0B       		.uleb128 0xb
+ 427 0048 27       		.uleb128 0x27
+ 428 0049 19       		.uleb128 0x19
+ 429 004a 49       		.uleb128 0x49
+ 430 004b 13       		.uleb128 0x13
+ 431 004c 11       		.uleb128 0x11
+ 432 004d 01       		.uleb128 0x1
+ 433 004e 12       		.uleb128 0x12
+ 434 004f 06       		.uleb128 0x6
+ 435 0050 40       		.uleb128 0x40
+ 436 0051 18       		.uleb128 0x18
+ 437 0052 9742     		.uleb128 0x2117
+ 438 0054 19       		.uleb128 0x19
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 11
+
+
+ 439 0055 00       		.byte	0
+ 440 0056 00       		.byte	0
+ 441 0057 07       		.uleb128 0x7
+ 442 0058 2E       		.uleb128 0x2e
+ 443 0059 01       		.byte	0x1
+ 444 005a 3F       		.uleb128 0x3f
+ 445 005b 19       		.uleb128 0x19
+ 446 005c 03       		.uleb128 0x3
+ 447 005d 0E       		.uleb128 0xe
+ 448 005e 3A       		.uleb128 0x3a
+ 449 005f 0B       		.uleb128 0xb
+ 450 0060 3B       		.uleb128 0x3b
+ 451 0061 0B       		.uleb128 0xb
+ 452 0062 27       		.uleb128 0x27
+ 453 0063 19       		.uleb128 0x19
+ 454 0064 11       		.uleb128 0x11
+ 455 0065 01       		.uleb128 0x1
+ 456 0066 12       		.uleb128 0x12
+ 457 0067 06       		.uleb128 0x6
+ 458 0068 40       		.uleb128 0x40
+ 459 0069 18       		.uleb128 0x18
+ 460 006a 9742     		.uleb128 0x2117
+ 461 006c 19       		.uleb128 0x19
+ 462 006d 01       		.uleb128 0x1
+ 463 006e 13       		.uleb128 0x13
+ 464 006f 00       		.byte	0
+ 465 0070 00       		.byte	0
+ 466 0071 08       		.uleb128 0x8
+ 467 0072 34       		.uleb128 0x34
+ 468 0073 00       		.byte	0
+ 469 0074 03       		.uleb128 0x3
+ 470 0075 0E       		.uleb128 0xe
+ 471 0076 3A       		.uleb128 0x3a
+ 472 0077 0B       		.uleb128 0xb
+ 473 0078 3B       		.uleb128 0x3b
+ 474 0079 0B       		.uleb128 0xb
+ 475 007a 49       		.uleb128 0x49
+ 476 007b 13       		.uleb128 0x13
+ 477 007c 02       		.uleb128 0x2
+ 478 007d 17       		.uleb128 0x17
+ 479 007e 00       		.byte	0
+ 480 007f 00       		.byte	0
+ 481 0080 09       		.uleb128 0x9
+ 482 0081 898201   		.uleb128 0x4109
+ 483 0084 00       		.byte	0
+ 484 0085 11       		.uleb128 0x11
+ 485 0086 01       		.uleb128 0x1
+ 486 0087 31       		.uleb128 0x31
+ 487 0088 13       		.uleb128 0x13
+ 488 0089 00       		.byte	0
+ 489 008a 00       		.byte	0
+ 490 008b 0A       		.uleb128 0xa
+ 491 008c 898201   		.uleb128 0x4109
+ 492 008f 00       		.byte	0
+ 493 0090 11       		.uleb128 0x11
+ 494 0091 01       		.uleb128 0x1
+ 495 0092 9542     		.uleb128 0x2115
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 12
+
+
+ 496 0094 19       		.uleb128 0x19
+ 497 0095 31       		.uleb128 0x31
+ 498 0096 13       		.uleb128 0x13
+ 499 0097 00       		.byte	0
+ 500 0098 00       		.byte	0
+ 501 0099 0B       		.uleb128 0xb
+ 502 009a 05       		.uleb128 0x5
+ 503 009b 00       		.byte	0
+ 504 009c 03       		.uleb128 0x3
+ 505 009d 0E       		.uleb128 0xe
+ 506 009e 3A       		.uleb128 0x3a
+ 507 009f 0B       		.uleb128 0xb
+ 508 00a0 3B       		.uleb128 0x3b
+ 509 00a1 0B       		.uleb128 0xb
+ 510 00a2 49       		.uleb128 0x49
+ 511 00a3 13       		.uleb128 0x13
+ 512 00a4 02       		.uleb128 0x2
+ 513 00a5 17       		.uleb128 0x17
+ 514 00a6 00       		.byte	0
+ 515 00a7 00       		.byte	0
+ 516 00a8 0C       		.uleb128 0xc
+ 517 00a9 2E       		.uleb128 0x2e
+ 518 00aa 00       		.byte	0
+ 519 00ab 3F       		.uleb128 0x3f
+ 520 00ac 19       		.uleb128 0x19
+ 521 00ad 03       		.uleb128 0x3
+ 522 00ae 0E       		.uleb128 0xe
+ 523 00af 3A       		.uleb128 0x3a
+ 524 00b0 0B       		.uleb128 0xb
+ 525 00b1 3B       		.uleb128 0x3b
+ 526 00b2 0B       		.uleb128 0xb
+ 527 00b3 27       		.uleb128 0x27
+ 528 00b4 19       		.uleb128 0x19
+ 529 00b5 49       		.uleb128 0x49
+ 530 00b6 13       		.uleb128 0x13
+ 531 00b7 3C       		.uleb128 0x3c
+ 532 00b8 19       		.uleb128 0x19
+ 533 00b9 00       		.byte	0
+ 534 00ba 00       		.byte	0
+ 535 00bb 0D       		.uleb128 0xd
+ 536 00bc 2E       		.uleb128 0x2e
+ 537 00bd 01       		.byte	0x1
+ 538 00be 3F       		.uleb128 0x3f
+ 539 00bf 19       		.uleb128 0x19
+ 540 00c0 03       		.uleb128 0x3
+ 541 00c1 0E       		.uleb128 0xe
+ 542 00c2 3A       		.uleb128 0x3a
+ 543 00c3 0B       		.uleb128 0xb
+ 544 00c4 3B       		.uleb128 0x3b
+ 545 00c5 0B       		.uleb128 0xb
+ 546 00c6 27       		.uleb128 0x27
+ 547 00c7 19       		.uleb128 0x19
+ 548 00c8 3C       		.uleb128 0x3c
+ 549 00c9 19       		.uleb128 0x19
+ 550 00ca 00       		.byte	0
+ 551 00cb 00       		.byte	0
+ 552 00cc 0E       		.uleb128 0xe
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 13
+
+
+ 553 00cd 05       		.uleb128 0x5
+ 554 00ce 00       		.byte	0
+ 555 00cf 49       		.uleb128 0x49
+ 556 00d0 13       		.uleb128 0x13
+ 557 00d1 00       		.byte	0
+ 558 00d2 00       		.byte	0
+ 559 00d3 00       		.byte	0
+ 560              		.section	.debug_loc,"",%progbits
+ 561              	.Ldebug_loc0:
+ 562              	.LLST0:
+ 563 0000 06000000 		.4byte	.LVL0
+ 564 0004 17000000 		.4byte	.LVL1-1
+ 565 0008 0100     		.2byte	0x1
+ 566 000a 50       		.byte	0x50
+ 567 000b 00000000 		.4byte	0
+ 568 000f 00000000 		.4byte	0
+ 569              	.LLST1:
+ 570 0013 06000000 		.4byte	.LVL2
+ 571 0017 17000000 		.4byte	.LVL3-1
+ 572 001b 0100     		.2byte	0x1
+ 573 001d 50       		.byte	0x50
+ 574 001e 00000000 		.4byte	0
+ 575 0022 00000000 		.4byte	0
+ 576              	.LLST2:
+ 577 0026 00000000 		.4byte	.LVL4
+ 578 002a 06000000 		.4byte	.LVL5
+ 579 002e 0100     		.2byte	0x1
+ 580 0030 50       		.byte	0x50
+ 581 0031 06000000 		.4byte	.LVL5
+ 582 0035 10000000 		.4byte	.LFE3
+ 583 0039 0100     		.2byte	0x1
+ 584 003b 50       		.byte	0x50
+ 585 003c 00000000 		.4byte	0
+ 586 0040 00000000 		.4byte	0
+ 587              		.section	.debug_aranges,"",%progbits
+ 588 0000 3C000000 		.4byte	0x3c
+ 589 0004 0200     		.2byte	0x2
+ 590 0006 00000000 		.4byte	.Ldebug_info0
+ 591 000a 04       		.byte	0x4
+ 592 000b 00       		.byte	0
+ 593 000c 0000     		.2byte	0
+ 594 000e 0000     		.2byte	0
+ 595 0010 00000000 		.4byte	.LFB0
+ 596 0014 0C000000 		.4byte	.LFE0-.LFB0
+ 597 0018 00000000 		.4byte	.LFB1
+ 598 001c 1C000000 		.4byte	.LFE1-.LFB1
+ 599 0020 00000000 		.4byte	.LFB2
+ 600 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 601 0028 00000000 		.4byte	.LFB3
+ 602 002c 10000000 		.4byte	.LFE3-.LFB3
+ 603 0030 00000000 		.4byte	.LFB4
+ 604 0034 0C000000 		.4byte	.LFE4-.LFB4
+ 605 0038 00000000 		.4byte	0
+ 606 003c 00000000 		.4byte	0
+ 607              		.section	.debug_ranges,"",%progbits
+ 608              	.Ldebug_ranges0:
+ 609 0000 00000000 		.4byte	.LFB0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 14
+
+
+ 610 0004 0C000000 		.4byte	.LFE0
+ 611 0008 00000000 		.4byte	.LFB1
+ 612 000c 1C000000 		.4byte	.LFE1
+ 613 0010 00000000 		.4byte	.LFB2
+ 614 0014 1C000000 		.4byte	.LFE2
+ 615 0018 00000000 		.4byte	.LFB3
+ 616 001c 10000000 		.4byte	.LFE3
+ 617 0020 00000000 		.4byte	.LFB4
+ 618 0024 0C000000 		.4byte	.LFE4
+ 619 0028 00000000 		.4byte	0
+ 620 002c 00000000 		.4byte	0
+ 621              		.section	.debug_line,"",%progbits
+ 622              	.Ldebug_line0:
+ 623 0000 BD000000 		.section	.debug_str,"MS",%progbits,1
+ 623      02005A00 
+ 623      00000201 
+ 623      FB0E0D00 
+ 623      01010101 
+ 624              	.LASF6:
+ 625 0000 6C6F6E67 		.ascii	"long long int\000"
+ 625      206C6F6E 
+ 625      6720696E 
+ 625      7400
+ 626              	.LASF3:
+ 627 000e 73686F72 		.ascii	"short unsigned int\000"
+ 627      7420756E 
+ 627      7369676E 
+ 627      65642069 
+ 627      6E7400
+ 628              	.LASF19:
+ 629 0021 53445350 		.ascii	"SDSPI_CardStatus_Read\000"
+ 629      495F4361 
+ 629      72645374 
+ 629      61747573 
+ 629      5F526561 
+ 630              	.LASF8:
+ 631 0037 756E7369 		.ascii	"unsigned int\000"
+ 631      676E6564 
+ 631      20696E74 
+ 631      00
+ 632              	.LASF20:
+ 633 0044 53445350 		.ascii	"SDSPI_CardStatus_ReadMask\000"
+ 633      495F4361 
+ 633      72645374 
+ 633      61747573 
+ 633      5F526561 
+ 634              	.LASF25:
+ 635 005e 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 635      74657243 
+ 635      72697469 
+ 635      63616C53 
+ 635      65637469 
+ 636              	.LASF23:
+ 637 0075 443A5C64 		.ascii	"D:\\develop\\projects\\SoundChipLogger\\firmware\\D"
+ 637      6576656C 
+ 637      6F705C70 
+ 637      726F6A65 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 15
+
+
+ 637      6374735C 
+ 638 00a3 4D415344 		.ascii	"MASDSPITest\\DMASDSPITest.cydsn\000"
+ 638      53504954 
+ 638      6573745C 
+ 638      444D4153 
+ 638      44535049 
+ 639              	.LASF12:
+ 640 00c2 75696E74 		.ascii	"uint8\000"
+ 640      3800
+ 641              	.LASF5:
+ 642 00c8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 642      20756E73 
+ 642      69676E65 
+ 642      6420696E 
+ 642      7400
+ 643              	.LASF7:
+ 644 00da 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 644      206C6F6E 
+ 644      6720756E 
+ 644      7369676E 
+ 644      65642069 
+ 645              	.LASF22:
+ 646 00f1 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\SDSPI_CardStatus.c\000"
+ 646      6E657261 
+ 646      7465645F 
+ 646      536F7572 
+ 646      63655C50 
+ 647              	.LASF21:
+ 648 011d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 648      4320342E 
+ 648      392E3320 
+ 648      32303135 
+ 648      30333033 
+ 649 0150 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 649      20726576 
+ 649      6973696F 
+ 649      6E203232 
+ 649      31323230 
+ 650 0183 33202D73 		.ascii	"3 -std=gnu99 -ffunction-sections -ffat-lto-objects\000"
+ 650      74643D67 
+ 650      6E753939 
+ 650      202D6666 
+ 650      756E6374 
+ 651              	.LASF24:
+ 652 01b6 6D61736B 		.ascii	"mask\000"
+ 652      00
+ 653              	.LASF1:
+ 654 01bb 756E7369 		.ascii	"unsigned char\000"
+ 654      676E6564 
+ 654      20636861 
+ 654      7200
+ 655              	.LASF11:
+ 656 01c9 63686172 		.ascii	"char\000"
+ 656      00
+ 657              	.LASF4:
+ 658 01ce 6C6F6E67 		.ascii	"long int\000"
+ 658      20696E74 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccAGw7vi.s 			page 16
+
+
+ 658      00
+ 659              	.LASF15:
+ 660 01d7 53445350 		.ascii	"SDSPI_CardStatus_InterruptEnable\000"
+ 660      495F4361 
+ 660      72645374 
+ 660      61747573 
+ 660      5F496E74 
+ 661              	.LASF10:
+ 662 01f8 646F7562 		.ascii	"double\000"
+ 662      6C6500
+ 663              	.LASF16:
+ 664 01ff 53445350 		.ascii	"SDSPI_CardStatus_InterruptDisable\000"
+ 664      495F4361 
+ 664      72645374 
+ 664      61747573 
+ 664      5F496E74 
+ 665              	.LASF0:
+ 666 0221 7369676E 		.ascii	"signed char\000"
+ 666      65642063 
+ 666      68617200 
+ 667              	.LASF18:
+ 668 022d 53445350 		.ascii	"SDSPI_CardStatus_WriteMask\000"
+ 668      495F4361 
+ 668      72645374 
+ 668      61747573 
+ 668      5F577269 
+ 669              	.LASF26:
+ 670 0248 43794578 		.ascii	"CyExitCriticalSection\000"
+ 670      69744372 
+ 670      69746963 
+ 670      616C5365 
+ 670      6374696F 
+ 671              	.LASF9:
+ 672 025e 666C6F61 		.ascii	"float\000"
+ 672      7400
+ 673              	.LASF2:
+ 674 0264 73686F72 		.ascii	"short int\000"
+ 674      7420696E 
+ 674      7400
+ 675              	.LASF13:
+ 676 026e 72656738 		.ascii	"reg8\000"
+ 676      00
+ 677              	.LASF14:
+ 678 0273 73697A65 		.ascii	"sizetype\000"
+ 678      74797065 
+ 678      00
+ 679              	.LASF17:
+ 680 027c 696E7465 		.ascii	"interruptState\000"
+ 680      72727570 
+ 680      74537461 
+ 680      746500
+ 681              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

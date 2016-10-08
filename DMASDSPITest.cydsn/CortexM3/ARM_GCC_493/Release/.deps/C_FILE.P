@@ -1,0 +1,120 @@
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/CortexM3/ARM_GCC_493/Release/main.o : D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CYDMAC.H D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CYFITTER.H D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/Clock_1.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CyDmac.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CyFlash.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CyLib.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CySpc.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/LEDControl.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/MillisecISR.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/Pin_LED.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/Pin_LED_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_CSControl.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_CardStatus.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_RX_DMA_IRQ.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_RX_dma.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_SPIMaster.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_SPIMaster_PVT.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_TX_dma.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_api.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_fatfs.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_CLK.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_CS.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_CS_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_DETECT.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_DETECT_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MISO.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MISO_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MOSI.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MOSI_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_SCLK.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_SCLK_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SysResetReg.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dm.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dm_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dp.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dp_aliases.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_audio.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_cdc.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_cydmac.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_hid.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_midi.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_msc.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_pvt.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cmsis_armcc.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cmsis_gcc.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cm3.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cmFunc.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cmInstr.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cyPm.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cydevice.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cydevice_trm.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cydisabledsheets.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cyfitter.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cypins.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cytypes.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/project.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/cyapicallbacks.h D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/main.c 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CYDMAC.H : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CYFITTER.H : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/Clock_1.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/LEDControl.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/MillisecISR.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/Pin_LED.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/Pin_LED_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_CSControl.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_CardStatus.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_RX_DMA_IRQ.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_RX_dma.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_SPIMaster.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_SPIMaster_PVT.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_TX_dma.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_api.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SDSPI_fatfs.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_CLK.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_CS.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_CS_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_DETECT.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_DETECT_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MISO.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MISO_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MOSI.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_MOSI_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_SCLK.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SD_SCLK_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/SysResetReg.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dm.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dm_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dp.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_Dp_aliases.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_audio.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_cdc.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_cydmac.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_hid.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_midi.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_msc.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/USBUART_1_pvt.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cmFunc.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/core_cmInstr.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/Generated_Source/PSoC5/project.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/cyapicallbacks.h : 
+
+D:/develop/projects/SoundChipLogger/firmware/DMASDSPITest/DMASDSPITest.cydsn/main.c : 
+

@@ -1,0 +1,1410 @@
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"cymetadata.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	cy_meta_configecc
+  19              		.section	.cyconfigecc,"a",%progbits
+  20              		.align	2
+  21              		.type	cy_meta_configecc, %object
+  22              		.size	cy_meta_configecc, 868
+  23              	cy_meta_configecc:
+  24 0000 01       		.byte	1
+  25 0001 45       		.byte	69
+  26 0002 00       		.byte	0
+  27 0003 40       		.byte	64
+  28 0004 03       		.byte	3
+  29 0005 52       		.byte	82
+  30 0006 00       		.byte	0
+  31 0007 40       		.byte	64
+  32 0008 01       		.byte	1
+  33 0009 64       		.byte	100
+  34 000a 00       		.byte	0
+  35 000b 40       		.byte	64
+  36 000c 02       		.byte	2
+  37 000d 01       		.byte	1
+  38 000e 01       		.byte	1
+  39 000f 40       		.byte	64
+  40 0010 01       		.byte	1
+  41 0011 07       		.byte	7
+  42 0012 01       		.byte	1
+  43 0013 40       		.byte	64
+  44 0014 01       		.byte	1
+  45 0015 09       		.byte	9
+  46 0016 01       		.byte	1
+  47 0017 40       		.byte	64
+  48 0018 08       		.byte	8
+  49 0019 0B       		.byte	11
+  50 001a 01       		.byte	1
+  51 001b 40       		.byte	64
+  52 001c 3D       		.byte	61
+  53 001d 0C       		.byte	12
+  54 001e 01       		.byte	1
+  55 001f 40       		.byte	64
+  56 0020 34       		.byte	52
+  57 0021 0D       		.byte	13
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 2
+
+
+  58 0022 01       		.byte	1
+  59 0023 40       		.byte	64
+  60 0024 32       		.byte	50
+  61 0025 0E       		.byte	14
+  62 0026 01       		.byte	1
+  63 0027 40       		.byte	64
+  64 0028 41       		.byte	65
+  65 0029 0F       		.byte	15
+  66 002a 01       		.byte	1
+  67 002b 40       		.byte	64
+  68 002c 01       		.byte	1
+  69 002d 17       		.byte	23
+  70 002e 01       		.byte	1
+  71 002f 40       		.byte	64
+  72 0030 01       		.byte	1
+  73 0031 19       		.byte	25
+  74 0032 01       		.byte	1
+  75 0033 40       		.byte	64
+  76 0034 0F       		.byte	15
+  77 0035 40       		.byte	64
+  78 0036 01       		.byte	1
+  79 0037 40       		.byte	64
+  80 0038 04       		.byte	4
+  81 0039 41       		.byte	65
+  82 003a 01       		.byte	1
+  83 003b 40       		.byte	64
+  84 003c 03       		.byte	3
+  85 003d 42       		.byte	66
+  86 003e 01       		.byte	1
+  87 003f 40       		.byte	64
+  88 0040 04       		.byte	4
+  89 0041 43       		.byte	67
+  90 0042 01       		.byte	1
+  91 0043 40       		.byte	64
+  92 0044 01       		.byte	1
+  93 0045 44       		.byte	68
+  94 0046 01       		.byte	1
+  95 0047 40       		.byte	64
+  96 0048 09       		.byte	9
+  97 0049 45       		.byte	69
+  98 004a 01       		.byte	1
+  99 004b 40       		.byte	64
+ 100 004c 07       		.byte	7
+ 101 004d 46       		.byte	70
+ 102 004e 01       		.byte	1
+ 103 004f 40       		.byte	64
+ 104 0050 07       		.byte	7
+ 105 0051 47       		.byte	71
+ 106 0052 01       		.byte	1
+ 107 0053 40       		.byte	64
+ 108 0054 05       		.byte	5
+ 109 0055 48       		.byte	72
+ 110 0056 01       		.byte	1
+ 111 0057 40       		.byte	64
+ 112 0058 01       		.byte	1
+ 113 0059 4C       		.byte	76
+ 114 005a 01       		.byte	1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 3
+
+
+ 115 005b 40       		.byte	64
+ 116 005c 02       		.byte	2
+ 117 005d 50       		.byte	80
+ 118 005e 01       		.byte	1
+ 119 005f 40       		.byte	64
+ 120 0060 03       		.byte	3
+ 121 0061 51       		.byte	81
+ 122 0062 01       		.byte	1
+ 123 0063 40       		.byte	64
+ 124 0064 7E       		.byte	126
+ 125 0065 02       		.byte	2
+ 126 0066 10       		.byte	16
+ 127 0067 A2       		.byte	-94
+ 128 0068 11       		.byte	17
+ 129 0069 82       		.byte	-126
+ 130 006a 7C       		.byte	124
+ 131 006b 40       		.byte	64
+ 132 006c 8F       		.byte	-113
+ 133 006d 0F       		.byte	15
+ 134 006e E2       		.byte	-30
+ 135 006f 08       		.byte	8
+ 136 0070 E6       		.byte	-26
+ 137 0071 05       		.byte	5
+ 138 0072 EA       		.byte	-22
+ 139 0073 02       		.byte	2
+ 140 0074 EA       		.byte	-22
+ 141 0075 02       		.byte	2
+ 142 0076 AA       		.byte	-86
+ 143 0077 44       		.byte	68
+ 144 0078 AB       		.byte	-85
+ 145 0079 01       		.byte	1
+ 146 007a AE       		.byte	-82
+ 147 007b 01       		.byte	1
+ 148 007c AF       		.byte	-81
+ 149 007d 01       		.byte	1
+ 150 007e B3       		.byte	-77
+ 151 007f 10       		.byte	16
+ 152 0080 B7       		.byte	-73
+ 153 0081 02       		.byte	2
+ 154 0082 E8       		.byte	-24
+ 155 0083 0A       		.byte	10
+ 156 0084 EC       		.byte	-20
+ 157 0085 01       		.byte	1
+ 158 0086 04       		.byte	4
+ 159 0087 1B       		.byte	27
+ 160 0088 06       		.byte	6
+ 161 0089 44       		.byte	68
+ 162 008a 08       		.byte	8
+ 163 008b 2D       		.byte	45
+ 164 008c 0A       		.byte	10
+ 165 008d 12       		.byte	18
+ 166 008e 14       		.byte	20
+ 167 008f 60       		.byte	96
+ 168 0090 18       		.byte	24
+ 169 0091 04       		.byte	4
+ 170 0092 1A       		.byte	26
+ 171 0093 03       		.byte	3
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 4
+
+
+ 172 0094 2C       		.byte	44
+ 173 0095 19       		.byte	25
+ 174 0096 2E       		.byte	46
+ 175 0097 26       		.byte	38
+ 176 0098 32       		.byte	50
+ 177 0099 70       		.byte	112
+ 178 009a 34       		.byte	52
+ 179 009b 07       		.byte	7
+ 180 009c 36       		.byte	54
+ 181 009d 08       		.byte	8
+ 182 009e 38       		.byte	56
+ 183 009f 08       		.byte	8
+ 184 00a0 3A       		.byte	58
+ 185 00a1 20       		.byte	32
+ 186 00a2 3E       		.byte	62
+ 187 00a3 40       		.byte	64
+ 188 00a4 54       		.byte	84
+ 189 00a5 09       		.byte	9
+ 190 00a6 56       		.byte	86
+ 191 00a7 04       		.byte	4
+ 192 00a8 58       		.byte	88
+ 193 00a9 04       		.byte	4
+ 194 00aa 5B       		.byte	91
+ 195 00ab 04       		.byte	4
+ 196 00ac 5F       		.byte	95
+ 197 00ad 01       		.byte	1
+ 198 00ae 80       		.byte	-128
+ 199 00af 02       		.byte	2
+ 200 00b0 82       		.byte	-126
+ 201 00b1 0D       		.byte	13
+ 202 00b2 83       		.byte	-125
+ 203 00b3 01       		.byte	1
+ 204 00b4 84       		.byte	-124
+ 205 00b5 1D       		.byte	29
+ 206 00b6 85       		.byte	-123
+ 207 00b7 04       		.byte	4
+ 208 00b8 87       		.byte	-121
+ 209 00b9 23       		.byte	35
+ 210 00ba 88       		.byte	-120
+ 211 00bb C2       		.byte	-62
+ 212 00bc 89       		.byte	-119
+ 213 00bd 48       		.byte	72
+ 214 00be 8A       		.byte	-118
+ 215 00bf 08       		.byte	8
+ 216 00c0 8B       		.byte	-117
+ 217 00c1 03       		.byte	3
+ 218 00c2 8C       		.byte	-116
+ 219 00c3 0D       		.byte	13
+ 220 00c4 8E       		.byte	-114
+ 221 00c5 10       		.byte	16
+ 222 00c6 90       		.byte	-112
+ 223 00c7 1D       		.byte	29
+ 224 00c8 93       		.byte	-109
+ 225 00c9 82       		.byte	-126
+ 226 00ca 94       		.byte	-108
+ 227 00cb 1D       		.byte	29
+ 228 00cc 95       		.byte	-107
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 5
+
+
+ 229 00cd 70       		.byte	112
+ 230 00ce 98       		.byte	-104
+ 231 00cf 02       		.byte	2
+ 232 00d0 9A       		.byte	-102
+ 233 00d1 A4       		.byte	-92
+ 234 00d2 9B       		.byte	-101
+ 235 00d3 7C       		.byte	124
+ 236 00d4 9D       		.byte	-99
+ 237 00d5 11       		.byte	17
+ 238 00d6 9E       		.byte	-98
+ 239 00d7 20       		.byte	32
+ 240 00d8 9F       		.byte	-97
+ 241 00d9 02       		.byte	2
+ 242 00da A0       		.byte	-96
+ 243 00db 1D       		.byte	29
+ 244 00dc AA       		.byte	-86
+ 245 00dd 10       		.byte	16
+ 246 00de AC       		.byte	-84
+ 247 00df 01       		.byte	1
+ 248 00e0 AE       		.byte	-82
+ 249 00e1 62       		.byte	98
+ 250 00e2 B0       		.byte	-80
+ 251 00e3 0F       		.byte	15
+ 252 00e4 B1       		.byte	-79
+ 253 00e5 80       		.byte	-128
+ 254 00e6 B4       		.byte	-76
+ 255 00e7 10       		.byte	16
+ 256 00e8 B5       		.byte	-75
+ 257 00e9 0F       		.byte	15
+ 258 00ea B6       		.byte	-74
+ 259 00eb E0       		.byte	-32
+ 260 00ec B7       		.byte	-73
+ 261 00ed 70       		.byte	112
+ 262 00ee BA       		.byte	-70
+ 263 00ef 02       		.byte	2
+ 264 00f0 BE       		.byte	-66
+ 265 00f1 10       		.byte	16
+ 266 00f2 BF       		.byte	-65
+ 267 00f3 40       		.byte	64
+ 268 00f4 D4       		.byte	-44
+ 269 00f5 40       		.byte	64
+ 270 00f6 D6       		.byte	-42
+ 271 00f7 04       		.byte	4
+ 272 00f8 D8       		.byte	-40
+ 273 00f9 04       		.byte	4
+ 274 00fa D9       		.byte	-39
+ 275 00fb 04       		.byte	4
+ 276 00fc DB       		.byte	-37
+ 277 00fd 04       		.byte	4
+ 278 00fe DF       		.byte	-33
+ 279 00ff 01       		.byte	1
+ 280 0100 00       		.byte	0
+ 281 0101 10       		.byte	16
+ 282 0102 01       		.byte	1
+ 283 0103 46       		.byte	70
+ 284 0104 04       		.byte	4
+ 285 0105 14       		.byte	20
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 6
+
+
+ 286 0106 09       		.byte	9
+ 287 0107 01       		.byte	1
+ 288 0108 0A       		.byte	10
+ 289 0109 15       		.byte	21
+ 290 010a 0E       		.byte	14
+ 291 010b 28       		.byte	40
+ 292 010c 12       		.byte	18
+ 293 010d 06       		.byte	6
+ 294 010e 13       		.byte	19
+ 295 010f 02       		.byte	2
+ 296 0110 17       		.byte	23
+ 297 0111 40       		.byte	64
+ 298 0112 19       		.byte	25
+ 299 0113 02       		.byte	2
+ 300 0114 1A       		.byte	26
+ 301 0115 01       		.byte	1
+ 302 0116 1B       		.byte	27
+ 303 0117 10       		.byte	16
+ 304 0118 1D       		.byte	29
+ 305 0119 48       		.byte	72
+ 306 011a 1E       		.byte	30
+ 307 011b 28       		.byte	40
+ 308 011c 1F       		.byte	31
+ 309 011d 10       		.byte	16
+ 310 011e 21       		.byte	33
+ 311 011f 21       		.byte	33
+ 312 0120 22       		.byte	34
+ 313 0121 40       		.byte	64
+ 314 0122 30       		.byte	48
+ 315 0123 02       		.byte	2
+ 316 0124 31       		.byte	49
+ 317 0125 28       		.byte	40
+ 318 0126 33       		.byte	51
+ 319 0127 40       		.byte	64
+ 320 0128 38       		.byte	56
+ 321 0129 14       		.byte	20
+ 322 012a 39       		.byte	57
+ 323 012b 02       		.byte	2
+ 324 012c 5D       		.byte	93
+ 325 012d 10       		.byte	16
+ 326 012e 5E       		.byte	94
+ 327 012f 42       		.byte	66
+ 328 0130 5F       		.byte	95
+ 329 0131 04       		.byte	4
+ 330 0132 60       		.byte	96
+ 331 0133 80       		.byte	-128
+ 332 0134 62       		.byte	98
+ 333 0135 10       		.byte	16
+ 334 0136 63       		.byte	99
+ 335 0137 21       		.byte	33
+ 336 0138 65       		.byte	101
+ 337 0139 40       		.byte	64
+ 338 013a 66       		.byte	102
+ 339 013b 02       		.byte	2
+ 340 013c 6B       		.byte	107
+ 341 013d 01       		.byte	1
+ 342 013e 6F       		.byte	111
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 7
+
+
+ 343 013f 02       		.byte	2
+ 344 0140 90       		.byte	-112
+ 345 0141 14       		.byte	20
+ 346 0142 91       		.byte	-111
+ 347 0143 54       		.byte	84
+ 348 0144 92       		.byte	-110
+ 349 0145 54       		.byte	84
+ 350 0146 93       		.byte	-109
+ 351 0147 04       		.byte	4
+ 352 0148 97       		.byte	-105
+ 353 0149 30       		.byte	48
+ 354 014a 9A       		.byte	-102
+ 355 014b 14       		.byte	20
+ 356 014c 9B       		.byte	-101
+ 357 014d 42       		.byte	66
+ 358 014e 9C       		.byte	-100
+ 359 014f 80       		.byte	-128
+ 360 0150 9E       		.byte	-98
+ 361 0151 02       		.byte	2
+ 362 0152 A0       		.byte	-96
+ 363 0153 02       		.byte	2
+ 364 0154 A1       		.byte	-95
+ 365 0155 01       		.byte	1
+ 366 0156 A2       		.byte	-94
+ 367 0157 03       		.byte	3
+ 368 0158 AD       		.byte	-83
+ 369 0159 12       		.byte	18
+ 370 015a C0       		.byte	-64
+ 371 015b 6F       		.byte	111
+ 372 015c C2       		.byte	-62
+ 373 015d 6F       		.byte	111
+ 374 015e C4       		.byte	-60
+ 375 015f 8B       		.byte	-117
+ 376 0160 CC       		.byte	-52
+ 377 0161 0F       		.byte	15
+ 378 0162 CE       		.byte	-50
+ 379 0163 07       		.byte	7
+ 380 0164 D6       		.byte	-42
+ 381 0165 F0       		.byte	-16
+ 382 0166 D8       		.byte	-40
+ 383 0167 9F       		.byte	-97
+ 384 0168 80       		.byte	-128
+ 385 0169 04       		.byte	4
+ 386 016a 82       		.byte	-126
+ 387 016b 20       		.byte	32
+ 388 016c 84       		.byte	-124
+ 389 016d 42       		.byte	66
+ 390 016e 85       		.byte	-123
+ 391 016f 14       		.byte	20
+ 392 0170 87       		.byte	-121
+ 393 0171 08       		.byte	8
+ 394 0172 88       		.byte	-120
+ 395 0173 01       		.byte	1
+ 396 0174 89       		.byte	-119
+ 397 0175 10       		.byte	16
+ 398 0176 8A       		.byte	-118
+ 399 0177 5E       		.byte	94
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 8
+
+
+ 400 0178 8B       		.byte	-117
+ 401 0179 0C       		.byte	12
+ 402 017a 8C       		.byte	-116
+ 403 017b 77       		.byte	119
+ 404 017c 8D       		.byte	-115
+ 405 017d 0C       		.byte	12
+ 406 017e 8E       		.byte	-114
+ 407 017f 08       		.byte	8
+ 408 0180 8F       		.byte	-113
+ 409 0181 10       		.byte	16
+ 410 0182 90       		.byte	-112
+ 411 0183 46       		.byte	70
+ 412 0184 91       		.byte	-111
+ 413 0185 11       		.byte	17
+ 414 0186 92       		.byte	-110
+ 415 0187 80       		.byte	-128
+ 416 0188 93       		.byte	-109
+ 417 0189 22       		.byte	34
+ 418 018a 94       		.byte	-108
+ 419 018b 80       		.byte	-128
+ 420 018c 96       		.byte	-106
+ 421 018d 46       		.byte	70
+ 422 018e 98       		.byte	-104
+ 423 018f 39       		.byte	57
+ 424 0190 99       		.byte	-103
+ 425 0191 24       		.byte	36
+ 426 0192 9A       		.byte	-102
+ 427 0193 06       		.byte	6
+ 428 0194 9B       		.byte	-101
+ 429 0195 10       		.byte	16
+ 430 0196 9C       		.byte	-100
+ 431 0197 C6       		.byte	-58
+ 432 0198 9D       		.byte	-99
+ 433 0199 08       		.byte	8
+ 434 019a A0       		.byte	-96
+ 435 019b C6       		.byte	-58
+ 436 019c A1       		.byte	-95
+ 437 019d 1C       		.byte	28
+ 438 019e A4       		.byte	-92
+ 439 019f C2       		.byte	-62
+ 440 01a0 A5       		.byte	-91
+ 441 01a1 21       		.byte	33
+ 442 01a2 A6       		.byte	-90
+ 443 01a3 04       		.byte	4
+ 444 01a4 A7       		.byte	-89
+ 445 01a5 1E       		.byte	30
+ 446 01a6 A9       		.byte	-87
+ 447 01a7 30       		.byte	48
+ 448 01a8 AB       		.byte	-85
+ 449 01a9 0F       		.byte	15
+ 450 01aa AD       		.byte	-83
+ 451 01ab 1C       		.byte	28
+ 452 01ac B0       		.byte	-80
+ 453 01ad 08       		.byte	8
+ 454 01ae B1       		.byte	-79
+ 455 01af 0F       		.byte	15
+ 456 01b0 B2       		.byte	-78
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 9
+
+
+ 457 01b1 70       		.byte	112
+ 458 01b2 B4       		.byte	-76
+ 459 01b3 0F       		.byte	15
+ 460 01b4 B5       		.byte	-75
+ 461 01b5 30       		.byte	48
+ 462 01b6 B6       		.byte	-74
+ 463 01b7 80       		.byte	-128
+ 464 01b8 B8       		.byte	-72
+ 465 01b9 20       		.byte	32
+ 466 01ba BA       		.byte	-70
+ 467 01bb 0C       		.byte	12
+ 468 01bc BB       		.byte	-69
+ 469 01bd 20       		.byte	32
+ 470 01be BE       		.byte	-66
+ 471 01bf 41       		.byte	65
+ 472 01c0 D6       		.byte	-42
+ 473 01c1 02       		.byte	2
+ 474 01c2 D7       		.byte	-41
+ 475 01c3 28       		.byte	40
+ 476 01c4 D8       		.byte	-40
+ 477 01c5 04       		.byte	4
+ 478 01c6 D9       		.byte	-39
+ 479 01c7 04       		.byte	4
+ 480 01c8 DB       		.byte	-37
+ 481 01c9 04       		.byte	4
+ 482 01ca DF       		.byte	-33
+ 483 01cb 01       		.byte	1
+ 484 01cc 00       		.byte	0
+ 485 01cd 10       		.byte	16
+ 486 01ce 01       		.byte	1
+ 487 01cf 40       		.byte	64
+ 488 01d0 02       		.byte	2
+ 489 01d1 20       		.byte	32
+ 490 01d2 03       		.byte	3
+ 491 01d3 40       		.byte	64
+ 492 01d4 04       		.byte	4
+ 493 01d5 98       		.byte	-104
+ 494 01d6 05       		.byte	5
+ 495 01d7 02       		.byte	2
+ 496 01d8 09       		.byte	9
+ 497 01d9 09       		.byte	9
+ 498 01da 0A       		.byte	10
+ 499 01db 04       		.byte	4
+ 500 01dc 0C       		.byte	12
+ 501 01dd 08       		.byte	8
+ 502 01de 0E       		.byte	14
+ 503 01df 85       		.byte	-123
+ 504 01e0 10       		.byte	16
+ 505 01e1 0A       		.byte	10
+ 506 01e2 11       		.byte	17
+ 507 01e3 04       		.byte	4
+ 508 01e4 13       		.byte	19
+ 509 01e5 02       		.byte	2
+ 510 01e6 15       		.byte	21
+ 511 01e7 04       		.byte	4
+ 512 01e8 17       		.byte	23
+ 513 01e9 02       		.byte	2
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 10
+
+
+ 514 01ea 19       		.byte	25
+ 515 01eb 04       		.byte	4
+ 516 01ec 1C       		.byte	28
+ 517 01ed 16       		.byte	22
+ 518 01ee 1D       		.byte	29
+ 519 01ef 10       		.byte	16
+ 520 01f0 1E       		.byte	30
+ 521 01f1 46       		.byte	70
+ 522 01f2 1F       		.byte	31
+ 523 01f3 08       		.byte	8
+ 524 01f4 21       		.byte	33
+ 525 01f5 0A       		.byte	10
+ 526 01f6 24       		.byte	36
+ 527 01f7 88       		.byte	-120
+ 528 01f8 26       		.byte	38
+ 529 01f9 22       		.byte	34
+ 530 01fa 27       		.byte	39
+ 531 01fb 40       		.byte	64
+ 532 01fc 29       		.byte	41
+ 533 01fd 94       		.byte	-108
+ 534 01fe 2B       		.byte	43
+ 535 01ff 80       		.byte	-128
+ 536 0200 2D       		.byte	45
+ 537 0201 80       		.byte	-128
+ 538 0202 2E       		.byte	46
+ 539 0203 04       		.byte	4
+ 540 0204 2F       		.byte	47
+ 541 0205 88       		.byte	-120
+ 542 0206 31       		.byte	49
+ 543 0207 0A       		.byte	10
+ 544 0208 32       		.byte	50
+ 545 0209 20       		.byte	32
+ 546 020a 33       		.byte	51
+ 547 020b 40       		.byte	64
+ 548 020c 36       		.byte	54
+ 549 020d A2       		.byte	-94
+ 550 020e 38       		.byte	56
+ 551 020f 12       		.byte	18
+ 552 0210 39       		.byte	57
+ 553 0211 44       		.byte	68
+ 554 0212 3D       		.byte	61
+ 555 0213 44       		.byte	68
+ 556 0214 3E       		.byte	62
+ 557 0215 10       		.byte	16
+ 558 0216 40       		.byte	64
+ 559 0217 10       		.byte	16
+ 560 0218 42       		.byte	66
+ 561 0219 04       		.byte	4
+ 562 021a 43       		.byte	67
+ 563 021b 40       		.byte	64
+ 564 021c 48       		.byte	72
+ 565 021d 01       		.byte	1
+ 566 021e 49       		.byte	73
+ 567 021f 02       		.byte	2
+ 568 0220 4A       		.byte	74
+ 569 0221 80       		.byte	-128
+ 570 0222 4B       		.byte	75
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 11
+
+
+ 571 0223 14       		.byte	20
+ 572 0224 50       		.byte	80
+ 573 0225 03       		.byte	3
+ 574 0226 52       		.byte	82
+ 575 0227 14       		.byte	20
+ 576 0228 67       		.byte	103
+ 577 0229 20       		.byte	32
+ 578 022a 6C       		.byte	108
+ 579 022b 08       		.byte	8
+ 580 022c 6D       		.byte	109
+ 581 022d 46       		.byte	70
+ 582 022e 6E       		.byte	110
+ 583 022f 91       		.byte	-111
+ 584 0230 6F       		.byte	111
+ 585 0231 80       		.byte	-128
+ 586 0232 75       		.byte	117
+ 587 0233 80       		.byte	-128
+ 588 0234 77       		.byte	119
+ 589 0235 02       		.byte	2
+ 590 0236 80       		.byte	-128
+ 591 0237 80       		.byte	-128
+ 592 0238 82       		.byte	-126
+ 593 0239 02       		.byte	2
+ 594 023a C0       		.byte	-64
+ 595 023b FF       		.byte	-1
+ 596 023c C2       		.byte	-62
+ 597 023d FE       		.byte	-2
+ 598 023e C4       		.byte	-60
+ 599 023f 3F       		.byte	63
+ 600 0240 CA       		.byte	-54
+ 601 0241 FF       		.byte	-1
+ 602 0242 CC       		.byte	-52
+ 603 0243 BF       		.byte	-65
+ 604 0244 CE       		.byte	-50
+ 605 0245 7F       		.byte	127
+ 606 0246 D0       		.byte	-48
+ 607 0247 0E       		.byte	14
+ 608 0248 D2       		.byte	-46
+ 609 0249 0C       		.byte	12
+ 610 024a D8       		.byte	-40
+ 611 024b 40       		.byte	64
+ 612 024c E2       		.byte	-30
+ 613 024d 08       		.byte	8
+ 614 024e EE       		.byte	-18
+ 615 024f 04       		.byte	4
+ 616 0250 EE       		.byte	-18
+ 617 0251 04       		.byte	4
+ 618 0252 17       		.byte	23
+ 619 0253 04       		.byte	4
+ 620 0254 33       		.byte	51
+ 621 0255 04       		.byte	4
+ 622 0256 34       		.byte	52
+ 623 0257 01       		.byte	1
+ 624 0258 37       		.byte	55
+ 625 0259 80       		.byte	-128
+ 626 025a 38       		.byte	56
+ 627 025b 02       		.byte	2
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 12
+
+
+ 628 025c 3A       		.byte	58
+ 629 025d 20       		.byte	32
+ 630 025e 3F       		.byte	63
+ 631 025f 20       		.byte	32
+ 632 0260 80       		.byte	-128
+ 633 0261 01       		.byte	1
+ 634 0262 83       		.byte	-125
+ 635 0263 10       		.byte	16
+ 636 0264 86       		.byte	-122
+ 637 0265 20       		.byte	32
+ 638 0266 C4       		.byte	-60
+ 639 0267 20       		.byte	32
+ 640 0268 CC       		.byte	-52
+ 641 0269 E0       		.byte	-32
+ 642 026a CE       		.byte	-50
+ 643 026b 70       		.byte	112
+ 644 026c E2       		.byte	-30
+ 645 026d 10       		.byte	16
+ 646 026e E6       		.byte	-26
+ 647 026f A0       		.byte	-96
+ 648 0270 33       		.byte	51
+ 649 0271 80       		.byte	-128
+ 650 0272 9C       		.byte	-100
+ 651 0273 01       		.byte	1
+ 652 0274 9F       		.byte	-97
+ 653 0275 80       		.byte	-128
+ 654 0276 CC       		.byte	-52
+ 655 0277 10       		.byte	16
+ 656 0278 9C       		.byte	-100
+ 657 0279 01       		.byte	1
+ 658 027a 9F       		.byte	-97
+ 659 027b 80       		.byte	-128
+ 660 027c A7       		.byte	-89
+ 661 027d 80       		.byte	-128
+ 662 027e 9F       		.byte	-97
+ 663 027f 80       		.byte	-128
+ 664 0280 A7       		.byte	-89
+ 665 0281 80       		.byte	-128
+ 666 0282 AC       		.byte	-84
+ 667 0283 01       		.byte	1
+ 668 0284 EA       		.byte	-22
+ 669 0285 40       		.byte	64
+ 670 0286 87       		.byte	-121
+ 671 0287 10       		.byte	16
+ 672 0288 0B       		.byte	11
+ 673 0289 80       		.byte	-128
+ 674 028a 54       		.byte	84
+ 675 028b 02       		.byte	2
+ 676 028c 5E       		.byte	94
+ 677 028d 02       		.byte	2
+ 678 028e 62       		.byte	98
+ 679 028f 40       		.byte	64
+ 680 0290 66       		.byte	102
+ 681 0291 10       		.byte	16
+ 682 0292 97       		.byte	-105
+ 683 0293 10       		.byte	16
+ 684 0294 C2       		.byte	-62
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 13
+
+
+ 685 0295 08       		.byte	8
+ 686 0296 D6       		.byte	-42
+ 687 0297 07       		.byte	7
+ 688 0298 D8       		.byte	-40
+ 689 0299 01       		.byte	1
+ 690 029a 97       		.byte	-105
+ 691 029b 10       		.byte	16
+ 692 029c AA       		.byte	-86
+ 693 029d 01       		.byte	1
+ 694 029e AE       		.byte	-82
+ 695 029f 50       		.byte	80
+ 696 02a0 B3       		.byte	-77
+ 697 02a1 40       		.byte	64
+ 698 02a2 B4       		.byte	-76
+ 699 02a3 02       		.byte	2
+ 700 02a4 EC       		.byte	-20
+ 701 02a5 02       		.byte	2
+ 702 02a6 EE       		.byte	-18
+ 703 02a7 01       		.byte	1
+ 704 02a8 09       		.byte	9
+ 705 02a9 02       		.byte	2
+ 706 02aa 0B       		.byte	11
+ 707 02ab 02       		.byte	2
+ 708 02ac 0F       		.byte	15
+ 709 02ad 10       		.byte	16
+ 710 02ae 97       		.byte	-105
+ 711 02af 10       		.byte	16
+ 712 02b0 A5       		.byte	-91
+ 713 02b1 02       		.byte	2
+ 714 02b2 AD       		.byte	-83
+ 715 02b3 02       		.byte	2
+ 716 02b4 C2       		.byte	-62
+ 717 02b5 0E       		.byte	14
+ 718 02b6 23       		.byte	35
+ 719 02b7 80       		.byte	-128
+ 720 02b8 9F       		.byte	-97
+ 721 02b9 80       		.byte	-128
+ 722 02ba AB       		.byte	-85
+ 723 02bb 80       		.byte	-128
+ 724 02bc C8       		.byte	-56
+ 725 02bd 40       		.byte	64
+ 726 02be EE       		.byte	-18
+ 727 02bf 20       		.byte	32
+ 728 02c0 AB       		.byte	-85
+ 729 02c1 01       		.byte	1
+ 730 02c2 00       		.byte	0
+ 731 02c3 01       		.byte	1
+ 732 02c4 0E       		.byte	14
+ 733 02c5 01       		.byte	1
+ 734 02c6 00       		.byte	0
+ 735 02c7 BD       		.byte	-67
+ 736 02c8 01       		.byte	1
+ 737 02c9 0A       		.byte	10
+ 738 02ca 10       		.byte	16
+ 739 02cb 0A       		.byte	10
+ 740 02cc 1F       		.byte	31
+ 741 02cd 10       		.byte	16
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 14
+
+
+ 742 02ce 20       		.byte	32
+ 743 02cf 00       		.byte	0
+ 744 02d0 80       		.byte	-128
+ 745 02d1 01       		.byte	1
+ 746 02d2 00       		.byte	0
+ 747 02d3 00       		.byte	0
+ 748 02d4 7F       		.byte	127
+ 749 02d5 22       		.byte	34
+ 750 02d6 80       		.byte	-128
+ 751 02d7 08       		.byte	8
+ 752 02d8 90       		.byte	-112
+ 753 02d9 01       		.byte	1
+ 754 02da 40       		.byte	64
+ 755 02db 00       		.byte	0
+ 756 02dc C0       		.byte	-64
+ 757 02dd 40       		.byte	64
+ 758 02de 02       		.byte	2
+ 759 02df 00       		.byte	0
+ 760 02e0 00       		.byte	0
+ 761 02e1 04       		.byte	4
+ 762 02e2 60       		.byte	96
+ 763 02e3 00       		.byte	0
+ 764 02e4 00       		.byte	0
+ 765 02e5 01       		.byte	1
+ 766 02e6 FF       		.byte	-1
+ 767 02e7 00       		.byte	0
+ 768 02e8 00       		.byte	0
+ 769 02e9 07       		.byte	7
+ 770 02ea 00       		.byte	0
+ 771 02eb 18       		.byte	24
+ 772 02ec C0       		.byte	-64
+ 773 02ed 01       		.byte	1
+ 774 02ee 01       		.byte	1
+ 775 02ef 00       		.byte	0
+ 776 02f0 C0       		.byte	-64
+ 777 02f1 40       		.byte	64
+ 778 02f2 04       		.byte	4
+ 779 02f3 00       		.byte	0
+ 780 02f4 C0       		.byte	-64
+ 781 02f5 08       		.byte	8
+ 782 02f6 08       		.byte	8
+ 783 02f7 21       		.byte	33
+ 784 02f8 00       		.byte	0
+ 785 02f9 01       		.byte	1
+ 786 02fa 9F       		.byte	-97
+ 787 02fb 00       		.byte	0
+ 788 02fc 00       		.byte	0
+ 789 02fd 3F       		.byte	63
+ 790 02fe FF       		.byte	-1
+ 791 02ff 40       		.byte	64
+ 792 0300 00       		.byte	0
+ 793 0301 00       		.byte	0
+ 794 0302 00       		.byte	0
+ 795 0303 00       		.byte	0
+ 796 0304 00       		.byte	0
+ 797 0305 0A       		.byte	10
+ 798 0306 00       		.byte	0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 15
+
+
+ 799 0307 00       		.byte	0
+ 800 0308 00       		.byte	0
+ 801 0309 00       		.byte	0
+ 802 030a 04       		.byte	4
+ 803 030b 01       		.byte	1
+ 804 030c 23       		.byte	35
+ 805 030d 01       		.byte	1
+ 806 030e 50       		.byte	80
+ 807 030f 00       		.byte	0
+ 808 0310 06       		.byte	6
+ 809 0311 CE       		.byte	-50
+ 810 0312 F0       		.byte	-16
+ 811 0313 BD       		.byte	-67
+ 812 0314 3B       		.byte	59
+ 813 0315 FF       		.byte	-1
+ 814 0316 FF       		.byte	-1
+ 815 0317 FF       		.byte	-1
+ 816 0318 22       		.byte	34
+ 817 0319 00       		.byte	0
+ 818 031a F0       		.byte	-16
+ 819 031b 08       		.byte	8
+ 820 031c 04       		.byte	4
+ 821 031d 00       		.byte	0
+ 822 031e 00       		.byte	0
+ 823 031f 00       		.byte	0
+ 824 0320 00       		.byte	0
+ 825 0321 00       		.byte	0
+ 826 0322 00       		.byte	0
+ 827 0323 00       		.byte	0
+ 828 0324 04       		.byte	4
+ 829 0325 04       		.byte	4
+ 830 0326 04       		.byte	4
+ 831 0327 00       		.byte	0
+ 832 0328 00       		.byte	0
+ 833 0329 00       		.byte	0
+ 834 032a 00       		.byte	0
+ 835 032b 01       		.byte	1
+ 836 032c 00       		.byte	0
+ 837 032d 00       		.byte	0
+ 838 032e C0       		.byte	-64
+ 839 032f 00       		.byte	0
+ 840 0330 40       		.byte	64
+ 841 0331 01       		.byte	1
+ 842 0332 10       		.byte	16
+ 843 0333 11       		.byte	17
+ 844 0334 C0       		.byte	-64
+ 845 0335 01       		.byte	1
+ 846 0336 00       		.byte	0
+ 847 0337 11       		.byte	17
+ 848 0338 40       		.byte	64
+ 849 0339 01       		.byte	1
+ 850 033a 40       		.byte	64
+ 851 033b 01       		.byte	1
+ 852 033c 00       		.byte	0
+ 853 033d 00       		.byte	0
+ 854 033e 00       		.byte	0
+ 855 033f 00       		.byte	0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 16
+
+
+ 856 0340 00       		.byte	0
+ 857 0341 00       		.byte	0
+ 858 0342 00       		.byte	0
+ 859 0343 00       		.byte	0
+ 860 0344 00       		.byte	0
+ 861 0345 00       		.byte	0
+ 862 0346 00       		.byte	0
+ 863 0347 00       		.byte	0
+ 864 0348 00       		.byte	0
+ 865 0349 00       		.byte	0
+ 866 034a 00       		.byte	0
+ 867 034b 00       		.byte	0
+ 868 034c 40       		.byte	64
+ 869 034d 00       		.byte	0
+ 870 034e 00       		.byte	0
+ 871 034f 00       		.byte	0
+ 872 0350 00       		.byte	0
+ 873 0351 00       		.byte	0
+ 874 0352 00       		.byte	0
+ 875 0353 00       		.byte	0
+ 876 0354 C0       		.byte	-64
+ 877 0355 00       		.byte	0
+ 878 0356 00       		.byte	0
+ 879 0357 00       		.byte	0
+ 880 0358 10       		.byte	16
+ 881 0359 E2       		.byte	-30
+ 882 035a E2       		.byte	-30
+ 883 035b 00       		.byte	0
+ 884 035c E2       		.byte	-30
+ 885 035d 00       		.byte	0
+ 886 035e 00       		.byte	0
+ 887 035f 00       		.byte	0
+ 888 0360 00       		.byte	0
+ 889 0361 01       		.byte	1
+ 890 0362 00       		.byte	0
+ 891 0363 00       		.byte	0
+ 892              		.global	cy_meta_custnvl
+ 893              		.section	.cycustnvl,"a",%progbits
+ 894              		.align	2
+ 895              		.type	cy_meta_custnvl, %object
+ 896              		.size	cy_meta_custnvl, 4
+ 897              	cy_meta_custnvl:
+ 898 0000 00       		.byte	0
+ 899 0001 00       		.byte	0
+ 900 0002 40       		.byte	64
+ 901 0003 05       		.byte	5
+ 902              		.global	cy_meta_wonvl
+ 903              		.section	.cywolatch,"a",%progbits
+ 904              		.align	2
+ 905              		.type	cy_meta_wonvl, %object
+ 906              		.size	cy_meta_wonvl, 4
+ 907              	cy_meta_wonvl:
+ 908 0000 BC       		.byte	-68
+ 909 0001 90       		.byte	-112
+ 910 0002 AC       		.byte	-84
+ 911 0003 AF       		.byte	-81
+ 912              		.global	cy_meta_flashprotect
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 17
+
+
+ 913              		.section	.cyflashprotect,"a",%progbits
+ 914              		.align	2
+ 915              		.type	cy_meta_flashprotect, %object
+ 916              		.size	cy_meta_flashprotect, 256
+ 917              	cy_meta_flashprotect:
+ 918 0000 00000000 		.space	256
+ 918      00000000 
+ 918      00000000 
+ 918      00000000 
+ 918      00000000 
+ 919              		.global	cy_metadata
+ 920              		.section	.cymeta,"a",%progbits
+ 921              		.align	2
+ 922              		.type	cy_metadata, %object
+ 923              		.size	cy_metadata, 12
+ 924              	cy_metadata:
+ 925 0000 00       		.byte	0
+ 926 0001 01       		.byte	1
+ 927 0002 2E       		.byte	46
+ 928 0003 16       		.byte	22
+ 929 0004 10       		.byte	16
+ 930 0005 69       		.byte	105
+ 931 0006 00       		.byte	0
+ 932 0007 01       		.byte	1
+ 933 0008 00       		.byte	0
+ 934 0009 00       		.byte	0
+ 935 000a 00       		.byte	0
+ 936 000b 00       		.byte	0
+ 937              		.text
+ 938              	.Letext0:
+ 939              		.file 1 ".\\Generated_Source\\PSoC5\\cymetadata.c"
+ 940              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 941              		.section	.debug_info,"",%progbits
+ 942              	.Ldebug_info0:
+ 943 0000 37010000 		.4byte	0x137
+ 944 0004 0400     		.2byte	0x4
+ 945 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 946 000a 04       		.byte	0x4
+ 947 000b 01       		.uleb128 0x1
+ 948 000c BF000000 		.4byte	.LASF18
+ 949 0010 01       		.byte	0x1
+ 950 0011 00000000 		.4byte	.LASF19
+ 951 0015 2D000000 		.4byte	.LASF20
+ 952 0019 00000000 		.4byte	.Ldebug_line0
+ 953 001d 02       		.uleb128 0x2
+ 954 001e 01       		.byte	0x1
+ 955 001f 06       		.byte	0x6
+ 956 0020 F6010000 		.4byte	.LASF0
+ 957 0024 02       		.uleb128 0x2
+ 958 0025 01       		.byte	0x1
+ 959 0026 08       		.byte	0x8
+ 960 0027 8C000000 		.4byte	.LASF1
+ 961 002b 02       		.uleb128 0x2
+ 962 002c 02       		.byte	0x2
+ 963 002d 05       		.byte	0x5
+ 964 002e DD010000 		.4byte	.LASF2
+ 965 0032 02       		.uleb128 0x2
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 18
+
+
+ 966 0033 02       		.byte	0x2
+ 967 0034 07       		.byte	0x7
+ 968 0035 AC000000 		.4byte	.LASF3
+ 969 0039 02       		.uleb128 0x2
+ 970 003a 04       		.byte	0x4
+ 971 003b 05       		.byte	0x5
+ 972 003c ED010000 		.4byte	.LASF4
+ 973 0040 02       		.uleb128 0x2
+ 974 0041 04       		.byte	0x4
+ 975 0042 07       		.byte	0x7
+ 976 0043 9A000000 		.4byte	.LASF5
+ 977 0047 02       		.uleb128 0x2
+ 978 0048 08       		.byte	0x8
+ 979 0049 05       		.byte	0x5
+ 980 004a CA010000 		.4byte	.LASF6
+ 981 004e 02       		.uleb128 0x2
+ 982 004f 08       		.byte	0x8
+ 983 0050 07       		.byte	0x7
+ 984 0051 87010000 		.4byte	.LASF7
+ 985 0055 03       		.uleb128 0x3
+ 986 0056 04       		.byte	0x4
+ 987 0057 05       		.byte	0x5
+ 988 0058 696E7400 		.ascii	"int\000"
+ 989 005c 02       		.uleb128 0x2
+ 990 005d 04       		.byte	0x4
+ 991 005e 07       		.byte	0x7
+ 992 005f 7A010000 		.4byte	.LASF8
+ 993 0063 04       		.uleb128 0x4
+ 994 0064 E7010000 		.4byte	.LASF21
+ 995 0068 02       		.byte	0x2
+ 996 0069 9201     		.2byte	0x192
+ 997 006b 24000000 		.4byte	0x24
+ 998 006f 02       		.uleb128 0x2
+ 999 0070 04       		.byte	0x4
+ 1000 0071 04       		.byte	0x4
+ 1001 0072 86000000 		.4byte	.LASF9
+ 1002 0076 02       		.uleb128 0x2
+ 1003 0077 08       		.byte	0x8
+ 1004 0078 04       		.byte	0x4
+ 1005 0079 26000000 		.4byte	.LASF10
+ 1006 007d 02       		.uleb128 0x2
+ 1007 007e 01       		.byte	0x1
+ 1008 007f 08       		.byte	0x8
+ 1009 0080 D8010000 		.4byte	.LASF11
+ 1010 0084 05       		.uleb128 0x5
+ 1011 0085 63000000 		.4byte	0x63
+ 1012 0089 95000000 		.4byte	0x95
+ 1013 008d 06       		.uleb128 0x6
+ 1014 008e 95000000 		.4byte	0x95
+ 1015 0092 6303     		.2byte	0x363
+ 1016 0094 00       		.byte	0
+ 1017 0095 02       		.uleb128 0x2
+ 1018 0096 04       		.byte	0x4
+ 1019 0097 07       		.byte	0x7
+ 1020 0098 C1010000 		.4byte	.LASF12
+ 1021 009c 07       		.uleb128 0x7
+ 1022 009d 68010000 		.4byte	.LASF13
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 19
+
+
+ 1023 00a1 01       		.byte	0x1
+ 1024 00a2 1F       		.byte	0x1f
+ 1025 00a3 AD000000 		.4byte	0xad
+ 1026 00a7 05       		.uleb128 0x5
+ 1027 00a8 03       		.byte	0x3
+ 1028 00a9 00000000 		.4byte	cy_meta_configecc
+ 1029 00ad 08       		.uleb128 0x8
+ 1030 00ae 84000000 		.4byte	0x84
+ 1031 00b2 05       		.uleb128 0x5
+ 1032 00b3 63000000 		.4byte	0x63
+ 1033 00b7 C2000000 		.4byte	0xc2
+ 1034 00bb 09       		.uleb128 0x9
+ 1035 00bc 95000000 		.4byte	0x95
+ 1036 00c0 03       		.byte	0x3
+ 1037 00c1 00       		.byte	0
+ 1038 00c2 07       		.uleb128 0x7
+ 1039 00c3 58010000 		.4byte	.LASF14
+ 1040 00c7 01       		.byte	0x1
+ 1041 00c8 99       		.byte	0x99
+ 1042 00c9 D3000000 		.4byte	0xd3
+ 1043 00cd 05       		.uleb128 0x5
+ 1044 00ce 03       		.byte	0x3
+ 1045 00cf 00000000 		.4byte	cy_meta_custnvl
+ 1046 00d3 08       		.uleb128 0x8
+ 1047 00d4 B2000000 		.4byte	0xb2
+ 1048 00d8 07       		.uleb128 0x7
+ 1049 00d9 B3010000 		.4byte	.LASF15
+ 1050 00dd 01       		.byte	0x1
+ 1051 00de A7       		.byte	0xa7
+ 1052 00df E9000000 		.4byte	0xe9
+ 1053 00e3 05       		.uleb128 0x5
+ 1054 00e4 03       		.byte	0x3
+ 1055 00e5 00000000 		.4byte	cy_meta_wonvl
+ 1056 00e9 08       		.uleb128 0x8
+ 1057 00ea B2000000 		.4byte	0xb2
+ 1058 00ee 05       		.uleb128 0x5
+ 1059 00ef 63000000 		.4byte	0x63
+ 1060 00f3 FE000000 		.4byte	0xfe
+ 1061 00f7 09       		.uleb128 0x9
+ 1062 00f8 95000000 		.4byte	0x95
+ 1063 00fc FF       		.byte	0xff
+ 1064 00fd 00       		.byte	0
+ 1065 00fe 07       		.uleb128 0x7
+ 1066 00ff 9E010000 		.4byte	.LASF16
+ 1067 0103 01       		.byte	0x1
+ 1068 0104 B5       		.byte	0xb5
+ 1069 0105 0F010000 		.4byte	0x10f
+ 1070 0109 05       		.uleb128 0x5
+ 1071 010a 03       		.byte	0x3
+ 1072 010b 00000000 		.4byte	cy_meta_flashprotect
+ 1073 010f 08       		.uleb128 0x8
+ 1074 0110 EE000000 		.4byte	0xee
+ 1075 0114 05       		.uleb128 0x5
+ 1076 0115 63000000 		.4byte	0x63
+ 1077 0119 24010000 		.4byte	0x124
+ 1078 011d 09       		.uleb128 0x9
+ 1079 011e 95000000 		.4byte	0x95
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 20
+
+
+ 1080 0122 0B       		.byte	0xb
+ 1081 0123 00       		.byte	0
+ 1082 0124 07       		.uleb128 0x7
+ 1083 0125 7A000000 		.4byte	.LASF17
+ 1084 0129 01       		.byte	0x1
+ 1085 012a E2       		.byte	0xe2
+ 1086 012b 35010000 		.4byte	0x135
+ 1087 012f 05       		.uleb128 0x5
+ 1088 0130 03       		.byte	0x3
+ 1089 0131 00000000 		.4byte	cy_metadata
+ 1090 0135 08       		.uleb128 0x8
+ 1091 0136 14010000 		.4byte	0x114
+ 1092 013a 00       		.byte	0
+ 1093              		.section	.debug_abbrev,"",%progbits
+ 1094              	.Ldebug_abbrev0:
+ 1095 0000 01       		.uleb128 0x1
+ 1096 0001 11       		.uleb128 0x11
+ 1097 0002 01       		.byte	0x1
+ 1098 0003 25       		.uleb128 0x25
+ 1099 0004 0E       		.uleb128 0xe
+ 1100 0005 13       		.uleb128 0x13
+ 1101 0006 0B       		.uleb128 0xb
+ 1102 0007 03       		.uleb128 0x3
+ 1103 0008 0E       		.uleb128 0xe
+ 1104 0009 1B       		.uleb128 0x1b
+ 1105 000a 0E       		.uleb128 0xe
+ 1106 000b 10       		.uleb128 0x10
+ 1107 000c 17       		.uleb128 0x17
+ 1108 000d 00       		.byte	0
+ 1109 000e 00       		.byte	0
+ 1110 000f 02       		.uleb128 0x2
+ 1111 0010 24       		.uleb128 0x24
+ 1112 0011 00       		.byte	0
+ 1113 0012 0B       		.uleb128 0xb
+ 1114 0013 0B       		.uleb128 0xb
+ 1115 0014 3E       		.uleb128 0x3e
+ 1116 0015 0B       		.uleb128 0xb
+ 1117 0016 03       		.uleb128 0x3
+ 1118 0017 0E       		.uleb128 0xe
+ 1119 0018 00       		.byte	0
+ 1120 0019 00       		.byte	0
+ 1121 001a 03       		.uleb128 0x3
+ 1122 001b 24       		.uleb128 0x24
+ 1123 001c 00       		.byte	0
+ 1124 001d 0B       		.uleb128 0xb
+ 1125 001e 0B       		.uleb128 0xb
+ 1126 001f 3E       		.uleb128 0x3e
+ 1127 0020 0B       		.uleb128 0xb
+ 1128 0021 03       		.uleb128 0x3
+ 1129 0022 08       		.uleb128 0x8
+ 1130 0023 00       		.byte	0
+ 1131 0024 00       		.byte	0
+ 1132 0025 04       		.uleb128 0x4
+ 1133 0026 16       		.uleb128 0x16
+ 1134 0027 00       		.byte	0
+ 1135 0028 03       		.uleb128 0x3
+ 1136 0029 0E       		.uleb128 0xe
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 21
+
+
+ 1137 002a 3A       		.uleb128 0x3a
+ 1138 002b 0B       		.uleb128 0xb
+ 1139 002c 3B       		.uleb128 0x3b
+ 1140 002d 05       		.uleb128 0x5
+ 1141 002e 49       		.uleb128 0x49
+ 1142 002f 13       		.uleb128 0x13
+ 1143 0030 00       		.byte	0
+ 1144 0031 00       		.byte	0
+ 1145 0032 05       		.uleb128 0x5
+ 1146 0033 01       		.uleb128 0x1
+ 1147 0034 01       		.byte	0x1
+ 1148 0035 49       		.uleb128 0x49
+ 1149 0036 13       		.uleb128 0x13
+ 1150 0037 01       		.uleb128 0x1
+ 1151 0038 13       		.uleb128 0x13
+ 1152 0039 00       		.byte	0
+ 1153 003a 00       		.byte	0
+ 1154 003b 06       		.uleb128 0x6
+ 1155 003c 21       		.uleb128 0x21
+ 1156 003d 00       		.byte	0
+ 1157 003e 49       		.uleb128 0x49
+ 1158 003f 13       		.uleb128 0x13
+ 1159 0040 2F       		.uleb128 0x2f
+ 1160 0041 05       		.uleb128 0x5
+ 1161 0042 00       		.byte	0
+ 1162 0043 00       		.byte	0
+ 1163 0044 07       		.uleb128 0x7
+ 1164 0045 34       		.uleb128 0x34
+ 1165 0046 00       		.byte	0
+ 1166 0047 03       		.uleb128 0x3
+ 1167 0048 0E       		.uleb128 0xe
+ 1168 0049 3A       		.uleb128 0x3a
+ 1169 004a 0B       		.uleb128 0xb
+ 1170 004b 3B       		.uleb128 0x3b
+ 1171 004c 0B       		.uleb128 0xb
+ 1172 004d 49       		.uleb128 0x49
+ 1173 004e 13       		.uleb128 0x13
+ 1174 004f 3F       		.uleb128 0x3f
+ 1175 0050 19       		.uleb128 0x19
+ 1176 0051 02       		.uleb128 0x2
+ 1177 0052 18       		.uleb128 0x18
+ 1178 0053 00       		.byte	0
+ 1179 0054 00       		.byte	0
+ 1180 0055 08       		.uleb128 0x8
+ 1181 0056 26       		.uleb128 0x26
+ 1182 0057 00       		.byte	0
+ 1183 0058 49       		.uleb128 0x49
+ 1184 0059 13       		.uleb128 0x13
+ 1185 005a 00       		.byte	0
+ 1186 005b 00       		.byte	0
+ 1187 005c 09       		.uleb128 0x9
+ 1188 005d 21       		.uleb128 0x21
+ 1189 005e 00       		.byte	0
+ 1190 005f 49       		.uleb128 0x49
+ 1191 0060 13       		.uleb128 0x13
+ 1192 0061 2F       		.uleb128 0x2f
+ 1193 0062 0B       		.uleb128 0xb
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 22
+
+
+ 1194 0063 00       		.byte	0
+ 1195 0064 00       		.byte	0
+ 1196 0065 00       		.byte	0
+ 1197              		.section	.debug_aranges,"",%progbits
+ 1198 0000 14000000 		.4byte	0x14
+ 1199 0004 0200     		.2byte	0x2
+ 1200 0006 00000000 		.4byte	.Ldebug_info0
+ 1201 000a 04       		.byte	0x4
+ 1202 000b 00       		.byte	0
+ 1203 000c 0000     		.2byte	0
+ 1204 000e 0000     		.2byte	0
+ 1205 0010 00000000 		.4byte	0
+ 1206 0014 00000000 		.4byte	0
+ 1207              		.section	.debug_line,"",%progbits
+ 1208              	.Ldebug_line0:
+ 1209 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
+ 1209      02004900 
+ 1209      00000201 
+ 1209      FB0E0D00 
+ 1209      01010101 
+ 1210              	.LASF19:
+ 1211 0000 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1211      6E657261 
+ 1211      7465645F 
+ 1211      536F7572 
+ 1211      63655C50 
+ 1212              	.LASF10:
+ 1213 0026 646F7562 		.ascii	"double\000"
+ 1213      6C6500
+ 1214              	.LASF20:
+ 1215 002d 443A5C64 		.ascii	"D:\\develop\\projects\\SoundChipLogger\\firmware\\D"
+ 1215      6576656C 
+ 1215      6F705C70 
+ 1215      726F6A65 
+ 1215      6374735C 
+ 1216 005b 4D415344 		.ascii	"MASDSPITest\\DMASDSPITest.cydsn\000"
+ 1216      53504954 
+ 1216      6573745C 
+ 1216      444D4153 
+ 1216      44535049 
+ 1217              	.LASF17:
+ 1218 007a 63795F6D 		.ascii	"cy_metadata\000"
+ 1218      65746164 
+ 1218      61746100 
+ 1219              	.LASF9:
+ 1220 0086 666C6F61 		.ascii	"float\000"
+ 1220      7400
+ 1221              	.LASF1:
+ 1222 008c 756E7369 		.ascii	"unsigned char\000"
+ 1222      676E6564 
+ 1222      20636861 
+ 1222      7200
+ 1223              	.LASF5:
+ 1224 009a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1224      20756E73 
+ 1224      69676E65 
+ 1224      6420696E 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 23
+
+
+ 1224      7400
+ 1225              	.LASF3:
+ 1226 00ac 73686F72 		.ascii	"short unsigned int\000"
+ 1226      7420756E 
+ 1226      7369676E 
+ 1226      65642069 
+ 1226      6E7400
+ 1227              	.LASF18:
+ 1228 00bf 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1228      4320342E 
+ 1228      392E3320 
+ 1228      32303135 
+ 1228      30333033 
+ 1229 00f2 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1229      20726576 
+ 1229      6973696F 
+ 1229      6E203232 
+ 1229      31323230 
+ 1230 0125 30202D73 		.ascii	"0 -std=gnu99 -ffunction-sections -ffat-lto-objects\000"
+ 1230      74643D67 
+ 1230      6E753939 
+ 1230      202D6666 
+ 1230      756E6374 
+ 1231              	.LASF14:
+ 1232 0158 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1232      6574615F 
+ 1232      63757374 
+ 1232      6E766C00 
+ 1233              	.LASF13:
+ 1234 0168 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1234      6574615F 
+ 1234      636F6E66 
+ 1234      69676563 
+ 1234      6300
+ 1235              	.LASF8:
+ 1236 017a 756E7369 		.ascii	"unsigned int\000"
+ 1236      676E6564 
+ 1236      20696E74 
+ 1236      00
+ 1237              	.LASF7:
+ 1238 0187 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1238      206C6F6E 
+ 1238      6720756E 
+ 1238      7369676E 
+ 1238      65642069 
+ 1239              	.LASF16:
+ 1240 019e 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1240      6574615F 
+ 1240      666C6173 
+ 1240      6870726F 
+ 1240      74656374 
+ 1241              	.LASF15:
+ 1242 01b3 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1242      6574615F 
+ 1242      776F6E76 
+ 1242      6C00
+ 1243              	.LASF12:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccI4z5ko.s 			page 24
+
+
+ 1244 01c1 73697A65 		.ascii	"sizetype\000"
+ 1244      74797065 
+ 1244      00
+ 1245              	.LASF6:
+ 1246 01ca 6C6F6E67 		.ascii	"long long int\000"
+ 1246      206C6F6E 
+ 1246      6720696E 
+ 1246      7400
+ 1247              	.LASF11:
+ 1248 01d8 63686172 		.ascii	"char\000"
+ 1248      00
+ 1249              	.LASF2:
+ 1250 01dd 73686F72 		.ascii	"short int\000"
+ 1250      7420696E 
+ 1250      7400
+ 1251              	.LASF21:
+ 1252 01e7 75696E74 		.ascii	"uint8\000"
+ 1252      3800
+ 1253              	.LASF4:
+ 1254 01ed 6C6F6E67 		.ascii	"long int\000"
+ 1254      20696E74 
+ 1254      00
+ 1255              	.LASF0:
+ 1256 01f6 7369676E 		.ascii	"signed char\000"
+ 1256      65642063 
+ 1256      68617200 
+ 1257              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

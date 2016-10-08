@@ -1,0 +1,885 @@
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"DMASDSPI_1_SPIM_1_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.DMASDSPI_1_SPIM_1_SaveConfig,"ax",%progbits
+  19              		.align	2
+  20              		.global	DMASDSPI_1_SPIM_1_SaveConfig
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	DMASDSPI_1_SPIM_1_SaveConfig, %function
+  24              	DMASDSPI_1_SPIM_1_SaveConfig:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\DMASDSPI_1_SPIM_1_PM.c"
+   1:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * File Name: DMASDSPI_1_SPIM_1_PM.c
+   3:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Version 2.50
+   4:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+   5:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Description:
+   6:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  This file contains the setup, control and status commands to support
+   7:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  component operations in low power mode.
+   8:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+   9:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Note:
+  10:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  11:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  18:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** #include "DMASDSPI_1_SPIM_1_PVT.h"
+  19:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  20:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** static DMASDSPI_1_SPIM_1_BACKUP_STRUCT DMASDSPI_1_SPIM_1_backup =
+  21:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** {
+  22:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     DMASDSPI_1_SPIM_1_DISABLED,
+  23:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     DMASDSPI_1_SPIM_1_BITCTR_INIT,
+  24:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** };
+  25:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  26:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  27:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** /*******************************************************************************
+  28:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Function Name: DMASDSPI_1_SPIM_1_SaveConfig
+  29:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** ********************************************************************************
+  30:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  31:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Summary:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  Empty function. Included for consistency with other components.
+  33:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  34:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Parameters:
+  35:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+  36:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  37:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Return:
+  38:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+  39:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  40:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *******************************************************************************/
+  41:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** void DMASDSPI_1_SPIM_1_SaveConfig(void) 
+  42:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** {
+  27              		.loc 1 42 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE0:
+  35              		.size	DMASDSPI_1_SPIM_1_SaveConfig, .-DMASDSPI_1_SPIM_1_SaveConfig
+  36 0002 00BF     		.section	.text.DMASDSPI_1_SPIM_1_RestoreConfig,"ax",%progbits
+  37              		.align	2
+  38              		.global	DMASDSPI_1_SPIM_1_RestoreConfig
+  39              		.thumb
+  40              		.thumb_func
+  41              		.type	DMASDSPI_1_SPIM_1_RestoreConfig, %function
+  42              	DMASDSPI_1_SPIM_1_RestoreConfig:
+  43              	.LFB1:
+  43:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  44:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** }
+  45:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  46:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  47:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** /*******************************************************************************
+  48:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Function Name: DMASDSPI_1_SPIM_1_RestoreConfig
+  49:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** ********************************************************************************
+  50:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  51:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Summary:
+  52:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  Empty function. Included for consistency with other components.
+  53:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  54:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Parameters:
+  55:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+  56:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  57:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Return:
+  58:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+  59:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  60:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *******************************************************************************/
+  61:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** void DMASDSPI_1_SPIM_1_RestoreConfig(void) 
+  62:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** {
+  44              		.loc 1 62 0
+  45              		.cfi_startproc
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  49 0000 7047     		bx	lr
+  50              		.cfi_endproc
+  51              	.LFE1:
+  52              		.size	DMASDSPI_1_SPIM_1_RestoreConfig, .-DMASDSPI_1_SPIM_1_RestoreConfig
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 3
+
+
+  53 0002 00BF     		.section	.text.DMASDSPI_1_SPIM_1_Sleep,"ax",%progbits
+  54              		.align	2
+  55              		.global	DMASDSPI_1_SPIM_1_Sleep
+  56              		.thumb
+  57              		.thumb_func
+  58              		.type	DMASDSPI_1_SPIM_1_Sleep, %function
+  59              	DMASDSPI_1_SPIM_1_Sleep:
+  60              	.LFB2:
+  63:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  64:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** }
+  65:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  66:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  67:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** /*******************************************************************************
+  68:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Function Name: DMASDSPI_1_SPIM_1_Sleep
+  69:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** ********************************************************************************
+  70:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  71:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Summary:
+  72:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  Prepare SPIM Component goes to sleep.
+  73:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  74:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Parameters:
+  75:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+  76:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  77:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Return:
+  78:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+  79:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  80:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Global Variables:
+  81:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  DMASDSPI_1_SPIM_1_backup - modified when non-retention registers are saved.
+  82:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  83:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Reentrant:
+  84:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  No.
+  85:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+  86:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *******************************************************************************/
+  87:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** void DMASDSPI_1_SPIM_1_Sleep(void) 
+  88:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** {
+  61              		.loc 1 88 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		.loc 1 88 0
+  66 0000 08B5     		push	{r3, lr}
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 3, -8
+  69              		.cfi_offset 14, -4
+  89:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     /* Save components enable state */
+  90:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     DMASDSPI_1_SPIM_1_backup.enableState = ((uint8) DMASDSPI_1_SPIM_1_IS_ENABLED);
+  70              		.loc 1 90 0
+  71 0002 044B     		ldr	r3, .L5
+  72 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  73 0006 C3F30013 		ubfx	r3, r3, #4, #1
+  74 000a 034A     		ldr	r2, .L5+4
+  75 000c 1370     		strb	r3, [r2]
+  91:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  92:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     DMASDSPI_1_SPIM_1_Stop();
+  76              		.loc 1 92 0
+  77 000e FFF7FEFF 		bl	DMASDSPI_1_SPIM_1_Stop
+  78              	.LVL0:
+  79 0012 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 4
+
+
+  80              	.L6:
+  81              		.align	2
+  82              	.L5:
+  83 0014 93640040 		.word	1073767571
+  84 0018 00000000 		.word	.LANCHOR0
+  85              		.cfi_endproc
+  86              	.LFE2:
+  87              		.size	DMASDSPI_1_SPIM_1_Sleep, .-DMASDSPI_1_SPIM_1_Sleep
+  88              		.section	.text.DMASDSPI_1_SPIM_1_Wakeup,"ax",%progbits
+  89              		.align	2
+  90              		.global	DMASDSPI_1_SPIM_1_Wakeup
+  91              		.thumb
+  92              		.thumb_func
+  93              		.type	DMASDSPI_1_SPIM_1_Wakeup, %function
+  94              	DMASDSPI_1_SPIM_1_Wakeup:
+  95              	.LFB3:
+  93:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** }
+  94:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  95:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+  96:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** /*******************************************************************************
+  97:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Function Name: DMASDSPI_1_SPIM_1_Wakeup
+  98:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** ********************************************************************************
+  99:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+ 100:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Summary:
+ 101:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  Prepare SPIM Component to wake up.
+ 102:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+ 103:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Parameters:
+ 104:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+ 105:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+ 106:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Return:
+ 107:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  None.
+ 108:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+ 109:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Global Variables:
+ 110:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  DMASDSPI_1_SPIM_1_backup - used when non-retention registers are restored.
+ 111:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  DMASDSPI_1_SPIM_1_txBufferWrite - modified every function call - resets to
+ 112:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  zero.
+ 113:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  DMASDSPI_1_SPIM_1_txBufferRead - modified every function call - resets to
+ 114:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  zero.
+ 115:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  DMASDSPI_1_SPIM_1_rxBufferWrite - modified every function call - resets to
+ 116:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  zero.
+ 117:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  DMASDSPI_1_SPIM_1_rxBufferRead - modified every function call - resets to
+ 118:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  zero.
+ 119:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+ 120:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** * Reentrant:
+ 121:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *  No.
+ 122:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *
+ 123:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** *******************************************************************************/
+ 124:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** void DMASDSPI_1_SPIM_1_Wakeup(void) 
+ 125:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** {
+  96              		.loc 1 125 0
+  97              		.cfi_startproc
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100 0000 08B5     		push	{r3, lr}
+ 101              		.cfi_def_cfa_offset 8
+ 102              		.cfi_offset 3, -8
+ 103              		.cfi_offset 14, -4
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 5
+
+
+ 126:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     #if(DMASDSPI_1_SPIM_1_RX_SOFTWARE_BUF_ENABLED)
+ 127:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****         DMASDSPI_1_SPIM_1_rxBufferFull  = 0u;
+ 128:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****         DMASDSPI_1_SPIM_1_rxBufferRead  = 0u;
+ 129:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****         DMASDSPI_1_SPIM_1_rxBufferWrite = 0u;
+ 130:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     #endif /* (DMASDSPI_1_SPIM_1_RX_SOFTWARE_BUF_ENABLED) */
+ 131:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+ 132:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     #if(DMASDSPI_1_SPIM_1_TX_SOFTWARE_BUF_ENABLED)
+ 133:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****         DMASDSPI_1_SPIM_1_txBufferFull  = 0u;
+ 134:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****         DMASDSPI_1_SPIM_1_txBufferRead  = 0u;
+ 135:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****         DMASDSPI_1_SPIM_1_txBufferWrite = 0u;
+ 136:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     #endif /* (DMASDSPI_1_SPIM_1_TX_SOFTWARE_BUF_ENABLED) */
+ 137:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+ 138:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     /* Clear any data from the RX and TX FIFO */
+ 139:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     DMASDSPI_1_SPIM_1_ClearFIFO();
+ 104              		.loc 1 139 0
+ 105 0002 FFF7FEFF 		bl	DMASDSPI_1_SPIM_1_ClearFIFO
+ 106              	.LVL1:
+ 140:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c **** 
+ 141:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     /* Restore components block enable state */
+ 142:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     if(0u != DMASDSPI_1_SPIM_1_backup.enableState)
+ 107              		.loc 1 142 0
+ 108 0006 034B     		ldr	r3, .L10
+ 109 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 110 000a 0BB1     		cbz	r3, .L7
+ 143:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****     {
+ 144:.\Generated_Source\PSoC5/DMASDSPI_1_SPIM_1_PM.c ****         DMASDSPI_1_SPIM_1_Enable();
+ 111              		.loc 1 144 0
+ 112 000c FFF7FEFF 		bl	DMASDSPI_1_SPIM_1_Enable
+ 113              	.LVL2:
+ 114              	.L7:
+ 115 0010 08BD     		pop	{r3, pc}
+ 116              	.L11:
+ 117 0012 00BF     		.align	2
+ 118              	.L10:
+ 119 0014 00000000 		.word	.LANCHOR0
+ 120              		.cfi_endproc
+ 121              	.LFE3:
+ 122              		.size	DMASDSPI_1_SPIM_1_Wakeup, .-DMASDSPI_1_SPIM_1_Wakeup
+ 123              		.data
+ 124              		.align	2
+ 125              		.set	.LANCHOR0,. + 0
+ 126              		.type	DMASDSPI_1_SPIM_1_backup, %object
+ 127              		.size	DMASDSPI_1_SPIM_1_backup, 2
+ 128              	DMASDSPI_1_SPIM_1_backup:
+ 129 0000 00       		.byte	0
+ 130 0001 0F       		.byte	15
+ 131 0002 0000     		.text
+ 132              	.Letext0:
+ 133              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 134              		.file 3 ".\\Generated_Source\\PSoC5\\DMASDSPI_1_SPIM_1.h"
+ 135              		.section	.debug_info,"",%progbits
+ 136              	.Ldebug_info0:
+ 137 0000 5C010000 		.4byte	0x15c
+ 138 0004 0400     		.2byte	0x4
+ 139 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 140 000a 04       		.byte	0x4
+ 141 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 6
+
+
+ 142 000c D8000000 		.4byte	.LASF25
+ 143 0010 01       		.byte	0x1
+ 144 0011 3D020000 		.4byte	.LASF26
+ 145 0015 9A010000 		.4byte	.LASF27
+ 146 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 147 001d 00000000 		.4byte	0
+ 148 0021 00000000 		.4byte	.Ldebug_line0
+ 149 0025 02       		.uleb128 0x2
+ 150 0026 01       		.byte	0x1
+ 151 0027 06       		.byte	0x6
+ 152 0028 1A020000 		.4byte	.LASF0
+ 153 002c 02       		.uleb128 0x2
+ 154 002d 01       		.byte	0x1
+ 155 002e 08       		.byte	0x8
+ 156 002f 66010000 		.4byte	.LASF1
+ 157 0033 02       		.uleb128 0x2
+ 158 0034 02       		.byte	0x2
+ 159 0035 05       		.byte	0x5
+ 160 0036 8F020000 		.4byte	.LASF2
+ 161 003a 02       		.uleb128 0x2
+ 162 003b 02       		.byte	0x2
+ 163 003c 07       		.byte	0x7
+ 164 003d 07020000 		.4byte	.LASF3
+ 165 0041 02       		.uleb128 0x2
+ 166 0042 04       		.byte	0x4
+ 167 0043 05       		.byte	0x5
+ 168 0044 91010000 		.4byte	.LASF4
+ 169 0048 02       		.uleb128 0x2
+ 170 0049 04       		.byte	0x4
+ 171 004a 07       		.byte	0x7
+ 172 004b 96000000 		.4byte	.LASF5
+ 173 004f 02       		.uleb128 0x2
+ 174 0050 08       		.byte	0x8
+ 175 0051 05       		.byte	0x5
+ 176 0052 EE010000 		.4byte	.LASF6
+ 177 0056 02       		.uleb128 0x2
+ 178 0057 08       		.byte	0x8
+ 179 0058 07       		.byte	0x7
+ 180 0059 A8000000 		.4byte	.LASF7
+ 181 005d 03       		.uleb128 0x3
+ 182 005e 04       		.byte	0x4
+ 183 005f 05       		.byte	0x5
+ 184 0060 696E7400 		.ascii	"int\000"
+ 185 0064 02       		.uleb128 0x2
+ 186 0065 04       		.byte	0x4
+ 187 0066 07       		.byte	0x7
+ 188 0067 25000000 		.4byte	.LASF8
+ 189 006b 04       		.uleb128 0x4
+ 190 006c 90000000 		.4byte	.LASF12
+ 191 0070 02       		.byte	0x2
+ 192 0071 9201     		.2byte	0x192
+ 193 0073 2C000000 		.4byte	0x2c
+ 194 0077 02       		.uleb128 0x2
+ 195 0078 04       		.byte	0x4
+ 196 0079 04       		.byte	0x4
+ 197 007a 6D020000 		.4byte	.LASF9
+ 198 007e 02       		.uleb128 0x2
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 7
+
+
+ 199 007f 08       		.byte	0x8
+ 200 0080 04       		.byte	0x4
+ 201 0081 E7010000 		.4byte	.LASF10
+ 202 0085 02       		.uleb128 0x2
+ 203 0086 01       		.byte	0x1
+ 204 0087 08       		.byte	0x8
+ 205 0088 74010000 		.4byte	.LASF11
+ 206 008c 04       		.uleb128 0x4
+ 207 008d 8B000000 		.4byte	.LASF13
+ 208 0091 02       		.byte	0x2
+ 209 0092 3C02     		.2byte	0x23c
+ 210 0094 98000000 		.4byte	0x98
+ 211 0098 05       		.uleb128 0x5
+ 212 0099 6B000000 		.4byte	0x6b
+ 213 009d 02       		.uleb128 0x2
+ 214 009e 04       		.byte	0x4
+ 215 009f 07       		.byte	0x7
+ 216 00a0 B6020000 		.4byte	.LASF14
+ 217 00a4 06       		.uleb128 0x6
+ 218 00a5 02       		.byte	0x2
+ 219 00a6 03       		.byte	0x3
+ 220 00a7 46       		.byte	0x46
+ 221 00a8 C5000000 		.4byte	0xc5
+ 222 00ac 07       		.uleb128 0x7
+ 223 00ad 19000000 		.4byte	.LASF15
+ 224 00b1 03       		.byte	0x3
+ 225 00b2 48       		.byte	0x48
+ 226 00b3 6B000000 		.4byte	0x6b
+ 227 00b7 00       		.byte	0
+ 228 00b8 07       		.uleb128 0x7
+ 229 00b9 FC010000 		.4byte	.LASF16
+ 230 00bd 03       		.byte	0x3
+ 231 00be 49       		.byte	0x49
+ 232 00bf 6B000000 		.4byte	0x6b
+ 233 00c3 01       		.byte	0x1
+ 234 00c4 00       		.byte	0
+ 235 00c5 08       		.uleb128 0x8
+ 236 00c6 6B000000 		.4byte	.LASF17
+ 237 00ca 03       		.byte	0x3
+ 238 00cb 4A       		.byte	0x4a
+ 239 00cc A4000000 		.4byte	0xa4
+ 240 00d0 09       		.uleb128 0x9
+ 241 00d1 99020000 		.4byte	.LASF18
+ 242 00d5 01       		.byte	0x1
+ 243 00d6 29       		.byte	0x29
+ 244 00d7 00000000 		.4byte	.LFB0
+ 245 00db 02000000 		.4byte	.LFE0-.LFB0
+ 246 00df 01       		.uleb128 0x1
+ 247 00e0 9C       		.byte	0x9c
+ 248 00e1 09       		.uleb128 0x9
+ 249 00e2 32000000 		.4byte	.LASF19
+ 250 00e6 01       		.byte	0x1
+ 251 00e7 3D       		.byte	0x3d
+ 252 00e8 00000000 		.4byte	.LFB1
+ 253 00ec 02000000 		.4byte	.LFE1-.LFB1
+ 254 00f0 01       		.uleb128 0x1
+ 255 00f1 9C       		.byte	0x9c
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 8
+
+
+ 256 00f2 0A       		.uleb128 0xa
+ 257 00f3 79010000 		.4byte	.LASF20
+ 258 00f7 01       		.byte	0x1
+ 259 00f8 57       		.byte	0x57
+ 260 00f9 00000000 		.4byte	.LFB2
+ 261 00fd 1C000000 		.4byte	.LFE2-.LFB2
+ 262 0101 01       		.uleb128 0x1
+ 263 0102 9C       		.byte	0x9c
+ 264 0103 11010000 		.4byte	0x111
+ 265 0107 0B       		.uleb128 0xb
+ 266 0108 12000000 		.4byte	.LVL0
+ 267 010c 4A010000 		.4byte	0x14a
+ 268 0110 00       		.byte	0
+ 269 0111 0A       		.uleb128 0xa
+ 270 0112 BF000000 		.4byte	.LASF21
+ 271 0116 01       		.byte	0x1
+ 272 0117 7C       		.byte	0x7c
+ 273 0118 00000000 		.4byte	.LFB3
+ 274 011c 18000000 		.4byte	.LFE3-.LFB3
+ 275 0120 01       		.uleb128 0x1
+ 276 0121 9C       		.byte	0x9c
+ 277 0122 39010000 		.4byte	0x139
+ 278 0126 0B       		.uleb128 0xb
+ 279 0127 06000000 		.4byte	.LVL1
+ 280 012b 51010000 		.4byte	0x151
+ 281 012f 0B       		.uleb128 0xb
+ 282 0130 10000000 		.4byte	.LVL2
+ 283 0134 58010000 		.4byte	0x158
+ 284 0138 00       		.byte	0
+ 285 0139 0C       		.uleb128 0xc
+ 286 013a 00000000 		.4byte	.LASF28
+ 287 013e 01       		.byte	0x1
+ 288 013f 14       		.byte	0x14
+ 289 0140 C5000000 		.4byte	0xc5
+ 290 0144 05       		.uleb128 0x5
+ 291 0145 03       		.byte	0x3
+ 292 0146 00000000 		.4byte	DMASDSPI_1_SPIM_1_backup
+ 293 014a 0D       		.uleb128 0xd
+ 294 014b 26020000 		.4byte	.LASF22
+ 295 014f 03       		.byte	0x3
+ 296 0150 54       		.byte	0x54
+ 297 0151 0D       		.uleb128 0xd
+ 298 0152 73020000 		.4byte	.LASF23
+ 299 0156 03       		.byte	0x3
+ 300 0157 6C       		.byte	0x6c
+ 301 0158 0D       		.uleb128 0xd
+ 302 0159 52000000 		.4byte	.LASF24
+ 303 015d 03       		.byte	0x3
+ 304 015e 52       		.byte	0x52
+ 305 015f 00       		.byte	0
+ 306              		.section	.debug_abbrev,"",%progbits
+ 307              	.Ldebug_abbrev0:
+ 308 0000 01       		.uleb128 0x1
+ 309 0001 11       		.uleb128 0x11
+ 310 0002 01       		.byte	0x1
+ 311 0003 25       		.uleb128 0x25
+ 312 0004 0E       		.uleb128 0xe
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 9
+
+
+ 313 0005 13       		.uleb128 0x13
+ 314 0006 0B       		.uleb128 0xb
+ 315 0007 03       		.uleb128 0x3
+ 316 0008 0E       		.uleb128 0xe
+ 317 0009 1B       		.uleb128 0x1b
+ 318 000a 0E       		.uleb128 0xe
+ 319 000b 55       		.uleb128 0x55
+ 320 000c 17       		.uleb128 0x17
+ 321 000d 11       		.uleb128 0x11
+ 322 000e 01       		.uleb128 0x1
+ 323 000f 10       		.uleb128 0x10
+ 324 0010 17       		.uleb128 0x17
+ 325 0011 00       		.byte	0
+ 326 0012 00       		.byte	0
+ 327 0013 02       		.uleb128 0x2
+ 328 0014 24       		.uleb128 0x24
+ 329 0015 00       		.byte	0
+ 330 0016 0B       		.uleb128 0xb
+ 331 0017 0B       		.uleb128 0xb
+ 332 0018 3E       		.uleb128 0x3e
+ 333 0019 0B       		.uleb128 0xb
+ 334 001a 03       		.uleb128 0x3
+ 335 001b 0E       		.uleb128 0xe
+ 336 001c 00       		.byte	0
+ 337 001d 00       		.byte	0
+ 338 001e 03       		.uleb128 0x3
+ 339 001f 24       		.uleb128 0x24
+ 340 0020 00       		.byte	0
+ 341 0021 0B       		.uleb128 0xb
+ 342 0022 0B       		.uleb128 0xb
+ 343 0023 3E       		.uleb128 0x3e
+ 344 0024 0B       		.uleb128 0xb
+ 345 0025 03       		.uleb128 0x3
+ 346 0026 08       		.uleb128 0x8
+ 347 0027 00       		.byte	0
+ 348 0028 00       		.byte	0
+ 349 0029 04       		.uleb128 0x4
+ 350 002a 16       		.uleb128 0x16
+ 351 002b 00       		.byte	0
+ 352 002c 03       		.uleb128 0x3
+ 353 002d 0E       		.uleb128 0xe
+ 354 002e 3A       		.uleb128 0x3a
+ 355 002f 0B       		.uleb128 0xb
+ 356 0030 3B       		.uleb128 0x3b
+ 357 0031 05       		.uleb128 0x5
+ 358 0032 49       		.uleb128 0x49
+ 359 0033 13       		.uleb128 0x13
+ 360 0034 00       		.byte	0
+ 361 0035 00       		.byte	0
+ 362 0036 05       		.uleb128 0x5
+ 363 0037 35       		.uleb128 0x35
+ 364 0038 00       		.byte	0
+ 365 0039 49       		.uleb128 0x49
+ 366 003a 13       		.uleb128 0x13
+ 367 003b 00       		.byte	0
+ 368 003c 00       		.byte	0
+ 369 003d 06       		.uleb128 0x6
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 10
+
+
+ 370 003e 13       		.uleb128 0x13
+ 371 003f 01       		.byte	0x1
+ 372 0040 0B       		.uleb128 0xb
+ 373 0041 0B       		.uleb128 0xb
+ 374 0042 3A       		.uleb128 0x3a
+ 375 0043 0B       		.uleb128 0xb
+ 376 0044 3B       		.uleb128 0x3b
+ 377 0045 0B       		.uleb128 0xb
+ 378 0046 01       		.uleb128 0x1
+ 379 0047 13       		.uleb128 0x13
+ 380 0048 00       		.byte	0
+ 381 0049 00       		.byte	0
+ 382 004a 07       		.uleb128 0x7
+ 383 004b 0D       		.uleb128 0xd
+ 384 004c 00       		.byte	0
+ 385 004d 03       		.uleb128 0x3
+ 386 004e 0E       		.uleb128 0xe
+ 387 004f 3A       		.uleb128 0x3a
+ 388 0050 0B       		.uleb128 0xb
+ 389 0051 3B       		.uleb128 0x3b
+ 390 0052 0B       		.uleb128 0xb
+ 391 0053 49       		.uleb128 0x49
+ 392 0054 13       		.uleb128 0x13
+ 393 0055 38       		.uleb128 0x38
+ 394 0056 0B       		.uleb128 0xb
+ 395 0057 00       		.byte	0
+ 396 0058 00       		.byte	0
+ 397 0059 08       		.uleb128 0x8
+ 398 005a 16       		.uleb128 0x16
+ 399 005b 00       		.byte	0
+ 400 005c 03       		.uleb128 0x3
+ 401 005d 0E       		.uleb128 0xe
+ 402 005e 3A       		.uleb128 0x3a
+ 403 005f 0B       		.uleb128 0xb
+ 404 0060 3B       		.uleb128 0x3b
+ 405 0061 0B       		.uleb128 0xb
+ 406 0062 49       		.uleb128 0x49
+ 407 0063 13       		.uleb128 0x13
+ 408 0064 00       		.byte	0
+ 409 0065 00       		.byte	0
+ 410 0066 09       		.uleb128 0x9
+ 411 0067 2E       		.uleb128 0x2e
+ 412 0068 00       		.byte	0
+ 413 0069 3F       		.uleb128 0x3f
+ 414 006a 19       		.uleb128 0x19
+ 415 006b 03       		.uleb128 0x3
+ 416 006c 0E       		.uleb128 0xe
+ 417 006d 3A       		.uleb128 0x3a
+ 418 006e 0B       		.uleb128 0xb
+ 419 006f 3B       		.uleb128 0x3b
+ 420 0070 0B       		.uleb128 0xb
+ 421 0071 27       		.uleb128 0x27
+ 422 0072 19       		.uleb128 0x19
+ 423 0073 11       		.uleb128 0x11
+ 424 0074 01       		.uleb128 0x1
+ 425 0075 12       		.uleb128 0x12
+ 426 0076 06       		.uleb128 0x6
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 11
+
+
+ 427 0077 40       		.uleb128 0x40
+ 428 0078 18       		.uleb128 0x18
+ 429 0079 9742     		.uleb128 0x2117
+ 430 007b 19       		.uleb128 0x19
+ 431 007c 00       		.byte	0
+ 432 007d 00       		.byte	0
+ 433 007e 0A       		.uleb128 0xa
+ 434 007f 2E       		.uleb128 0x2e
+ 435 0080 01       		.byte	0x1
+ 436 0081 3F       		.uleb128 0x3f
+ 437 0082 19       		.uleb128 0x19
+ 438 0083 03       		.uleb128 0x3
+ 439 0084 0E       		.uleb128 0xe
+ 440 0085 3A       		.uleb128 0x3a
+ 441 0086 0B       		.uleb128 0xb
+ 442 0087 3B       		.uleb128 0x3b
+ 443 0088 0B       		.uleb128 0xb
+ 444 0089 27       		.uleb128 0x27
+ 445 008a 19       		.uleb128 0x19
+ 446 008b 11       		.uleb128 0x11
+ 447 008c 01       		.uleb128 0x1
+ 448 008d 12       		.uleb128 0x12
+ 449 008e 06       		.uleb128 0x6
+ 450 008f 40       		.uleb128 0x40
+ 451 0090 18       		.uleb128 0x18
+ 452 0091 9742     		.uleb128 0x2117
+ 453 0093 19       		.uleb128 0x19
+ 454 0094 01       		.uleb128 0x1
+ 455 0095 13       		.uleb128 0x13
+ 456 0096 00       		.byte	0
+ 457 0097 00       		.byte	0
+ 458 0098 0B       		.uleb128 0xb
+ 459 0099 898201   		.uleb128 0x4109
+ 460 009c 00       		.byte	0
+ 461 009d 11       		.uleb128 0x11
+ 462 009e 01       		.uleb128 0x1
+ 463 009f 31       		.uleb128 0x31
+ 464 00a0 13       		.uleb128 0x13
+ 465 00a1 00       		.byte	0
+ 466 00a2 00       		.byte	0
+ 467 00a3 0C       		.uleb128 0xc
+ 468 00a4 34       		.uleb128 0x34
+ 469 00a5 00       		.byte	0
+ 470 00a6 03       		.uleb128 0x3
+ 471 00a7 0E       		.uleb128 0xe
+ 472 00a8 3A       		.uleb128 0x3a
+ 473 00a9 0B       		.uleb128 0xb
+ 474 00aa 3B       		.uleb128 0x3b
+ 475 00ab 0B       		.uleb128 0xb
+ 476 00ac 49       		.uleb128 0x49
+ 477 00ad 13       		.uleb128 0x13
+ 478 00ae 02       		.uleb128 0x2
+ 479 00af 18       		.uleb128 0x18
+ 480 00b0 00       		.byte	0
+ 481 00b1 00       		.byte	0
+ 482 00b2 0D       		.uleb128 0xd
+ 483 00b3 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 12
+
+
+ 484 00b4 00       		.byte	0
+ 485 00b5 3F       		.uleb128 0x3f
+ 486 00b6 19       		.uleb128 0x19
+ 487 00b7 03       		.uleb128 0x3
+ 488 00b8 0E       		.uleb128 0xe
+ 489 00b9 3A       		.uleb128 0x3a
+ 490 00ba 0B       		.uleb128 0xb
+ 491 00bb 3B       		.uleb128 0x3b
+ 492 00bc 0B       		.uleb128 0xb
+ 493 00bd 27       		.uleb128 0x27
+ 494 00be 19       		.uleb128 0x19
+ 495 00bf 3C       		.uleb128 0x3c
+ 496 00c0 19       		.uleb128 0x19
+ 497 00c1 00       		.byte	0
+ 498 00c2 00       		.byte	0
+ 499 00c3 00       		.byte	0
+ 500              		.section	.debug_aranges,"",%progbits
+ 501 0000 34000000 		.4byte	0x34
+ 502 0004 0200     		.2byte	0x2
+ 503 0006 00000000 		.4byte	.Ldebug_info0
+ 504 000a 04       		.byte	0x4
+ 505 000b 00       		.byte	0
+ 506 000c 0000     		.2byte	0
+ 507 000e 0000     		.2byte	0
+ 508 0010 00000000 		.4byte	.LFB0
+ 509 0014 02000000 		.4byte	.LFE0-.LFB0
+ 510 0018 00000000 		.4byte	.LFB1
+ 511 001c 02000000 		.4byte	.LFE1-.LFB1
+ 512 0020 00000000 		.4byte	.LFB2
+ 513 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 514 0028 00000000 		.4byte	.LFB3
+ 515 002c 18000000 		.4byte	.LFE3-.LFB3
+ 516 0030 00000000 		.4byte	0
+ 517 0034 00000000 		.4byte	0
+ 518              		.section	.debug_ranges,"",%progbits
+ 519              	.Ldebug_ranges0:
+ 520 0000 00000000 		.4byte	.LFB0
+ 521 0004 02000000 		.4byte	.LFE0
+ 522 0008 00000000 		.4byte	.LFB1
+ 523 000c 02000000 		.4byte	.LFE1
+ 524 0010 00000000 		.4byte	.LFB2
+ 525 0014 1C000000 		.4byte	.LFE2
+ 526 0018 00000000 		.4byte	.LFB3
+ 527 001c 18000000 		.4byte	.LFE3
+ 528 0020 00000000 		.4byte	0
+ 529 0024 00000000 		.4byte	0
+ 530              		.section	.debug_line,"",%progbits
+ 531              	.Ldebug_line0:
+ 532 0000 B6000000 		.section	.debug_str,"MS",%progbits,1
+ 532      02006A00 
+ 532      00000201 
+ 532      FB0E0D00 
+ 532      01010101 
+ 533              	.LASF28:
+ 534 0000 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_backup\000"
+ 534      44535049 
+ 534      5F315F53 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 13
+
+
+ 534      50494D5F 
+ 534      315F6261 
+ 535              	.LASF15:
+ 536 0019 656E6162 		.ascii	"enableState\000"
+ 536      6C655374 
+ 536      61746500 
+ 537              	.LASF8:
+ 538 0025 756E7369 		.ascii	"unsigned int\000"
+ 538      676E6564 
+ 538      20696E74 
+ 538      00
+ 539              	.LASF19:
+ 540 0032 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_RestoreConfig\000"
+ 540      44535049 
+ 540      5F315F53 
+ 540      50494D5F 
+ 540      315F5265 
+ 541              	.LASF24:
+ 542 0052 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_Enable\000"
+ 542      44535049 
+ 542      5F315F53 
+ 542      50494D5F 
+ 542      315F456E 
+ 543              	.LASF17:
+ 544 006b 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_BACKUP_STRUCT\000"
+ 544      44535049 
+ 544      5F315F53 
+ 544      50494D5F 
+ 544      315F4241 
+ 545              	.LASF13:
+ 546 008b 72656738 		.ascii	"reg8\000"
+ 546      00
+ 547              	.LASF12:
+ 548 0090 75696E74 		.ascii	"uint8\000"
+ 548      3800
+ 549              	.LASF5:
+ 550 0096 6C6F6E67 		.ascii	"long unsigned int\000"
+ 550      20756E73 
+ 550      69676E65 
+ 550      6420696E 
+ 550      7400
+ 551              	.LASF7:
+ 552 00a8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 552      206C6F6E 
+ 552      6720756E 
+ 552      7369676E 
+ 552      65642069 
+ 553              	.LASF21:
+ 554 00bf 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_Wakeup\000"
+ 554      44535049 
+ 554      5F315F53 
+ 554      50494D5F 
+ 554      315F5761 
+ 555              	.LASF25:
+ 556 00d8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 556      4320342E 
+ 556      392E3320 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 14
+
+
+ 556      32303135 
+ 556      30333033 
+ 557 010b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 557      20726576 
+ 557      6973696F 
+ 557      6E203232 
+ 557      31323230 
+ 558 013e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 558      66756E63 
+ 558      74696F6E 
+ 558      2D736563 
+ 558      74696F6E 
+ 559              	.LASF1:
+ 560 0166 756E7369 		.ascii	"unsigned char\000"
+ 560      676E6564 
+ 560      20636861 
+ 560      7200
+ 561              	.LASF11:
+ 562 0174 63686172 		.ascii	"char\000"
+ 562      00
+ 563              	.LASF20:
+ 564 0179 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_Sleep\000"
+ 564      44535049 
+ 564      5F315F53 
+ 564      50494D5F 
+ 564      315F536C 
+ 565              	.LASF4:
+ 566 0191 6C6F6E67 		.ascii	"long int\000"
+ 566      20696E74 
+ 566      00
+ 567              	.LASF27:
+ 568 019a 443A5C64 		.ascii	"D:\\develop\\projects\\SoundChipLogger\\firmware\\D"
+ 568      6576656C 
+ 568      6F705C70 
+ 568      726F6A65 
+ 568      6374735C 
+ 569 01c8 4D415344 		.ascii	"MASDSPITest\\DMASDSPITest.cydsn\000"
+ 569      53504954 
+ 569      6573745C 
+ 569      444D4153 
+ 569      44535049 
+ 570              	.LASF10:
+ 571 01e7 646F7562 		.ascii	"double\000"
+ 571      6C6500
+ 572              	.LASF6:
+ 573 01ee 6C6F6E67 		.ascii	"long long int\000"
+ 573      206C6F6E 
+ 573      6720696E 
+ 573      7400
+ 574              	.LASF16:
+ 575 01fc 636E7472 		.ascii	"cntrPeriod\000"
+ 575      50657269 
+ 575      6F6400
+ 576              	.LASF3:
+ 577 0207 73686F72 		.ascii	"short unsigned int\000"
+ 577      7420756E 
+ 577      7369676E 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccaEjUQM.s 			page 15
+
+
+ 577      65642069 
+ 577      6E7400
+ 578              	.LASF0:
+ 579 021a 7369676E 		.ascii	"signed char\000"
+ 579      65642063 
+ 579      68617200 
+ 580              	.LASF22:
+ 581 0226 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_Stop\000"
+ 581      44535049 
+ 581      5F315F53 
+ 581      50494D5F 
+ 581      315F5374 
+ 582              	.LASF26:
+ 583 023d 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\DMASDSPI_1_SPIM_1_PM.c\000"
+ 583      6E657261 
+ 583      7465645F 
+ 583      536F7572 
+ 583      63655C50 
+ 584              	.LASF9:
+ 585 026d 666C6F61 		.ascii	"float\000"
+ 585      7400
+ 586              	.LASF23:
+ 587 0273 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_ClearFIFO\000"
+ 587      44535049 
+ 587      5F315F53 
+ 587      50494D5F 
+ 587      315F436C 
+ 588              	.LASF2:
+ 589 028f 73686F72 		.ascii	"short int\000"
+ 589      7420696E 
+ 589      7400
+ 590              	.LASF18:
+ 591 0299 444D4153 		.ascii	"DMASDSPI_1_SPIM_1_SaveConfig\000"
+ 591      44535049 
+ 591      5F315F53 
+ 591      50494D5F 
+ 591      315F5361 
+ 592              	.LASF14:
+ 593 02b6 73697A65 		.ascii	"sizetype\000"
+ 593      74797065 
+ 593      00
+ 594              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

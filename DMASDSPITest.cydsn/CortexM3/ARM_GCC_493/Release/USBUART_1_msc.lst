@@ -1,0 +1,1240 @@
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"USBUART_1_msc.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.USBUART_1_DispatchMSCClassRqst,"ax",%progbits
+  19              		.align	2
+  20              		.global	USBUART_1_DispatchMSCClassRqst
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	USBUART_1_DispatchMSCClassRqst, %function
+  24              	USBUART_1_DispatchMSCClassRqst:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\USBUART_1_msc.c"
+   1:.\Generated_Source\PSoC5/USBUART_1_msc.c **** /***************************************************************************//**
+   2:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \file USBUART_1_cdc.c
+   3:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \version 3.0
+   4:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+   5:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \brief
+   6:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  This file contains the USB MSC Class request handler and global API for MSC 
+   7:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  class.
+   8:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+   9:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * Related Document:
+  10:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  Universal Serial Bus Class Definitions for Communication Devices Version 1.1
+  11:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+  12:.\Generated_Source\PSoC5/USBUART_1_msc.c **** ********************************************************************************
+  13:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \copyright
+  14:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * Copyright 2012-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  15:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * You may use this file only in accordance with the license, terms, conditions,
+  16:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  17:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * the software package with which this file was provided.
+  18:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *******************************************************************************/
+  19:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+  20:.\Generated_Source\PSoC5/USBUART_1_msc.c **** #include "USBUART_1_msc.h"
+  21:.\Generated_Source\PSoC5/USBUART_1_msc.c **** #include "USBUART_1_pvt.h"
+  22:.\Generated_Source\PSoC5/USBUART_1_msc.c **** #include "cyapicallbacks.h"
+  23:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+  24:.\Generated_Source\PSoC5/USBUART_1_msc.c **** #if (USBUART_1_HANDLE_MSC_REQUESTS)
+  25:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+  26:.\Generated_Source\PSoC5/USBUART_1_msc.c **** /***************************************
+  27:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *          Internal variables
+  28:.\Generated_Source\PSoC5/USBUART_1_msc.c **** ***************************************/
+  29:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+  30:.\Generated_Source\PSoC5/USBUART_1_msc.c **** static uint8 USBUART_1_lunCount = USBUART_1_MSC_LUN_NUMBER;
+  31:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+  33:.\Generated_Source\PSoC5/USBUART_1_msc.c **** /*******************************************************************************
+  34:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * Function Name: USBUART_1_DispatchMSCClassRqst
+  35:.\Generated_Source\PSoC5/USBUART_1_msc.c **** ****************************************************************************//**
+  36:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *   
+  37:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  \internal 
+  38:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  This routine dispatches MSC class requests.
+  39:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+  40:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \return
+  41:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  Status of request processing: handled or not handled.
+  42:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+  43:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \globalvars
+  44:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  USBUART_1_lunCount - stores number of LUN (logical units).
+  45:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+  46:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \reentrant
+  47:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  No.
+  48:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+  49:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *******************************************************************************/
+  50:.\Generated_Source\PSoC5/USBUART_1_msc.c **** uint8 USBUART_1_DispatchMSCClassRqst(void) 
+  51:.\Generated_Source\PSoC5/USBUART_1_msc.c **** {
+  27              		.loc 1 51 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  33 0000 30B4     		push	{r4, r5}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 5, -4
+  52:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     uint8 requestHandled = USBUART_1_FALSE;
+  53:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     
+  54:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     /* Get request data. */
+  55:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     uint16 value  = USBUART_1_GET_UINT16(USBUART_1_wValueHiReg,  USBUART_1_wValueLoReg);
+  37              		.loc 1 55 0
+  38 0002 144B     		ldr	r3, .L14
+  39 0004 DD78     		ldrb	r5, [r3, #3]	@ zero_extendqisi2
+  40 0006 9A78     		ldrb	r2, [r3, #2]	@ zero_extendqisi2
+  56:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     uint16 dataLength = USBUART_1_GET_UINT16(USBUART_1_wLengthHiReg, USBUART_1_wLengthLoReg);
+  41              		.loc 1 56 0
+  42 0008 DC79     		ldrb	r4, [r3, #7]	@ zero_extendqisi2
+  43 000a 9979     		ldrb	r1, [r3, #6]	@ zero_extendqisi2
+  57:.\Generated_Source\PSoC5/USBUART_1_msc.c ****        
+  58:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     /* Check request direction: D2H or H2D. */
+  59:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     if (0u != (USBUART_1_bmRequestTypeReg & USBUART_1_RQST_DIR_D2H))
+  44              		.loc 1 59 0
+  45 000c 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  55:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     uint16 dataLength = USBUART_1_GET_UINT16(USBUART_1_wLengthHiReg, USBUART_1_wLengthLoReg);
+  46              		.loc 1 55 0
+  47 000e 42EA0522 		orr	r2, r2, r5, lsl #8
+  48              	.LVL1:
+  49              		.loc 1 59 0
+  50 0012 0006     		lsls	r0, r0, #24
+  56:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     uint16 dataLength = USBUART_1_GET_UINT16(USBUART_1_wLengthHiReg, USBUART_1_wLengthLoReg);
+  51              		.loc 1 56 0
+  52 0014 41EA0421 		orr	r1, r1, r4, lsl #8
+  53              	.LVL2:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 3
+
+
+  60:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     {
+  61:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         /* Handle direction from device to host. */
+  62:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         
+  63:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         if (USBUART_1_MSC_GET_MAX_LUN == USBUART_1_bRequestReg)
+  54              		.loc 1 63 0
+  55 0018 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+  59:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     {
+  56              		.loc 1 59 0
+  57 001a 0DD4     		bmi	.L12
+  64:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         {
+  65:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             /* Check request fields. */
+  66:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             if ((value  == USBUART_1_MSC_GET_MAX_LUN_WVALUE) &&
+  67:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 (dataLength == USBUART_1_MSC_GET_MAX_LUN_WLENGTH))
+  68:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             {
+  69:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 /* Reply to Get Max LUN request: setup control read. */
+  70:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 USBUART_1_currentTD.pData = &USBUART_1_lunCount;
+  71:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 USBUART_1_currentTD.count =  USBUART_1_MSC_GET_MAX_LUN_WLENGTH;
+  72:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 
+  73:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 requestHandled  = USBUART_1_InitControlRead();
+  74:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             }
+  75:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         }
+  76:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     }
+  77:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     else
+  78:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     {
+  79:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         /* Handle direction from host to device. */
+  80:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         
+  81:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         if (USBUART_1_MSC_RESET == USBUART_1_bRequestReg)
+  58              		.loc 1 81 0
+  59 001c FF2B     		cmp	r3, #255
+  60 001e 02D0     		beq	.L13
+  61              	.L3:
+  62              	.LVL3:
+  82:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         {
+  83:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             /* Check request fields. */
+  84:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             if ((value  == USBUART_1_MSC_RESET_WVALUE) &&
+  85:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 (dataLength == USBUART_1_MSC_RESET_WLENGTH))
+  86:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             {
+  87:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 /* Handle to Bulk-Only Reset request: no data control transfer. */
+  88:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 USBUART_1_currentTD.count = USBUART_1_MSC_RESET_WLENGTH;
+  89:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 
+  90:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             #ifdef USBUART_1_DISPATCH_MSC_CLASS_MSC_RESET_RQST_CALLBACK
+  91:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 USBUART_1_DispatchMSCClass_MSC_RESET_RQST_Callback();
+  92:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             #endif /* (USBUART_1_DISPATCH_MSC_CLASS_MSC_RESET_RQST_CALLBACK) */
+  93:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 
+  94:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 requestHandled = USBUART_1_InitNoDataControlTransfer();
+  95:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             }
+  96:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         }
+  97:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     }
+  98:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     
+  99:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     return (requestHandled);
+ 100:.\Generated_Source\PSoC5/USBUART_1_msc.c **** }
+  63              		.loc 1 100 0
+  64 0020 30BC     		pop	{r4, r5}
+  65              		.cfi_remember_state
+  66              		.cfi_restore 5
+  67              		.cfi_restore 4
+  68              		.cfi_def_cfa_offset 0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 4
+
+
+  69 0022 0020     		movs	r0, #0
+  70 0024 7047     		bx	lr
+  71              	.LVL4:
+  72              	.L13:
+  73              		.cfi_restore_state
+  84:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 (dataLength == USBUART_1_MSC_RESET_WLENGTH))
+  74              		.loc 1 84 0
+  75 0026 002A     		cmp	r2, #0
+  76 0028 FAD1     		bne	.L3
+  84:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 (dataLength == USBUART_1_MSC_RESET_WLENGTH))
+  77              		.loc 1 84 0 is_stmt 0 discriminator 1
+  78 002a 0029     		cmp	r1, #0
+  79 002c F8D1     		bne	.L3
+  80              		.loc 1 100 0 is_stmt 1
+  81 002e 30BC     		pop	{r4, r5}
+  82              		.cfi_remember_state
+  83              		.cfi_restore 5
+  84              		.cfi_restore 4
+  85              		.cfi_def_cfa_offset 0
+  88:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 
+  86              		.loc 1 88 0
+  87 0030 094B     		ldr	r3, .L14+4
+  88 0032 1980     		strh	r1, [r3]	@ movhi
+  94:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             }
+  89              		.loc 1 94 0
+  90 0034 FFF7FEBF 		b	USBUART_1_InitNoDataControlTransfer
+  91              	.LVL5:
+  92              	.L12:
+  93              		.cfi_restore_state
+  63:.\Generated_Source\PSoC5/USBUART_1_msc.c ****         {
+  94              		.loc 1 63 0
+  95 0038 FE2B     		cmp	r3, #254
+  96 003a F1D1     		bne	.L3
+  66:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 (dataLength == USBUART_1_MSC_GET_MAX_LUN_WLENGTH))
+  97              		.loc 1 66 0
+  98 003c 002A     		cmp	r2, #0
+  99 003e EFD1     		bne	.L3
+  66:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 (dataLength == USBUART_1_MSC_GET_MAX_LUN_WLENGTH))
+ 100              		.loc 1 66 0 is_stmt 0 discriminator 1
+ 101 0040 0129     		cmp	r1, #1
+ 102 0042 EDD1     		bne	.L3
+ 103              		.loc 1 100 0 is_stmt 1
+ 104 0044 30BC     		pop	{r4, r5}
+ 105              		.cfi_restore 5
+ 106              		.cfi_restore 4
+ 107              		.cfi_def_cfa_offset 0
+  70:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 USBUART_1_currentTD.count =  USBUART_1_MSC_GET_MAX_LUN_WLENGTH;
+ 108              		.loc 1 70 0
+ 109 0046 044B     		ldr	r3, .L14+4
+ 110 0048 044A     		ldr	r2, .L14+8
+ 111              	.LVL6:
+ 112 004a 5A60     		str	r2, [r3, #4]
+  71:.\Generated_Source\PSoC5/USBUART_1_msc.c ****                 
+ 113              		.loc 1 71 0
+ 114 004c 1980     		strh	r1, [r3]	@ movhi
+  73:.\Generated_Source\PSoC5/USBUART_1_msc.c ****             }
+ 115              		.loc 1 73 0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 5
+
+
+ 116 004e FFF7FEBF 		b	USBUART_1_InitControlRead
+ 117              	.LVL7:
+ 118              	.L15:
+ 119 0052 00BF     		.align	2
+ 120              	.L14:
+ 121 0054 00600040 		.word	1073766400
+ 122 0058 00000000 		.word	USBUART_1_currentTD
+ 123 005c 00000000 		.word	.LANCHOR0
+ 124              		.cfi_endproc
+ 125              	.LFE0:
+ 126              		.size	USBUART_1_DispatchMSCClassRqst, .-USBUART_1_DispatchMSCClassRqst
+ 127              		.section	.text.USBUART_1_MSC_SetLunCount,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	USBUART_1_MSC_SetLunCount
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	USBUART_1_MSC_SetLunCount, %function
+ 133              	USBUART_1_MSC_SetLunCount:
+ 134              	.LFB1:
+ 101:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+ 102:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+ 103:.\Generated_Source\PSoC5/USBUART_1_msc.c **** /*******************************************************************************
+ 104:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * Function Name: USBUART_1_MSC_SetLunCount
+ 105:.\Generated_Source\PSoC5/USBUART_1_msc.c **** ****************************************************************************//**
+ 106:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 107:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  This function sets the number of logical units supported in the application. 
+ 108:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  The default number of logical units is set in the component customizer.
+ 109:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 110:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  \param lunCount: Count of the logical units. Valid range is between 1 and 16.
+ 111:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 112:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 113:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \globalvars
+ 114:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  USBUART_1_lunCount - stores number of LUN (logical units).
+ 115:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 116:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \reentrant
+ 117:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  No.
+ 118:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 119:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *******************************************************************************/
+ 120:.\Generated_Source\PSoC5/USBUART_1_msc.c **** void USBUART_1_MSC_SetLunCount(uint8 lunCount) 
+ 121:.\Generated_Source\PSoC5/USBUART_1_msc.c **** {
+ 135              		.loc 1 121 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139              		@ link register save eliminated.
+ 140              	.LVL8:
+ 122:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     USBUART_1_lunCount = (lunCount - 1u);
+ 141              		.loc 1 122 0
+ 142 0000 014B     		ldr	r3, .L17
+ 143 0002 0138     		subs	r0, r0, #1
+ 144              	.LVL9:
+ 145 0004 1870     		strb	r0, [r3]
+ 146 0006 7047     		bx	lr
+ 147              	.L18:
+ 148              		.align	2
+ 149              	.L17:
+ 150 0008 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 6
+
+
+ 151              		.cfi_endproc
+ 152              	.LFE1:
+ 153              		.size	USBUART_1_MSC_SetLunCount, .-USBUART_1_MSC_SetLunCount
+ 154              		.section	.text.USBUART_1_MSC_GetLunCount,"ax",%progbits
+ 155              		.align	2
+ 156              		.global	USBUART_1_MSC_GetLunCount
+ 157              		.thumb
+ 158              		.thumb_func
+ 159              		.type	USBUART_1_MSC_GetLunCount, %function
+ 160              	USBUART_1_MSC_GetLunCount:
+ 161              	.LFB2:
+ 123:.\Generated_Source\PSoC5/USBUART_1_msc.c **** }
+ 124:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+ 125:.\Generated_Source\PSoC5/USBUART_1_msc.c **** 
+ 126:.\Generated_Source\PSoC5/USBUART_1_msc.c **** /*******************************************************************************
+ 127:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * Function Name: USBUART_1_MSC_GetLunCount
+ 128:.\Generated_Source\PSoC5/USBUART_1_msc.c **** ****************************************************************************//**
+ 129:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 130:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  This function returns the number of logical units.
+ 131:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 132:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \return
+ 133:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *   Number of the logical units.
+ 134:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 135:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \globalvars
+ 136:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  USBUART_1_lunCount - stores number of LUN (logical units).
+ 137:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 138:.\Generated_Source\PSoC5/USBUART_1_msc.c **** * \reentrant
+ 139:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *  No.
+ 140:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *
+ 141:.\Generated_Source\PSoC5/USBUART_1_msc.c **** *******************************************************************************/
+ 142:.\Generated_Source\PSoC5/USBUART_1_msc.c **** uint8 USBUART_1_MSC_GetLunCount(void) 
+ 143:.\Generated_Source\PSoC5/USBUART_1_msc.c **** {
+ 162              		.loc 1 143 0
+ 163              		.cfi_startproc
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166              		@ link register save eliminated.
+ 144:.\Generated_Source\PSoC5/USBUART_1_msc.c ****     return (USBUART_1_lunCount + 1u);
+ 167              		.loc 1 144 0
+ 168 0000 024B     		ldr	r3, .L20
+ 169 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 170 0004 0130     		adds	r0, r0, #1
+ 145:.\Generated_Source\PSoC5/USBUART_1_msc.c **** }   
+ 171              		.loc 1 145 0
+ 172 0006 C0B2     		uxtb	r0, r0
+ 173 0008 7047     		bx	lr
+ 174              	.L21:
+ 175 000a 00BF     		.align	2
+ 176              	.L20:
+ 177 000c 00000000 		.word	.LANCHOR0
+ 178              		.cfi_endproc
+ 179              	.LFE2:
+ 180              		.size	USBUART_1_MSC_GetLunCount, .-USBUART_1_MSC_GetLunCount
+ 181              		.bss
+ 182              		.set	.LANCHOR0,. + 0
+ 183              		.type	USBUART_1_lunCount, %object
+ 184              		.size	USBUART_1_lunCount, 1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 7
+
+
+ 185              	USBUART_1_lunCount:
+ 186 0000 00       		.space	1
+ 187              		.text
+ 188              	.Letext0:
+ 189              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 190              		.file 3 ".\\Generated_Source\\PSoC5\\USBUART_1.h"
+ 191              		.file 4 ".\\Generated_Source\\PSoC5\\USBUART_1_pvt.h"
+ 192              		.section	.debug_info,"",%progbits
+ 193              	.Ldebug_info0:
+ 194 0000 0B020000 		.4byte	0x20b
+ 195 0004 0400     		.2byte	0x4
+ 196 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 197 000a 04       		.byte	0x4
+ 198 000b 01       		.uleb128 0x1
+ 199 000c 74000000 		.4byte	.LASF30
+ 200 0010 01       		.byte	0x1
+ 201 0011 B4010000 		.4byte	.LASF31
+ 202 0015 14010000 		.4byte	.LASF32
+ 203 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 204 001d 00000000 		.4byte	0
+ 205 0021 00000000 		.4byte	.Ldebug_line0
+ 206 0025 02       		.uleb128 0x2
+ 207 0026 01       		.byte	0x1
+ 208 0027 06       		.byte	0x6
+ 209 0028 F5020000 		.4byte	.LASF0
+ 210 002c 02       		.uleb128 0x2
+ 211 002d 01       		.byte	0x1
+ 212 002e 08       		.byte	0x8
+ 213 002f 74010000 		.4byte	.LASF1
+ 214 0033 02       		.uleb128 0x2
+ 215 0034 02       		.byte	0x2
+ 216 0035 05       		.byte	0x5
+ 217 0036 BF020000 		.4byte	.LASF2
+ 218 003a 02       		.uleb128 0x2
+ 219 003b 02       		.byte	0x2
+ 220 003c 07       		.byte	0x7
+ 221 003d 61000000 		.4byte	.LASF3
+ 222 0041 02       		.uleb128 0x2
+ 223 0042 04       		.byte	0x4
+ 224 0043 05       		.byte	0x5
+ 225 0044 D8020000 		.4byte	.LASF4
+ 226 0048 02       		.uleb128 0x2
+ 227 0049 04       		.byte	0x4
+ 228 004a 07       		.byte	0x7
+ 229 004b 82010000 		.4byte	.LASF5
+ 230 004f 02       		.uleb128 0x2
+ 231 0050 08       		.byte	0x8
+ 232 0051 05       		.byte	0x5
+ 233 0052 6A020000 		.4byte	.LASF6
+ 234 0056 02       		.uleb128 0x2
+ 235 0057 08       		.byte	0x8
+ 236 0058 07       		.byte	0x7
+ 237 0059 25020000 		.4byte	.LASF7
+ 238 005d 03       		.uleb128 0x3
+ 239 005e 04       		.byte	0x4
+ 240 005f 05       		.byte	0x5
+ 241 0060 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 8
+
+
+ 242 0064 02       		.uleb128 0x2
+ 243 0065 04       		.byte	0x4
+ 244 0066 07       		.byte	0x7
+ 245 0067 FE010000 		.4byte	.LASF8
+ 246 006b 04       		.uleb128 0x4
+ 247 006c 94010000 		.4byte	.LASF9
+ 248 0070 02       		.byte	0x2
+ 249 0071 9201     		.2byte	0x192
+ 250 0073 2C000000 		.4byte	0x2c
+ 251 0077 04       		.uleb128 0x4
+ 252 0078 DD010000 		.4byte	.LASF10
+ 253 007c 02       		.byte	0x2
+ 254 007d 9301     		.2byte	0x193
+ 255 007f 3A000000 		.4byte	0x3a
+ 256 0083 02       		.uleb128 0x2
+ 257 0084 04       		.byte	0x4
+ 258 0085 04       		.byte	0x4
+ 259 0086 6E010000 		.4byte	.LASF11
+ 260 008a 02       		.uleb128 0x2
+ 261 008b 08       		.byte	0x8
+ 262 008c 04       		.byte	0x4
+ 263 008d AD010000 		.4byte	.LASF12
+ 264 0091 02       		.uleb128 0x2
+ 265 0092 01       		.byte	0x1
+ 266 0093 08       		.byte	0x8
+ 267 0094 9C020000 		.4byte	.LASF13
+ 268 0098 05       		.uleb128 0x5
+ 269 0099 6B000000 		.4byte	0x6b
+ 270 009d 02       		.uleb128 0x2
+ 271 009e 04       		.byte	0x4
+ 272 009f 07       		.byte	0x7
+ 273 00a0 61020000 		.4byte	.LASF14
+ 274 00a4 06       		.uleb128 0x6
+ 275 00a5 04       		.byte	0x4
+ 276 00a6 03       		.byte	0x3
+ 277 00a7 A4       		.byte	0xa4
+ 278 00a8 C5000000 		.4byte	0xc5
+ 279 00ac 07       		.uleb128 0x7
+ 280 00ad 0D010000 		.4byte	.LASF15
+ 281 00b1 03       		.byte	0x3
+ 282 00b2 A6       		.byte	0xa6
+ 283 00b3 6B000000 		.4byte	0x6b
+ 284 00b7 00       		.byte	0
+ 285 00b8 07       		.uleb128 0x7
+ 286 00b9 0A030000 		.4byte	.LASF16
+ 287 00bd 03       		.byte	0x3
+ 288 00be A7       		.byte	0xa7
+ 289 00bf 77000000 		.4byte	0x77
+ 290 00c3 02       		.byte	0x2
+ 291 00c4 00       		.byte	0
+ 292 00c5 08       		.uleb128 0x8
+ 293 00c6 A1020000 		.4byte	.LASF17
+ 294 00ca 03       		.byte	0x3
+ 295 00cb A8       		.byte	0xa8
+ 296 00cc A4000000 		.4byte	0xa4
+ 297 00d0 06       		.uleb128 0x6
+ 298 00d1 0C       		.byte	0xc
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 9
+
+
+ 299 00d2 03       		.byte	0x3
+ 300 00d3 AA       		.byte	0xaa
+ 301 00d4 FD000000 		.4byte	0xfd
+ 302 00d8 07       		.uleb128 0x7
+ 303 00d9 5B000000 		.4byte	.LASF18
+ 304 00dd 03       		.byte	0x3
+ 305 00de AC       		.byte	0xac
+ 306 00df 77000000 		.4byte	0x77
+ 307 00e3 00       		.byte	0
+ 308 00e4 07       		.uleb128 0x7
+ 309 00e5 61010000 		.4byte	.LASF19
+ 310 00e9 03       		.byte	0x3
+ 311 00ea AD       		.byte	0xad
+ 312 00eb FD000000 		.4byte	0xfd
+ 313 00ef 04       		.byte	0x4
+ 314 00f0 07       		.uleb128 0x7
+ 315 00f1 1A000000 		.4byte	.LASF20
+ 316 00f5 03       		.byte	0x3
+ 317 00f6 AE       		.byte	0xae
+ 318 00f7 03010000 		.4byte	0x103
+ 319 00fb 08       		.byte	0x8
+ 320 00fc 00       		.byte	0
+ 321 00fd 09       		.uleb128 0x9
+ 322 00fe 04       		.byte	0x4
+ 323 00ff 98000000 		.4byte	0x98
+ 324 0103 09       		.uleb128 0x9
+ 325 0104 04       		.byte	0x4
+ 326 0105 C5000000 		.4byte	0xc5
+ 327 0109 08       		.uleb128 0x8
+ 328 010a 46000000 		.4byte	.LASF21
+ 329 010e 03       		.byte	0x3
+ 330 010f AF       		.byte	0xaf
+ 331 0110 D0000000 		.4byte	0xd0
+ 332 0114 06       		.uleb128 0x6
+ 333 0115 08       		.byte	0x8
+ 334 0116 03       		.byte	0x3
+ 335 0117 C5       		.byte	0xc5
+ 336 0118 29010000 		.4byte	0x129
+ 337 011c 07       		.uleb128 0x7
+ 338 011d 67010000 		.4byte	.LASF22
+ 339 0121 03       		.byte	0x3
+ 340 0122 C7       		.byte	0xc7
+ 341 0123 29010000 		.4byte	0x129
+ 342 0127 00       		.byte	0
+ 343 0128 00       		.byte	0
+ 344 0129 0A       		.uleb128 0xa
+ 345 012a 6B000000 		.4byte	0x6b
+ 346 012e 39010000 		.4byte	0x139
+ 347 0132 0B       		.uleb128 0xb
+ 348 0133 9D000000 		.4byte	0x9d
+ 349 0137 07       		.byte	0x7
+ 350 0138 00       		.byte	0
+ 351 0139 08       		.uleb128 0x8
+ 352 013a E4010000 		.4byte	.LASF23
+ 353 013e 03       		.byte	0x3
+ 354 013f C8       		.byte	0xc8
+ 355 0140 14010000 		.4byte	0x114
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 10
+
+
+ 356 0144 0C       		.uleb128 0xc
+ 357 0145 27000000 		.4byte	.LASF33
+ 358 0149 01       		.byte	0x1
+ 359 014a 32       		.byte	0x32
+ 360 014b 6B000000 		.4byte	0x6b
+ 361 014f 00000000 		.4byte	.LFB0
+ 362 0153 60000000 		.4byte	.LFE0-.LFB0
+ 363 0157 01       		.uleb128 0x1
+ 364 0158 9C       		.byte	0x9c
+ 365 0159 9D010000 		.4byte	0x19d
+ 366 015d 0D       		.uleb128 0xd
+ 367 015e C9020000 		.4byte	.LASF24
+ 368 0162 01       		.byte	0x1
+ 369 0163 34       		.byte	0x34
+ 370 0164 6B000000 		.4byte	0x6b
+ 371 0168 00000000 		.4byte	.LLST0
+ 372 016c 0D       		.uleb128 0xd
+ 373 016d 55000000 		.4byte	.LASF25
+ 374 0171 01       		.byte	0x1
+ 375 0172 37       		.byte	0x37
+ 376 0173 77000000 		.4byte	0x77
+ 377 0177 20000000 		.4byte	.LLST1
+ 378 017b 0D       		.uleb128 0xd
+ 379 017c 56020000 		.4byte	.LASF26
+ 380 0180 01       		.byte	0x1
+ 381 0181 38       		.byte	0x38
+ 382 0182 77000000 		.4byte	0x77
+ 383 0186 3E000000 		.4byte	.LLST2
+ 384 018a 0E       		.uleb128 0xe
+ 385 018b 38000000 		.4byte	.LVL5
+ 386 018f F8010000 		.4byte	0x1f8
+ 387 0193 0E       		.uleb128 0xe
+ 388 0194 52000000 		.4byte	.LVL7
+ 389 0198 03020000 		.4byte	0x203
+ 390 019c 00       		.byte	0
+ 391 019d 0F       		.uleb128 0xf
+ 392 019e 00000000 		.4byte	.LASF34
+ 393 01a2 01       		.byte	0x1
+ 394 01a3 78       		.byte	0x78
+ 395 01a4 00000000 		.4byte	.LFB1
+ 396 01a8 0C000000 		.4byte	.LFE1-.LFB1
+ 397 01ac 01       		.uleb128 0x1
+ 398 01ad 9C       		.byte	0x9c
+ 399 01ae C2010000 		.4byte	0x1c2
+ 400 01b2 10       		.uleb128 0x10
+ 401 01b3 01030000 		.4byte	.LASF35
+ 402 01b7 01       		.byte	0x1
+ 403 01b8 78       		.byte	0x78
+ 404 01b9 6B000000 		.4byte	0x6b
+ 405 01bd 5C000000 		.4byte	.LLST3
+ 406 01c1 00       		.byte	0
+ 407 01c2 11       		.uleb128 0x11
+ 408 01c3 3C020000 		.4byte	.LASF36
+ 409 01c7 01       		.byte	0x1
+ 410 01c8 8E       		.byte	0x8e
+ 411 01c9 6B000000 		.4byte	0x6b
+ 412 01cd 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 11
+
+
+ 413 01d1 10000000 		.4byte	.LFE2-.LFB2
+ 414 01d5 01       		.uleb128 0x1
+ 415 01d6 9C       		.byte	0x9c
+ 416 01d7 12       		.uleb128 0x12
+ 417 01d8 9A010000 		.4byte	.LASF27
+ 418 01dc 01       		.byte	0x1
+ 419 01dd 1E       		.byte	0x1e
+ 420 01de 6B000000 		.4byte	0x6b
+ 421 01e2 05       		.uleb128 0x5
+ 422 01e3 03       		.byte	0x3
+ 423 01e4 00000000 		.4byte	USBUART_1_lunCount
+ 424 01e8 13       		.uleb128 0x13
+ 425 01e9 E1020000 		.4byte	.LASF37
+ 426 01ed 04       		.byte	0x4
+ 427 01ee 7A       		.byte	0x7a
+ 428 01ef F3010000 		.4byte	0x1f3
+ 429 01f3 05       		.uleb128 0x5
+ 430 01f4 09010000 		.4byte	0x109
+ 431 01f8 14       		.uleb128 0x14
+ 432 01f9 78020000 		.4byte	.LASF28
+ 433 01fd 04       		.byte	0x4
+ 434 01fe B3       		.byte	0xb3
+ 435 01ff 6B000000 		.4byte	0x6b
+ 436 0203 14       		.uleb128 0x14
+ 437 0204 0B020000 		.4byte	.LASF29
+ 438 0208 04       		.byte	0x4
+ 439 0209 A9       		.byte	0xa9
+ 440 020a 6B000000 		.4byte	0x6b
+ 441 020e 00       		.byte	0
+ 442              		.section	.debug_abbrev,"",%progbits
+ 443              	.Ldebug_abbrev0:
+ 444 0000 01       		.uleb128 0x1
+ 445 0001 11       		.uleb128 0x11
+ 446 0002 01       		.byte	0x1
+ 447 0003 25       		.uleb128 0x25
+ 448 0004 0E       		.uleb128 0xe
+ 449 0005 13       		.uleb128 0x13
+ 450 0006 0B       		.uleb128 0xb
+ 451 0007 03       		.uleb128 0x3
+ 452 0008 0E       		.uleb128 0xe
+ 453 0009 1B       		.uleb128 0x1b
+ 454 000a 0E       		.uleb128 0xe
+ 455 000b 55       		.uleb128 0x55
+ 456 000c 17       		.uleb128 0x17
+ 457 000d 11       		.uleb128 0x11
+ 458 000e 01       		.uleb128 0x1
+ 459 000f 10       		.uleb128 0x10
+ 460 0010 17       		.uleb128 0x17
+ 461 0011 00       		.byte	0
+ 462 0012 00       		.byte	0
+ 463 0013 02       		.uleb128 0x2
+ 464 0014 24       		.uleb128 0x24
+ 465 0015 00       		.byte	0
+ 466 0016 0B       		.uleb128 0xb
+ 467 0017 0B       		.uleb128 0xb
+ 468 0018 3E       		.uleb128 0x3e
+ 469 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 12
+
+
+ 470 001a 03       		.uleb128 0x3
+ 471 001b 0E       		.uleb128 0xe
+ 472 001c 00       		.byte	0
+ 473 001d 00       		.byte	0
+ 474 001e 03       		.uleb128 0x3
+ 475 001f 24       		.uleb128 0x24
+ 476 0020 00       		.byte	0
+ 477 0021 0B       		.uleb128 0xb
+ 478 0022 0B       		.uleb128 0xb
+ 479 0023 3E       		.uleb128 0x3e
+ 480 0024 0B       		.uleb128 0xb
+ 481 0025 03       		.uleb128 0x3
+ 482 0026 08       		.uleb128 0x8
+ 483 0027 00       		.byte	0
+ 484 0028 00       		.byte	0
+ 485 0029 04       		.uleb128 0x4
+ 486 002a 16       		.uleb128 0x16
+ 487 002b 00       		.byte	0
+ 488 002c 03       		.uleb128 0x3
+ 489 002d 0E       		.uleb128 0xe
+ 490 002e 3A       		.uleb128 0x3a
+ 491 002f 0B       		.uleb128 0xb
+ 492 0030 3B       		.uleb128 0x3b
+ 493 0031 05       		.uleb128 0x5
+ 494 0032 49       		.uleb128 0x49
+ 495 0033 13       		.uleb128 0x13
+ 496 0034 00       		.byte	0
+ 497 0035 00       		.byte	0
+ 498 0036 05       		.uleb128 0x5
+ 499 0037 35       		.uleb128 0x35
+ 500 0038 00       		.byte	0
+ 501 0039 49       		.uleb128 0x49
+ 502 003a 13       		.uleb128 0x13
+ 503 003b 00       		.byte	0
+ 504 003c 00       		.byte	0
+ 505 003d 06       		.uleb128 0x6
+ 506 003e 13       		.uleb128 0x13
+ 507 003f 01       		.byte	0x1
+ 508 0040 0B       		.uleb128 0xb
+ 509 0041 0B       		.uleb128 0xb
+ 510 0042 3A       		.uleb128 0x3a
+ 511 0043 0B       		.uleb128 0xb
+ 512 0044 3B       		.uleb128 0x3b
+ 513 0045 0B       		.uleb128 0xb
+ 514 0046 01       		.uleb128 0x1
+ 515 0047 13       		.uleb128 0x13
+ 516 0048 00       		.byte	0
+ 517 0049 00       		.byte	0
+ 518 004a 07       		.uleb128 0x7
+ 519 004b 0D       		.uleb128 0xd
+ 520 004c 00       		.byte	0
+ 521 004d 03       		.uleb128 0x3
+ 522 004e 0E       		.uleb128 0xe
+ 523 004f 3A       		.uleb128 0x3a
+ 524 0050 0B       		.uleb128 0xb
+ 525 0051 3B       		.uleb128 0x3b
+ 526 0052 0B       		.uleb128 0xb
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 13
+
+
+ 527 0053 49       		.uleb128 0x49
+ 528 0054 13       		.uleb128 0x13
+ 529 0055 38       		.uleb128 0x38
+ 530 0056 0B       		.uleb128 0xb
+ 531 0057 00       		.byte	0
+ 532 0058 00       		.byte	0
+ 533 0059 08       		.uleb128 0x8
+ 534 005a 16       		.uleb128 0x16
+ 535 005b 00       		.byte	0
+ 536 005c 03       		.uleb128 0x3
+ 537 005d 0E       		.uleb128 0xe
+ 538 005e 3A       		.uleb128 0x3a
+ 539 005f 0B       		.uleb128 0xb
+ 540 0060 3B       		.uleb128 0x3b
+ 541 0061 0B       		.uleb128 0xb
+ 542 0062 49       		.uleb128 0x49
+ 543 0063 13       		.uleb128 0x13
+ 544 0064 00       		.byte	0
+ 545 0065 00       		.byte	0
+ 546 0066 09       		.uleb128 0x9
+ 547 0067 0F       		.uleb128 0xf
+ 548 0068 00       		.byte	0
+ 549 0069 0B       		.uleb128 0xb
+ 550 006a 0B       		.uleb128 0xb
+ 551 006b 49       		.uleb128 0x49
+ 552 006c 13       		.uleb128 0x13
+ 553 006d 00       		.byte	0
+ 554 006e 00       		.byte	0
+ 555 006f 0A       		.uleb128 0xa
+ 556 0070 01       		.uleb128 0x1
+ 557 0071 01       		.byte	0x1
+ 558 0072 49       		.uleb128 0x49
+ 559 0073 13       		.uleb128 0x13
+ 560 0074 01       		.uleb128 0x1
+ 561 0075 13       		.uleb128 0x13
+ 562 0076 00       		.byte	0
+ 563 0077 00       		.byte	0
+ 564 0078 0B       		.uleb128 0xb
+ 565 0079 21       		.uleb128 0x21
+ 566 007a 00       		.byte	0
+ 567 007b 49       		.uleb128 0x49
+ 568 007c 13       		.uleb128 0x13
+ 569 007d 2F       		.uleb128 0x2f
+ 570 007e 0B       		.uleb128 0xb
+ 571 007f 00       		.byte	0
+ 572 0080 00       		.byte	0
+ 573 0081 0C       		.uleb128 0xc
+ 574 0082 2E       		.uleb128 0x2e
+ 575 0083 01       		.byte	0x1
+ 576 0084 3F       		.uleb128 0x3f
+ 577 0085 19       		.uleb128 0x19
+ 578 0086 03       		.uleb128 0x3
+ 579 0087 0E       		.uleb128 0xe
+ 580 0088 3A       		.uleb128 0x3a
+ 581 0089 0B       		.uleb128 0xb
+ 582 008a 3B       		.uleb128 0x3b
+ 583 008b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 14
+
+
+ 584 008c 27       		.uleb128 0x27
+ 585 008d 19       		.uleb128 0x19
+ 586 008e 49       		.uleb128 0x49
+ 587 008f 13       		.uleb128 0x13
+ 588 0090 11       		.uleb128 0x11
+ 589 0091 01       		.uleb128 0x1
+ 590 0092 12       		.uleb128 0x12
+ 591 0093 06       		.uleb128 0x6
+ 592 0094 40       		.uleb128 0x40
+ 593 0095 18       		.uleb128 0x18
+ 594 0096 9742     		.uleb128 0x2117
+ 595 0098 19       		.uleb128 0x19
+ 596 0099 01       		.uleb128 0x1
+ 597 009a 13       		.uleb128 0x13
+ 598 009b 00       		.byte	0
+ 599 009c 00       		.byte	0
+ 600 009d 0D       		.uleb128 0xd
+ 601 009e 34       		.uleb128 0x34
+ 602 009f 00       		.byte	0
+ 603 00a0 03       		.uleb128 0x3
+ 604 00a1 0E       		.uleb128 0xe
+ 605 00a2 3A       		.uleb128 0x3a
+ 606 00a3 0B       		.uleb128 0xb
+ 607 00a4 3B       		.uleb128 0x3b
+ 608 00a5 0B       		.uleb128 0xb
+ 609 00a6 49       		.uleb128 0x49
+ 610 00a7 13       		.uleb128 0x13
+ 611 00a8 02       		.uleb128 0x2
+ 612 00a9 17       		.uleb128 0x17
+ 613 00aa 00       		.byte	0
+ 614 00ab 00       		.byte	0
+ 615 00ac 0E       		.uleb128 0xe
+ 616 00ad 898201   		.uleb128 0x4109
+ 617 00b0 00       		.byte	0
+ 618 00b1 11       		.uleb128 0x11
+ 619 00b2 01       		.uleb128 0x1
+ 620 00b3 9542     		.uleb128 0x2115
+ 621 00b5 19       		.uleb128 0x19
+ 622 00b6 31       		.uleb128 0x31
+ 623 00b7 13       		.uleb128 0x13
+ 624 00b8 00       		.byte	0
+ 625 00b9 00       		.byte	0
+ 626 00ba 0F       		.uleb128 0xf
+ 627 00bb 2E       		.uleb128 0x2e
+ 628 00bc 01       		.byte	0x1
+ 629 00bd 3F       		.uleb128 0x3f
+ 630 00be 19       		.uleb128 0x19
+ 631 00bf 03       		.uleb128 0x3
+ 632 00c0 0E       		.uleb128 0xe
+ 633 00c1 3A       		.uleb128 0x3a
+ 634 00c2 0B       		.uleb128 0xb
+ 635 00c3 3B       		.uleb128 0x3b
+ 636 00c4 0B       		.uleb128 0xb
+ 637 00c5 27       		.uleb128 0x27
+ 638 00c6 19       		.uleb128 0x19
+ 639 00c7 11       		.uleb128 0x11
+ 640 00c8 01       		.uleb128 0x1
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 15
+
+
+ 641 00c9 12       		.uleb128 0x12
+ 642 00ca 06       		.uleb128 0x6
+ 643 00cb 40       		.uleb128 0x40
+ 644 00cc 18       		.uleb128 0x18
+ 645 00cd 9742     		.uleb128 0x2117
+ 646 00cf 19       		.uleb128 0x19
+ 647 00d0 01       		.uleb128 0x1
+ 648 00d1 13       		.uleb128 0x13
+ 649 00d2 00       		.byte	0
+ 650 00d3 00       		.byte	0
+ 651 00d4 10       		.uleb128 0x10
+ 652 00d5 05       		.uleb128 0x5
+ 653 00d6 00       		.byte	0
+ 654 00d7 03       		.uleb128 0x3
+ 655 00d8 0E       		.uleb128 0xe
+ 656 00d9 3A       		.uleb128 0x3a
+ 657 00da 0B       		.uleb128 0xb
+ 658 00db 3B       		.uleb128 0x3b
+ 659 00dc 0B       		.uleb128 0xb
+ 660 00dd 49       		.uleb128 0x49
+ 661 00de 13       		.uleb128 0x13
+ 662 00df 02       		.uleb128 0x2
+ 663 00e0 17       		.uleb128 0x17
+ 664 00e1 00       		.byte	0
+ 665 00e2 00       		.byte	0
+ 666 00e3 11       		.uleb128 0x11
+ 667 00e4 2E       		.uleb128 0x2e
+ 668 00e5 00       		.byte	0
+ 669 00e6 3F       		.uleb128 0x3f
+ 670 00e7 19       		.uleb128 0x19
+ 671 00e8 03       		.uleb128 0x3
+ 672 00e9 0E       		.uleb128 0xe
+ 673 00ea 3A       		.uleb128 0x3a
+ 674 00eb 0B       		.uleb128 0xb
+ 675 00ec 3B       		.uleb128 0x3b
+ 676 00ed 0B       		.uleb128 0xb
+ 677 00ee 27       		.uleb128 0x27
+ 678 00ef 19       		.uleb128 0x19
+ 679 00f0 49       		.uleb128 0x49
+ 680 00f1 13       		.uleb128 0x13
+ 681 00f2 11       		.uleb128 0x11
+ 682 00f3 01       		.uleb128 0x1
+ 683 00f4 12       		.uleb128 0x12
+ 684 00f5 06       		.uleb128 0x6
+ 685 00f6 40       		.uleb128 0x40
+ 686 00f7 18       		.uleb128 0x18
+ 687 00f8 9742     		.uleb128 0x2117
+ 688 00fa 19       		.uleb128 0x19
+ 689 00fb 00       		.byte	0
+ 690 00fc 00       		.byte	0
+ 691 00fd 12       		.uleb128 0x12
+ 692 00fe 34       		.uleb128 0x34
+ 693 00ff 00       		.byte	0
+ 694 0100 03       		.uleb128 0x3
+ 695 0101 0E       		.uleb128 0xe
+ 696 0102 3A       		.uleb128 0x3a
+ 697 0103 0B       		.uleb128 0xb
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 16
+
+
+ 698 0104 3B       		.uleb128 0x3b
+ 699 0105 0B       		.uleb128 0xb
+ 700 0106 49       		.uleb128 0x49
+ 701 0107 13       		.uleb128 0x13
+ 702 0108 02       		.uleb128 0x2
+ 703 0109 18       		.uleb128 0x18
+ 704 010a 00       		.byte	0
+ 705 010b 00       		.byte	0
+ 706 010c 13       		.uleb128 0x13
+ 707 010d 34       		.uleb128 0x34
+ 708 010e 00       		.byte	0
+ 709 010f 03       		.uleb128 0x3
+ 710 0110 0E       		.uleb128 0xe
+ 711 0111 3A       		.uleb128 0x3a
+ 712 0112 0B       		.uleb128 0xb
+ 713 0113 3B       		.uleb128 0x3b
+ 714 0114 0B       		.uleb128 0xb
+ 715 0115 49       		.uleb128 0x49
+ 716 0116 13       		.uleb128 0x13
+ 717 0117 3F       		.uleb128 0x3f
+ 718 0118 19       		.uleb128 0x19
+ 719 0119 3C       		.uleb128 0x3c
+ 720 011a 19       		.uleb128 0x19
+ 721 011b 00       		.byte	0
+ 722 011c 00       		.byte	0
+ 723 011d 14       		.uleb128 0x14
+ 724 011e 2E       		.uleb128 0x2e
+ 725 011f 00       		.byte	0
+ 726 0120 3F       		.uleb128 0x3f
+ 727 0121 19       		.uleb128 0x19
+ 728 0122 03       		.uleb128 0x3
+ 729 0123 0E       		.uleb128 0xe
+ 730 0124 3A       		.uleb128 0x3a
+ 731 0125 0B       		.uleb128 0xb
+ 732 0126 3B       		.uleb128 0x3b
+ 733 0127 0B       		.uleb128 0xb
+ 734 0128 27       		.uleb128 0x27
+ 735 0129 19       		.uleb128 0x19
+ 736 012a 49       		.uleb128 0x49
+ 737 012b 13       		.uleb128 0x13
+ 738 012c 3C       		.uleb128 0x3c
+ 739 012d 19       		.uleb128 0x19
+ 740 012e 00       		.byte	0
+ 741 012f 00       		.byte	0
+ 742 0130 00       		.byte	0
+ 743              		.section	.debug_loc,"",%progbits
+ 744              	.Ldebug_loc0:
+ 745              	.LLST0:
+ 746 0000 00000000 		.4byte	.LVL0
+ 747 0004 20000000 		.4byte	.LVL3
+ 748 0008 0200     		.2byte	0x2
+ 749 000a 30       		.byte	0x30
+ 750 000b 9F       		.byte	0x9f
+ 751 000c 26000000 		.4byte	.LVL4
+ 752 0010 60000000 		.4byte	.LFE0
+ 753 0014 0200     		.2byte	0x2
+ 754 0016 30       		.byte	0x30
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 17
+
+
+ 755 0017 9F       		.byte	0x9f
+ 756 0018 00000000 		.4byte	0
+ 757 001c 00000000 		.4byte	0
+ 758              	.LLST1:
+ 759 0020 12000000 		.4byte	.LVL1
+ 760 0024 37000000 		.4byte	.LVL5-1
+ 761 0028 0100     		.2byte	0x1
+ 762 002a 52       		.byte	0x52
+ 763 002b 38000000 		.4byte	.LVL5
+ 764 002f 4A000000 		.4byte	.LVL6
+ 765 0033 0100     		.2byte	0x1
+ 766 0035 52       		.byte	0x52
+ 767 0036 00000000 		.4byte	0
+ 768 003a 00000000 		.4byte	0
+ 769              	.LLST2:
+ 770 003e 18000000 		.4byte	.LVL2
+ 771 0042 37000000 		.4byte	.LVL5-1
+ 772 0046 0100     		.2byte	0x1
+ 773 0048 51       		.byte	0x51
+ 774 0049 38000000 		.4byte	.LVL5
+ 775 004d 51000000 		.4byte	.LVL7-1
+ 776 0051 0100     		.2byte	0x1
+ 777 0053 51       		.byte	0x51
+ 778 0054 00000000 		.4byte	0
+ 779 0058 00000000 		.4byte	0
+ 780              	.LLST3:
+ 781 005c 00000000 		.4byte	.LVL8
+ 782 0060 04000000 		.4byte	.LVL9
+ 783 0064 0100     		.2byte	0x1
+ 784 0066 50       		.byte	0x50
+ 785 0067 04000000 		.4byte	.LVL9
+ 786 006b 0C000000 		.4byte	.LFE1
+ 787 006f 0400     		.2byte	0x4
+ 788 0071 F3       		.byte	0xf3
+ 789 0072 01       		.uleb128 0x1
+ 790 0073 50       		.byte	0x50
+ 791 0074 9F       		.byte	0x9f
+ 792 0075 00000000 		.4byte	0
+ 793 0079 00000000 		.4byte	0
+ 794              		.section	.debug_aranges,"",%progbits
+ 795 0000 2C000000 		.4byte	0x2c
+ 796 0004 0200     		.2byte	0x2
+ 797 0006 00000000 		.4byte	.Ldebug_info0
+ 798 000a 04       		.byte	0x4
+ 799 000b 00       		.byte	0
+ 800 000c 0000     		.2byte	0
+ 801 000e 0000     		.2byte	0
+ 802 0010 00000000 		.4byte	.LFB0
+ 803 0014 60000000 		.4byte	.LFE0-.LFB0
+ 804 0018 00000000 		.4byte	.LFB1
+ 805 001c 0C000000 		.4byte	.LFE1-.LFB1
+ 806 0020 00000000 		.4byte	.LFB2
+ 807 0024 10000000 		.4byte	.LFE2-.LFB2
+ 808 0028 00000000 		.4byte	0
+ 809 002c 00000000 		.4byte	0
+ 810              		.section	.debug_ranges,"",%progbits
+ 811              	.Ldebug_ranges0:
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 18
+
+
+ 812 0000 00000000 		.4byte	.LFB0
+ 813 0004 60000000 		.4byte	.LFE0
+ 814 0008 00000000 		.4byte	.LFB1
+ 815 000c 0C000000 		.4byte	.LFE1
+ 816 0010 00000000 		.4byte	.LFB2
+ 817 0014 10000000 		.4byte	.LFE2
+ 818 0018 00000000 		.4byte	0
+ 819 001c 00000000 		.4byte	0
+ 820              		.section	.debug_line,"",%progbits
+ 821              	.Ldebug_line0:
+ 822 0000 D8000000 		.section	.debug_str,"MS",%progbits,1
+ 822      02006E00 
+ 822      00000201 
+ 822      FB0E0D00 
+ 822      01010101 
+ 823              	.LASF34:
+ 824 0000 55534255 		.ascii	"USBUART_1_MSC_SetLunCount\000"
+ 824      4152545F 
+ 824      315F4D53 
+ 824      435F5365 
+ 824      744C756E 
+ 825              	.LASF20:
+ 826 001a 70537461 		.ascii	"pStatusBlock\000"
+ 826      74757342 
+ 826      6C6F636B 
+ 826      00
+ 827              	.LASF33:
+ 828 0027 55534255 		.ascii	"USBUART_1_DispatchMSCClassRqst\000"
+ 828      4152545F 
+ 828      315F4469 
+ 828      73706174 
+ 828      63684D53 
+ 829              	.LASF21:
+ 830 0046 545F5553 		.ascii	"T_USBUART_1_TD\000"
+ 830      42554152 
+ 830      545F315F 
+ 830      544400
+ 831              	.LASF25:
+ 832 0055 76616C75 		.ascii	"value\000"
+ 832      6500
+ 833              	.LASF18:
+ 834 005b 636F756E 		.ascii	"count\000"
+ 834      7400
+ 835              	.LASF3:
+ 836 0061 73686F72 		.ascii	"short unsigned int\000"
+ 836      7420756E 
+ 836      7369676E 
+ 836      65642069 
+ 836      6E7400
+ 837              	.LASF30:
+ 838 0074 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 838      4320342E 
+ 838      392E3320 
+ 838      32303135 
+ 838      30333033 
+ 839 00a7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 839      20726576 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 19
+
+
+ 839      6973696F 
+ 839      6E203232 
+ 839      31323230 
+ 840 00da 33202D73 		.ascii	"3 -std=gnu99 -ffunction-sections -ffat-lto-objects\000"
+ 840      74643D67 
+ 840      6E753939 
+ 840      202D6666 
+ 840      756E6374 
+ 841              	.LASF15:
+ 842 010d 73746174 		.ascii	"status\000"
+ 842      757300
+ 843              	.LASF32:
+ 844 0114 443A5C64 		.ascii	"D:\\develop\\projects\\SoundChipLogger\\firmware\\D"
+ 844      6576656C 
+ 844      6F705C70 
+ 844      726F6A65 
+ 844      6374735C 
+ 845 0142 4D415344 		.ascii	"MASDSPITest\\DMASDSPITest.cydsn\000"
+ 845      53504954 
+ 845      6573745C 
+ 845      444D4153 
+ 845      44535049 
+ 846              	.LASF19:
+ 847 0161 70446174 		.ascii	"pData\000"
+ 847      6100
+ 848              	.LASF22:
+ 849 0167 65704461 		.ascii	"epData\000"
+ 849      746100
+ 850              	.LASF11:
+ 851 016e 666C6F61 		.ascii	"float\000"
+ 851      7400
+ 852              	.LASF1:
+ 853 0174 756E7369 		.ascii	"unsigned char\000"
+ 853      676E6564 
+ 853      20636861 
+ 853      7200
+ 854              	.LASF5:
+ 855 0182 6C6F6E67 		.ascii	"long unsigned int\000"
+ 855      20756E73 
+ 855      69676E65 
+ 855      6420696E 
+ 855      7400
+ 856              	.LASF9:
+ 857 0194 75696E74 		.ascii	"uint8\000"
+ 857      3800
+ 858              	.LASF27:
+ 859 019a 55534255 		.ascii	"USBUART_1_lunCount\000"
+ 859      4152545F 
+ 859      315F6C75 
+ 859      6E436F75 
+ 859      6E7400
+ 860              	.LASF12:
+ 861 01ad 646F7562 		.ascii	"double\000"
+ 861      6C6500
+ 862              	.LASF31:
+ 863 01b4 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\USBUART_1_msc.c\000"
+ 863      6E657261 
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 20
+
+
+ 863      7465645F 
+ 863      536F7572 
+ 863      63655C50 
+ 864              	.LASF10:
+ 865 01dd 75696E74 		.ascii	"uint16\000"
+ 865      313600
+ 866              	.LASF23:
+ 867 01e4 55534255 		.ascii	"USBUART_1_ep0_data_struct\000"
+ 867      4152545F 
+ 867      315F6570 
+ 867      305F6461 
+ 867      74615F73 
+ 868              	.LASF8:
+ 869 01fe 756E7369 		.ascii	"unsigned int\000"
+ 869      676E6564 
+ 869      20696E74 
+ 869      00
+ 870              	.LASF29:
+ 871 020b 55534255 		.ascii	"USBUART_1_InitControlRead\000"
+ 871      4152545F 
+ 871      315F496E 
+ 871      6974436F 
+ 871      6E74726F 
+ 872              	.LASF7:
+ 873 0225 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 873      206C6F6E 
+ 873      6720756E 
+ 873      7369676E 
+ 873      65642069 
+ 874              	.LASF36:
+ 875 023c 55534255 		.ascii	"USBUART_1_MSC_GetLunCount\000"
+ 875      4152545F 
+ 875      315F4D53 
+ 875      435F4765 
+ 875      744C756E 
+ 876              	.LASF26:
+ 877 0256 64617461 		.ascii	"dataLength\000"
+ 877      4C656E67 
+ 877      746800
+ 878              	.LASF14:
+ 879 0261 73697A65 		.ascii	"sizetype\000"
+ 879      74797065 
+ 879      00
+ 880              	.LASF6:
+ 881 026a 6C6F6E67 		.ascii	"long long int\000"
+ 881      206C6F6E 
+ 881      6720696E 
+ 881      7400
+ 882              	.LASF28:
+ 883 0278 55534255 		.ascii	"USBUART_1_InitNoDataControlTransfer\000"
+ 883      4152545F 
+ 883      315F496E 
+ 883      69744E6F 
+ 883      44617461 
+ 884              	.LASF13:
+ 885 029c 63686172 		.ascii	"char\000"
+ 885      00
+ARM GAS  C:\Users\honet\AppData\Local\Temp\ccZTrKJV.s 			page 21
+
+
+ 886              	.LASF17:
+ 887 02a1 545F5553 		.ascii	"T_USBUART_1_XFER_STATUS_BLOCK\000"
+ 887      42554152 
+ 887      545F315F 
+ 887      58464552 
+ 887      5F535441 
+ 888              	.LASF2:
+ 889 02bf 73686F72 		.ascii	"short int\000"
+ 889      7420696E 
+ 889      7400
+ 890              	.LASF24:
+ 891 02c9 72657175 		.ascii	"requestHandled\000"
+ 891      65737448 
+ 891      616E646C 
+ 891      656400
+ 892              	.LASF4:
+ 893 02d8 6C6F6E67 		.ascii	"long int\000"
+ 893      20696E74 
+ 893      00
+ 894              	.LASF37:
+ 895 02e1 55534255 		.ascii	"USBUART_1_currentTD\000"
+ 895      4152545F 
+ 895      315F6375 
+ 895      7272656E 
+ 895      74544400 
+ 896              	.LASF0:
+ 897 02f5 7369676E 		.ascii	"signed char\000"
+ 897      65642063 
+ 897      68617200 
+ 898              	.LASF35:
+ 899 0301 6C756E43 		.ascii	"lunCount\000"
+ 899      6F756E74 
+ 899      00
+ 900              	.LASF16:
+ 901 030a 6C656E67 		.ascii	"length\000"
+ 901      746800
+ 902              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
